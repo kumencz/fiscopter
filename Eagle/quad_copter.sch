@@ -795,9 +795,9 @@ paja-trb@seznam.cz
 <part name="BEC3" library="#PaJa_konektory" deviceset="S1G3_JUMP" device=""/>
 <part name="BEC4" library="#PaJa_konektory" deviceset="S1G3_JUMP" device=""/>
 <part name="JUM1" library="#PaJa_konektory" deviceset="S1G2_JUMP" device=""/>
-<part name="JUM2" library="#PaJa_konektory" deviceset="S1G2_JUMP" device=""/>
 <part name="JUM3" library="#PaJa_konektory" deviceset="S1G2_JUMP" device=""/>
 <part name="JUM4" library="#PaJa_konektory" deviceset="S1G2_JUMP" device=""/>
+<part name="JUM2" library="#PaJa_konektory" deviceset="S1G2_JUMP" device=""/>
 <part name="NAP5" library="#PaJa_30" deviceset="+5V" device=""/>
 <part name="0V5" library="#PaJa_30" deviceset="0V" device=""/>
 </parts>
@@ -829,9 +829,9 @@ paja-trb@seznam.cz
 <instance part="BEC3" gate="JUMP" x="-35.56" y="-60.96" rot="R90"/>
 <instance part="BEC4" gate="JUMP" x="-35.56" y="-78.74" rot="R90"/>
 <instance part="JUM1" gate="JUMP" x="-53.34" y="-30.48" rot="R180"/>
-<instance part="JUM2" gate="JUMP" x="-53.34" y="-63.5" rot="R180"/>
-<instance part="JUM3" gate="JUMP" x="-53.34" y="-81.28" rot="R180"/>
-<instance part="JUM4" gate="JUMP" x="-53.34" y="-48.26" rot="R180"/>
+<instance part="JUM3" gate="JUMP" x="-53.34" y="-63.5" rot="R180"/>
+<instance part="JUM4" gate="JUMP" x="-53.34" y="-81.28" rot="R180"/>
+<instance part="JUM2" gate="JUMP" x="-53.34" y="-48.26" rot="R180"/>
 <instance part="NAP5" gate="+5" x="-66.04" y="-7.62"/>
 <instance part="0V5" gate="0" x="-25.4" y="-78.74"/>
 </instances>
@@ -877,13 +877,13 @@ paja-trb@seznam.cz
 <pinref part="JUM1" gate="JUMP" pin="2"/>
 <wire x1="-55.88" y1="-27.94" x2="-66.04" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="-27.94" x2="-66.04" y2="-45.72" width="0.1524" layer="91"/>
-<pinref part="JUM4" gate="JUMP" pin="2"/>
+<pinref part="JUM2" gate="JUMP" pin="2"/>
 <wire x1="-55.88" y1="-45.72" x2="-66.04" y2="-45.72" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="-45.72" x2="-66.04" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="JUM2" gate="JUMP" pin="2"/>
+<pinref part="JUM3" gate="JUMP" pin="2"/>
 <wire x1="-55.88" y1="-60.96" x2="-66.04" y2="-60.96" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="-60.96" x2="-66.04" y2="-78.74" width="0.1524" layer="91"/>
-<pinref part="JUM3" gate="JUMP" pin="2"/>
+<pinref part="JUM4" gate="JUMP" pin="2"/>
 <wire x1="-66.04" y1="-78.74" x2="-55.88" y2="-78.74" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="-27.94" x2="-66.04" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="NAP5" gate="+5" pin="+5V"/>
@@ -976,21 +976,21 @@ paja-trb@seznam.cz
 <segment>
 <pinref part="BEC4" gate="JUMP" pin="2"/>
 <wire x1="-33.02" y1="-78.74" x2="-53.34" y2="-78.74" width="0.1524" layer="91"/>
-<pinref part="JUM3" gate="JUMP" pin="1"/>
+<pinref part="JUM4" gate="JUMP" pin="1"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="BEC3" gate="JUMP" pin="2"/>
 <wire x1="-33.02" y1="-60.96" x2="-53.34" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="JUM2" gate="JUMP" pin="1"/>
+<pinref part="JUM3" gate="JUMP" pin="1"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="BEC2" gate="JUMP" pin="2"/>
 <wire x1="-33.02" y1="-45.72" x2="-53.34" y2="-45.72" width="0.1524" layer="91"/>
-<pinref part="JUM4" gate="JUMP" pin="1"/>
+<pinref part="JUM2" gate="JUMP" pin="1"/>
 </segment>
 </net>
 <net name="N$12" class="0">
