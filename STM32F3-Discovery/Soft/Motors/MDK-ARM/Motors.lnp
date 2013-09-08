@@ -1,0 +1,18 @@
+--cpu Cortex-M4.fp
+".\main.o"
+".\init.o"
+".\system_stm32f30x.o"
+".\stm32f30x_it.o"
+".\delay.o"
+".\pwm.o"
+".\stm32f30x_gpio.o"
+".\stm32f30x_misc.o"
+".\stm32f30x_rcc.o"
+".\stm32f30x_syscfg.o"
+".\stm32f30x_tim.o"
+".\stm32f30x_exti.o"
+".\stm32f3_discovery.o"
+".\startup_stm32f30x.o"
+--library_type=microlib --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Motors.map" -o .\Motors.axf
