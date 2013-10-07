@@ -779,11 +779,8 @@ paja-trb@seznam.cz
 </classes>
 <parts>
 <part name="X1" library="stm32f3_disc" deviceset="STM32F4_DISC" device=""/>
-<part name="USART2" library="#PaJa_konektory" deviceset="S1G4_JUMP" device=""/>
-<part name="NAP1" library="#PaJa_30" deviceset="+5V" device=""/>
-<part name="0V1" library="#PaJa_30" deviceset="0V" device=""/>
 <part name="USART1" library="#PaJa_konektory" deviceset="S1G4_JUMP" device=""/>
-<part name="USART3" library="#PaJa_konektory" deviceset="S1G4_JUMP" device=""/>
+<part name="USART2" library="#PaJa_konektory" deviceset="S1G4_JUMP" device=""/>
 <part name="0V2" library="#PaJa_30" deviceset="0V" device=""/>
 <part name="0V3" library="#PaJa_30" deviceset="0V" device=""/>
 <part name="NAP2" library="#PaJa_30" deviceset="+5V" device=""/>
@@ -800,6 +797,9 @@ paja-trb@seznam.cz
 <part name="JUM2" library="#PaJa_konektory" deviceset="S1G2_JUMP" device=""/>
 <part name="NAP5" library="#PaJa_30" deviceset="+5V" device=""/>
 <part name="0V5" library="#PaJa_30" deviceset="0V" device=""/>
+<part name="USART3" library="#PaJa_konektory" deviceset="S1G4_JUMP" device=""/>
+<part name="0V1" library="#PaJa_30" deviceset="0V" device=""/>
+<part name="NAP1" library="#PaJa_30" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -808,20 +808,17 @@ paja-trb@seznam.cz
 <instances>
 <instance part="X1" gate="PWR" x="106.68" y="81.28" rot="R90"/>
 <instance part="X1" gate="PORTA" x="134.62" y="10.16" rot="R90"/>
-<instance part="X1" gate="PORTB" x="134.62" y="-43.18" rot="R90"/>
-<instance part="X1" gate="PORTC" x="5.08" y="-50.8" rot="R270"/>
-<instance part="X1" gate="PORTD" x="2.54" y="50.8"/>
+<instance part="X1" gate="PORTB" x="12.7" y="-81.28" rot="R270"/>
+<instance part="X1" gate="PORTC" x="12.7" y="-33.02" rot="R270"/>
+<instance part="X1" gate="PORTD" x="134.62" y="-38.1" rot="R90"/>
 <instance part="X1" gate="PORTE" x="53.34" y="50.8"/>
 <instance part="X1" gate="PORTH" x="-2.54" y="20.32"/>
-<instance part="USART2" gate="JUMP" x="167.64" y="2.54" rot="R270"/>
-<instance part="NAP1" gate="+5" x="165.1" y="10.16"/>
-<instance part="0V1" gate="0" x="165.1" y="-7.62"/>
 <instance part="USART1" gate="JUMP" x="167.64" y="27.94" rot="R270"/>
-<instance part="USART3" gate="JUMP" x="167.64" y="-30.48" rot="R270"/>
-<instance part="0V2" gate="0" x="165.1" y="-38.1"/>
-<instance part="0V3" gate="0" x="165.1" y="20.32"/>
-<instance part="NAP2" gate="+5" x="165.1" y="35.56"/>
-<instance part="NAP3" gate="+5" x="165.1" y="-22.86"/>
+<instance part="USART2" gate="JUMP" x="167.64" y="-38.1" rot="R270"/>
+<instance part="0V2" gate="0" x="165.1" y="-45.72"/>
+<instance part="0V3" gate="0" x="165.1" y="17.78"/>
+<instance part="NAP2" gate="+5" x="165.1" y="38.1"/>
+<instance part="NAP3" gate="+5" x="165.1" y="-30.48"/>
 <instance part="NAP4" gate="+5" x="83.82" y="71.12" rot="R90"/>
 <instance part="0V4" gate="0" x="121.92" y="66.04"/>
 <instance part="BEC1" gate="JUMP" x="-35.56" y="-27.94" rot="R90"/>
@@ -834,37 +831,21 @@ paja-trb@seznam.cz
 <instance part="JUM2" gate="JUMP" x="-53.34" y="-48.26" rot="R180"/>
 <instance part="NAP5" gate="+5" x="-66.04" y="-7.62"/>
 <instance part="0V5" gate="0" x="-25.4" y="-78.74"/>
+<instance part="USART3" gate="JUMP" x="157.48" y="-53.34" rot="R270"/>
+<instance part="0V1" gate="0" x="154.94" y="-60.96"/>
+<instance part="NAP1" gate="+5" x="154.94" y="-45.72"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
-<segment>
-<pinref part="X1" gate="PORTA" pin="PA2"/>
-<wire x1="144.78" y1="-2.54" x2="160.02" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="-2.54" x2="160.02" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="2.54" x2="165.1" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="USART2" gate="JUMP" pin="2"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="X1" gate="PORTA" pin="PA3"/>
-<wire x1="144.78" y1="0" x2="165.1" y2="0" width="0.1524" layer="91"/>
-<pinref part="USART2" gate="JUMP" pin="3"/>
-</segment>
-</net>
 <net name="+5V" class="0">
-<segment>
-<pinref part="USART2" gate="JUMP" pin="1"/>
-<pinref part="NAP1" gate="+5" pin="+5V"/>
-</segment>
 <segment>
 <pinref part="USART1" gate="JUMP" pin="1"/>
 <pinref part="NAP2" gate="+5" pin="+5V"/>
+<wire x1="165.1" y1="33.02" x2="165.1" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="USART3" gate="JUMP" pin="1"/>
+<pinref part="USART2" gate="JUMP" pin="1"/>
 <pinref part="NAP3" gate="+5" pin="+5V"/>
 </segment>
 <segment>
@@ -891,27 +872,32 @@ paja-trb@seznam.cz
 <junction x="-66.04" y="-45.72"/>
 <junction x="-66.04" y="-27.94"/>
 </segment>
+<segment>
+<pinref part="USART3" gate="JUMP" pin="1"/>
+<pinref part="NAP1" gate="+5" pin="+5V"/>
+</segment>
 </net>
 <net name="0V" class="0">
 <segment>
 <pinref part="USART2" gate="JUMP" pin="4"/>
-<pinref part="0V1" gate="0" pin="0V"/>
-<wire x1="165.1" y1="-2.54" x2="165.1" y2="-5.08" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="USART3" gate="JUMP" pin="4"/>
 <pinref part="0V2" gate="0" pin="0V"/>
 </segment>
 <segment>
 <pinref part="USART1" gate="JUMP" pin="4"/>
 <pinref part="0V3" gate="0" pin="0V"/>
+<wire x1="165.1" y1="20.32" x2="165.1" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="X1" gate="PWR" pin="GND@1"/>
-<pinref part="X1" gate="PWR" pin="GND@9"/>
-<wire x1="121.92" y1="68.58" x2="121.92" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="0V4" gate="0" pin="0V"/>
-<junction x="121.92" y="68.58"/>
+<pinref part="X1" gate="PWR" pin="GND@3"/>
+<pinref part="X1" gate="PWR" pin="GND@2"/>
+<wire x1="121.92" y1="68.58" x2="121.92" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="71.12" x2="121.92" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="X1" gate="PWR" pin="GND@4"/>
+<pinref part="X1" gate="PWR" pin="GND@5"/>
+<wire x1="121.92" y1="76.2" x2="121.92" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="73.66" x2="121.92" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="BEC1" gate="JUMP" pin="3"/>
@@ -930,6 +916,10 @@ paja-trb@seznam.cz
 <junction x="-25.4" y="-58.42"/>
 <junction x="-25.4" y="-43.18"/>
 </segment>
+<segment>
+<pinref part="USART3" gate="JUMP" pin="4"/>
+<pinref part="0V1" gate="0" pin="0V"/>
+</segment>
 </net>
 <net name="N$3" class="0">
 <segment>
@@ -947,22 +937,6 @@ paja-trb@seznam.cz
 <wire x1="157.48" y1="17.78" x2="157.48" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="25.4" x2="165.1" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="USART1" gate="JUMP" pin="3"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="X1" gate="PORTB" pin="PB10"/>
-<wire x1="144.78" y1="-35.56" x2="154.94" y2="-35.56" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="-35.56" x2="154.94" y2="-30.48" width="0.1524" layer="91"/>
-<pinref part="USART3" gate="JUMP" pin="2"/>
-<wire x1="154.94" y1="-30.48" x2="165.1" y2="-30.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="X1" gate="PORTB" pin="PB11"/>
-<wire x1="144.78" y1="-33.02" x2="165.1" y2="-33.02" width="0.1524" layer="91"/>
-<pinref part="USART3" gate="JUMP" pin="3"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -1004,36 +978,66 @@ paja-trb@seznam.cz
 <segment>
 <pinref part="BEC4" gate="JUMP" pin="1"/>
 <wire x1="-33.02" y1="-81.28" x2="-10.16" y2="-81.28" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="-81.28" x2="-10.16" y2="-55.88" width="0.1524" layer="91"/>
-<pinref part="X1" gate="PORTC" pin="PC9"/>
-<wire x1="-10.16" y1="-55.88" x2="-5.08" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="-81.28" x2="-10.16" y2="-66.04" width="0.1524" layer="91"/>
+<pinref part="X1" gate="PORTB" pin="PB1"/>
+<wire x1="-10.16" y1="-66.04" x2="2.54" y2="-66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
 <pinref part="BEC3" gate="JUMP" pin="1"/>
-<wire x1="-33.02" y1="-63.5" x2="-17.78" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="-63.5" x2="-17.78" y2="-53.34" width="0.1524" layer="91"/>
-<pinref part="X1" gate="PORTC" pin="PC8"/>
-<wire x1="-17.78" y1="-53.34" x2="-5.08" y2="-53.34" width="0.1524" layer="91"/>
+<pinref part="X1" gate="PORTB" pin="PB0"/>
+<wire x1="-33.02" y1="-63.5" x2="2.54" y2="-63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
 <pinref part="BEC2" gate="JUMP" pin="1"/>
 <wire x1="-33.02" y1="-48.26" x2="-17.78" y2="-48.26" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="-48.26" x2="-17.78" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-48.26" x2="-17.78" y2="-33.02" width="0.1524" layer="91"/>
 <pinref part="X1" gate="PORTC" pin="PC7"/>
-<wire x1="-17.78" y1="-50.8" x2="-5.08" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-33.02" x2="2.54" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="BEC1" gate="JUMP" pin="1"/>
-<wire x1="-33.02" y1="-30.48" x2="-10.16" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="-30.48" x2="-10.16" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-30.48" x2="2.54" y2="-30.48" width="0.1524" layer="91"/>
 <pinref part="X1" gate="PORTC" pin="PC6"/>
-<wire x1="-10.16" y1="-48.26" x2="-5.08" y2="-48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="USART2" gate="JUMP" pin="2"/>
+<wire x1="165.1" y1="-38.1" x2="154.94" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-38.1" x2="154.94" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="X1" gate="PORTA" pin="PA14"/>
+<wire x1="154.94" y1="27.94" x2="144.78" y2="27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="USART2" gate="JUMP" pin="3"/>
+<pinref part="X1" gate="PORTD" pin="PD6"/>
+<wire x1="165.1" y1="-40.64" x2="144.78" y2="-40.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="X1" gate="PORTD" pin="PD9"/>
+<wire x1="144.78" y1="-33.02" x2="149.86" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="-33.02" x2="149.86" y2="-55.88" width="0.1524" layer="91"/>
+<pinref part="USART3" gate="JUMP" pin="3"/>
+<wire x1="149.86" y1="-55.88" x2="154.94" y2="-55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="USART3" gate="JUMP" pin="2"/>
+<wire x1="154.94" y1="-53.34" x2="147.32" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="-53.34" x2="147.32" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="X1" gate="PORTD" pin="PD8"/>
+<wire x1="147.32" y1="-35.56" x2="144.78" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
