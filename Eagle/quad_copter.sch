@@ -86,106 +86,106 @@ Symbole and Footprint for Extension Boards&lt;p&gt;
 <wire x1="31.75" y1="-32.385" x2="31.75" y2="64.135" width="0.127" layer="21"/>
 <wire x1="31.75" y1="64.135" x2="-34.29" y2="64.135" width="0.127" layer="21"/>
 <wire x1="-34.29" y1="64.135" x2="-34.29" y2="-32.385" width="0.127" layer="21"/>
-<pad name="L1" x="-27.94" y="30.48" drill="0.8" shape="square"/>
-<pad name="L2" x="-25.4" y="30.48" drill="0.8"/>
-<pad name="L3" x="-27.94" y="27.94" drill="0.8"/>
-<pad name="L4" x="-25.4" y="27.94" drill="0.8"/>
-<pad name="L5" x="-27.94" y="25.4" drill="0.8"/>
-<pad name="L6" x="-25.4" y="25.4" drill="0.8"/>
-<pad name="L7" x="-27.94" y="22.86" drill="0.8"/>
-<pad name="L8" x="-25.4" y="22.86" drill="0.8"/>
-<pad name="L9" x="-27.94" y="20.32" drill="0.8"/>
-<pad name="L10" x="-25.4" y="20.32" drill="0.8"/>
-<pad name="L11" x="-27.94" y="17.78" drill="0.8"/>
-<pad name="L12" x="-25.4" y="17.78" drill="0.8"/>
-<pad name="L13" x="-27.94" y="15.24" drill="0.8"/>
-<pad name="L14" x="-25.4" y="15.24" drill="0.8"/>
-<pad name="L15" x="-27.94" y="12.7" drill="0.8"/>
-<pad name="L16" x="-25.4" y="12.7" drill="0.8"/>
-<pad name="L17" x="-27.94" y="10.16" drill="0.8"/>
-<pad name="L18" x="-25.4" y="10.16" drill="0.8"/>
-<pad name="L19" x="-27.94" y="7.62" drill="0.8"/>
-<pad name="L20" x="-25.4" y="7.62" drill="0.8"/>
-<pad name="L21" x="-27.94" y="5.08" drill="0.8"/>
-<pad name="L22" x="-25.4" y="5.08" drill="0.8"/>
-<pad name="L23" x="-27.94" y="2.54" drill="0.8"/>
-<pad name="L24" x="-25.4" y="2.54" drill="0.8"/>
-<pad name="L25" x="-27.94" y="0" drill="0.8"/>
-<pad name="L26" x="-25.4" y="0" drill="0.8"/>
-<pad name="L27" x="-27.94" y="-2.54" drill="0.8"/>
-<pad name="L28" x="-25.4" y="-2.54" drill="0.8"/>
-<pad name="L29" x="-27.94" y="-5.08" drill="0.8"/>
-<pad name="L30" x="-25.4" y="-5.08" drill="0.8"/>
-<pad name="L31" x="-27.94" y="-7.62" drill="0.8"/>
-<pad name="L32" x="-25.4" y="-7.62" drill="0.8"/>
-<pad name="L33" x="-27.94" y="-10.16" drill="0.8"/>
-<pad name="L34" x="-25.4" y="-10.16" drill="0.8"/>
-<pad name="L35" x="-27.94" y="-12.7" drill="0.8"/>
-<pad name="L36" x="-25.4" y="-12.7" drill="0.8"/>
-<pad name="L37" x="-27.94" y="-15.24" drill="0.8"/>
-<pad name="L38" x="-25.4" y="-15.24" drill="0.8"/>
-<pad name="L39" x="-27.94" y="-17.78" drill="0.8"/>
-<pad name="L40" x="-25.4" y="-17.78" drill="0.8"/>
-<pad name="L41" x="-27.94" y="-20.32" drill="0.8"/>
-<pad name="L42" x="-25.4" y="-20.32" drill="0.8"/>
-<pad name="L43" x="-27.94" y="-22.86" drill="0.8"/>
-<pad name="L44" x="-25.4" y="-22.86" drill="0.8"/>
-<pad name="L45" x="-27.94" y="-25.4" drill="0.8"/>
-<pad name="L46" x="-25.4" y="-25.4" drill="0.8"/>
-<pad name="L47" x="-27.94" y="-27.94" drill="0.8"/>
-<pad name="L48" x="-25.4" y="-27.94" drill="0.8"/>
-<pad name="L49" x="-27.94" y="-30.48" drill="0.8"/>
-<pad name="L50" x="-25.4" y="-30.48" drill="0.8"/>
-<pad name="R1" x="22.86" y="30.48" drill="0.8" shape="square"/>
-<pad name="R2" x="25.4" y="30.48" drill="0.8"/>
-<pad name="R3" x="22.86" y="27.94" drill="0.8"/>
-<pad name="R4" x="25.4" y="27.94" drill="0.8"/>
-<pad name="R5" x="22.86" y="25.4" drill="0.8"/>
-<pad name="R6" x="25.4" y="25.4" drill="0.8"/>
-<pad name="R7" x="22.86" y="22.86" drill="0.8"/>
-<pad name="R8" x="25.4" y="22.86" drill="0.8"/>
-<pad name="R9" x="22.86" y="20.32" drill="0.8"/>
-<pad name="R10" x="25.4" y="20.32" drill="0.8"/>
-<pad name="R11" x="22.86" y="17.78" drill="0.8"/>
-<pad name="R12" x="25.4" y="17.78" drill="0.8"/>
-<pad name="R13" x="22.86" y="15.24" drill="0.8"/>
-<pad name="R14" x="25.4" y="15.24" drill="0.8"/>
-<pad name="R15" x="22.86" y="12.7" drill="0.8"/>
-<pad name="R16" x="25.4" y="12.7" drill="0.8"/>
-<pad name="R17" x="22.86" y="10.16" drill="0.8"/>
-<pad name="R18" x="25.4" y="10.16" drill="0.8"/>
-<pad name="R19" x="22.86" y="7.62" drill="0.8"/>
-<pad name="R20" x="25.4" y="7.62" drill="0.8"/>
-<pad name="R21" x="22.86" y="5.08" drill="0.8"/>
-<pad name="R22" x="25.4" y="5.08" drill="0.8"/>
-<pad name="R23" x="22.86" y="2.54" drill="0.8"/>
-<pad name="R24" x="25.4" y="2.54" drill="0.8"/>
-<pad name="R25" x="22.86" y="0" drill="0.8"/>
-<pad name="R26" x="25.4" y="0" drill="0.8"/>
-<pad name="R27" x="22.86" y="-2.54" drill="0.8"/>
-<pad name="R28" x="25.4" y="-2.54" drill="0.8"/>
-<pad name="R29" x="22.86" y="-5.08" drill="0.8"/>
-<pad name="R30" x="25.4" y="-5.08" drill="0.8"/>
-<pad name="R31" x="22.86" y="-7.62" drill="0.8"/>
-<pad name="R32" x="25.4" y="-7.62" drill="0.8"/>
-<pad name="R33" x="22.86" y="-10.16" drill="0.8"/>
-<pad name="R34" x="25.4" y="-10.16" drill="0.8"/>
-<pad name="R35" x="22.86" y="-12.7" drill="0.8"/>
-<pad name="R36" x="25.4" y="-12.7" drill="0.8"/>
-<pad name="R37" x="22.86" y="-15.24" drill="0.8"/>
-<pad name="R38" x="25.4" y="-15.24" drill="0.8"/>
-<pad name="R39" x="22.86" y="-17.78" drill="0.8"/>
-<pad name="R40" x="25.4" y="-17.78" drill="0.8"/>
-<pad name="R41" x="22.86" y="-20.32" drill="0.8"/>
-<pad name="R42" x="25.4" y="-20.32" drill="0.8"/>
-<pad name="R43" x="22.86" y="-22.86" drill="0.8"/>
-<pad name="R44" x="25.4" y="-22.86" drill="0.8"/>
-<pad name="R45" x="22.86" y="-25.4" drill="0.8"/>
-<pad name="R46" x="25.4" y="-25.4" drill="0.8"/>
-<pad name="R47" x="22.86" y="-27.94" drill="0.8"/>
-<pad name="R48" x="25.4" y="-27.94" drill="0.8"/>
-<pad name="R49" x="22.86" y="-30.48" drill="0.8"/>
-<pad name="R50" x="25.4" y="-30.48" drill="0.8"/>
+<pad name="L1" x="-27.94" y="30.48" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L2" x="-25.4" y="30.48" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L3" x="-27.94" y="27.94" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L4" x="-25.4" y="27.94" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L5" x="-27.94" y="25.4" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L6" x="-25.4" y="25.4" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L7" x="-27.94" y="22.86" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L8" x="-25.4" y="22.86" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L9" x="-27.94" y="20.32" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L10" x="-25.4" y="20.32" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L11" x="-27.94" y="17.78" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L12" x="-25.4" y="17.78" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L13" x="-27.94" y="15.24" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L14" x="-25.4" y="15.24" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L15" x="-27.94" y="12.7" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L16" x="-25.4" y="12.7" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L17" x="-27.94" y="10.16" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L18" x="-25.4" y="10.16" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L19" x="-27.94" y="7.62" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L20" x="-25.4" y="7.62" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L21" x="-27.94" y="5.08" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L22" x="-25.4" y="5.08" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L23" x="-27.94" y="2.54" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L24" x="-25.4" y="2.54" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L25" x="-27.94" y="0" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L26" x="-25.4" y="0" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L27" x="-27.94" y="-2.54" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L28" x="-25.4" y="-2.54" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L29" x="-27.94" y="-5.08" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L30" x="-25.4" y="-5.08" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L31" x="-27.94" y="-7.62" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L32" x="-25.4" y="-7.62" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L33" x="-27.94" y="-10.16" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L34" x="-25.4" y="-10.16" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L35" x="-27.94" y="-12.7" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L36" x="-25.4" y="-12.7" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L37" x="-27.94" y="-15.24" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L38" x="-25.4" y="-15.24" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L39" x="-27.94" y="-17.78" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L40" x="-25.4" y="-17.78" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L41" x="-27.94" y="-20.32" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L42" x="-25.4" y="-20.32" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L43" x="-27.94" y="-22.86" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L44" x="-25.4" y="-22.86" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L45" x="-27.94" y="-25.4" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L46" x="-25.4" y="-25.4" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L47" x="-27.94" y="-27.94" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L48" x="-25.4" y="-27.94" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="L49" x="-27.94" y="-30.48" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="L50" x="-25.4" y="-30.48" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R1" x="22.86" y="30.48" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R2" x="25.4" y="30.48" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R3" x="22.86" y="27.94" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R4" x="25.4" y="27.94" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R5" x="22.86" y="25.4" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R6" x="25.4" y="25.4" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R7" x="22.86" y="22.86" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R8" x="25.4" y="22.86" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R9" x="22.86" y="20.32" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R10" x="25.4" y="20.32" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R11" x="22.86" y="17.78" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R12" x="25.4" y="17.78" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R13" x="22.86" y="15.24" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R14" x="25.4" y="15.24" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R15" x="22.86" y="12.7" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R16" x="25.4" y="12.7" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R17" x="22.86" y="10.16" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R18" x="25.4" y="10.16" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R19" x="22.86" y="7.62" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R20" x="25.4" y="7.62" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R21" x="22.86" y="5.08" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R22" x="25.4" y="5.08" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R23" x="22.86" y="2.54" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R24" x="25.4" y="2.54" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R25" x="22.86" y="0" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R26" x="25.4" y="0" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R27" x="22.86" y="-2.54" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R28" x="25.4" y="-2.54" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R29" x="22.86" y="-5.08" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R30" x="25.4" y="-5.08" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R31" x="22.86" y="-7.62" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R32" x="25.4" y="-7.62" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R33" x="22.86" y="-10.16" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R34" x="25.4" y="-10.16" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R35" x="22.86" y="-12.7" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R36" x="25.4" y="-12.7" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R37" x="22.86" y="-15.24" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R38" x="25.4" y="-15.24" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R39" x="22.86" y="-17.78" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R40" x="25.4" y="-17.78" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R41" x="22.86" y="-20.32" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R42" x="25.4" y="-20.32" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R43" x="22.86" y="-22.86" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R44" x="25.4" y="-22.86" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R45" x="22.86" y="-25.4" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R46" x="25.4" y="-25.4" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R47" x="22.86" y="-27.94" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R48" x="25.4" y="-27.94" drill="0.8" diameter="1.4224" shape="offset"/>
+<pad name="R49" x="22.86" y="-30.48" drill="0.8" diameter="1.4224" shape="offset" rot="R180"/>
+<pad name="R50" x="25.4" y="-30.48" drill="0.8" diameter="1.4224" shape="offset"/>
 <pad name="T1" x="-27.94" y="60.96" drill="0.8" shape="long"/>
 <pad name="T2" x="-27.94" y="58.42" drill="0.8" shape="long"/>
 <pad name="T3" x="25.4" y="60.96" drill="0.8" shape="long"/>
@@ -817,8 +817,8 @@ paja-trb@seznam.cz
 <instance part="USART2" gate="JUMP" x="167.64" y="-38.1" rot="R270"/>
 <instance part="0V2" gate="0" x="165.1" y="-45.72"/>
 <instance part="0V3" gate="0" x="165.1" y="17.78"/>
-<instance part="NAP2" gate="+5" x="165.1" y="38.1"/>
-<instance part="NAP3" gate="+5" x="165.1" y="-30.48"/>
+<instance part="NAP2" gate="+5" x="165.1" y="40.64"/>
+<instance part="NAP3" gate="+5" x="165.1" y="-27.94"/>
 <instance part="NAP4" gate="+5" x="83.82" y="71.12" rot="R90"/>
 <instance part="0V4" gate="0" x="121.92" y="66.04"/>
 <instance part="BEC1" gate="JUMP" x="-35.56" y="-27.94" rot="R90"/>
@@ -833,7 +833,7 @@ paja-trb@seznam.cz
 <instance part="0V5" gate="0" x="-25.4" y="-78.74"/>
 <instance part="USART3" gate="JUMP" x="157.48" y="-53.34" rot="R270"/>
 <instance part="0V1" gate="0" x="154.94" y="-60.96"/>
-<instance part="NAP1" gate="+5" x="154.94" y="-45.72"/>
+<instance part="NAP1" gate="+5" x="154.94" y="-43.18"/>
 </instances>
 <busses>
 </busses>
@@ -842,11 +842,12 @@ paja-trb@seznam.cz
 <segment>
 <pinref part="USART1" gate="JUMP" pin="1"/>
 <pinref part="NAP2" gate="+5" pin="+5V"/>
-<wire x1="165.1" y1="33.02" x2="165.1" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="35.56" x2="165.1" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="USART2" gate="JUMP" pin="1"/>
 <pinref part="NAP3" gate="+5" pin="+5V"/>
+<wire x1="165.1" y1="-33.02" x2="165.1" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="X1" gate="PWR" pin="5V@2"/>
@@ -875,6 +876,7 @@ paja-trb@seznam.cz
 <segment>
 <pinref part="USART3" gate="JUMP" pin="1"/>
 <pinref part="NAP1" gate="+5" pin="+5V"/>
+<wire x1="154.94" y1="-48.26" x2="154.94" y2="-50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="0V" class="0">
