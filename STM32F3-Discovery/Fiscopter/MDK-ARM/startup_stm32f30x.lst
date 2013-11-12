@@ -777,15 +777,16 @@ ARM Macro Assembler    Page 12
               00000000 
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\sta
-rtup_stm32f30x.d -o.\startup_stm32f30x.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\C
+rtup_stm32f30x.d -o.\startup_stm32f30x.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\P
 
 
 
 ARM Macro Assembler    Page 13 
 
 
-MSIS\Include -IC:\Keil\ARM\Inc\ST\STM32F30x --predefine="__EVAL SETA 1" --prede
-fine="__MICROLIB SETA 1" --list=.\startup_stm32f30x.lst startup_stm32f30x.s
+ACK\ARM\CMSIS\3.20.3\CMSIS\Include -IC:\Keil\ARM\Inc\ST\STM32F30x --predefine="
+__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --list=.\startup_stm32f30x.lst s
+tartup_stm32f30x.s
 
 
 

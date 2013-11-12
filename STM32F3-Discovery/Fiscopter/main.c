@@ -1,17 +1,18 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "init.h"
-#include "system_control.h"
-#include "stm32f3_discovery.h"
-#include "math.h"
+#include "programs.h"
 #include "usart.h"
 #include "PID.h"
-#include "PID.h"
+#include "motors.h"
+#include "time.h"
+#include "imu.h"
+#include "stm32f3_discovery.h"
+#include "math.h"
 
 /* Private typedef -----------------------------------------------------------*/
-GPIO_InitTypeDef        GPIO_InitStructure;
 /* Private define ------------------------------------------------------------*/
-#define PI                         (float)     3.14159265f
+#define PI   (float)  3.14159265f
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 char send[50];
@@ -20,25 +21,21 @@ char send[50];
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
-float MagBuffer[3] = {0.0f}, AccBuffer[3] = {0.0f}, Buffer[3] = {0.0f};
+float MagBuffer[3] = {0.00f}, AccBuffer[3] = {0.00f}, Buffer[3] = {0.00f};
 uint8_t Xval, Yval, Zval = 0x00;
 __IO uint32_t UserButtonPressed = 0;
-__IO uint8_t DataReady = 0;
-__IO uint8_t PrevXferComplete = 1;
-__IO uint32_t USBConnectTimeOut = 100;
 
 float fNormAcc,fSinRoll,fCosRoll,fSinPitch,fCosPitch = 0.0f, RollAng = 0.0f, PitchAng = 0.0f;
 float fTiltedX,fTiltedY = 0.0f;
 float Xrot, Yrot, Zrot, Xrot2, Yrot2, Zrot2 = 0.00f;
 float gyrXangle, gyrYangle, gyrZangle = 90.0f;
-float accXangle, accYangle, accZangle = 0.0f;
+float accXangle, accYangle, accZangle = 0.00f;
 
 float time, loop_time, last_loop_time = 0.000000f;
 int32_t counter, counter_old, loop_start_time, curr_time; 
 
 uint8_t u = 0;
 
-int micros;
 int reload_gyro = 1000;
 int gyro_cnt;
 int millis;
@@ -51,37 +48,23 @@ void calib(void);
   */
 int main(void)
 {  
-  //int cnt = 2000;
-	//calib();
 	init_ALL();
+	
+	
+	//----------calibrate ESC---------------
+	//STM_EVAL_LEDOn(LED8);
+	//ESC_Calibrate_All();
+	//STM_EVAL_LEDOff(LED8);
+	//----------calibrate ESC---------------
+	
+	//----------motor test---------------
+	//test_motors(1000);
+	//----------motor test---------------
+	
 	SetTunings(0.5,0.4,0.3);
-	/*STM_EVAL_LEDOn(LED8);
-	ESC_SetPower(1,4000);
-	Delay(3000);
-	STM_EVAL_LEDOff(LED8);
-	ESC_SetPower(1,2000);
-	Delay(2000);
-	ESC_SetPower(1,3);
-	Delay(3000);
-
-while(1)
-{
-	if(cnt < 3000)
-		{
-			cnt ++;
-			ESC_SetPower(1,cnt);
-			ESC_SetPower(2,cnt);
-			ESC_SetPower(3,cnt);
-			Delay(10);
-		}else
-		{
-			ESC_SetPower(1,0);
-			ESC_SetPower(2,0);
-			ESC_SetPower(3,0);
-		}
+	
+	
 		
-}
-		*/
 		gyrXangle = 0.0f;
 		gyrYangle = 0.0f;
 		gyrZangle = 0.0f;
@@ -219,28 +202,6 @@ while(1)
 				
 		}
 
-}
-
-void calib()
-{
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOE, ENABLE);
-  
-  /* Configure PE14 and PE15 in output pushpull mode */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  GPIO_Init(GPIOE, &GPIO_InitStructure);
-	
-	GPIOE->BSRR = 15;
-	Delay(2);
-	GPIOE->BRR = 15;
-	Delay(3000);
-	GPIOE->BSRR = 15;
-	Delay(1);
-	GPIOE->BRR = 15;
-	Delay(1000);
 }
 
 #ifdef  USE_FULL_ASSERT

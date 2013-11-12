@@ -5,7 +5,7 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void Compute();
+void Compute(void);
 void SetTunings(float Kp, float Ki, float Kd);
 extern float Input, Output, Setpoint; 
 void delete_it(void);

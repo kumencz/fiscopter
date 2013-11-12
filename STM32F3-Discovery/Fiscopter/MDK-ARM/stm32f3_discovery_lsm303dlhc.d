@@ -1,11 +1,11 @@
 .\stm32f3_discovery_lsm303dlhc.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.c
 .\stm32f3_discovery_lsm303dlhc.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h
 .\stm32f3_discovery_lsm303dlhc.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h
-.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\CMSIS\Include\core_cm4.h
+.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h
 .\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
-.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
-.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h
+.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h
+.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h
+.\stm32f3_discovery_lsm303dlhc.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4_simd.h
 .\stm32f3_discovery_lsm303dlhc.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\system_stm32f30x.h
 .\stm32f3_discovery_lsm303dlhc.o: .\..\stm32f30x_conf.h
 .\stm32f3_discovery_lsm303dlhc.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_adc.h

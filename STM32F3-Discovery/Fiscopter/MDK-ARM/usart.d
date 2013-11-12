@@ -2,11 +2,11 @@
 .\usart.o: ..\usart.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h
-.\usart.o: C:\Keil\ARM\CMSIS\Include\core_cm4.h
+.\usart.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h
 .\usart.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\usart.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
-.\usart.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
-.\usart.o: C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h
+.\usart.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h
+.\usart.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h
+.\usart.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4_simd.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\system_stm32f30x.h
 .\usart.o: .\..\stm32f30x_conf.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_adc.h

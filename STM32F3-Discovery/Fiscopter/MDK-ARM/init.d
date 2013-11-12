@@ -1,11 +1,11 @@
 .\init.o: ..\init.c
 .\init.o: ..\main.h
 .\init.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h
-.\init.o: C:\Keil\ARM\CMSIS\Include\core_cm4.h
+.\init.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h
 .\init.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\init.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
-.\init.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
-.\init.o: C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h
+.\init.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmInstr.h
+.\init.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cmFunc.h
+.\init.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4_simd.h
 .\init.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\system_stm32f30x.h
 .\init.o: .\..\stm32f30x_conf.h
 .\init.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_adc.h
@@ -37,4 +37,5 @@
 .\init.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h
 .\init.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
 .\init.o: ..\init.h
-.\init.o: ..\system_control.h
+.\init.o: ..\motors.h
+.\init.o: ..\time.h

@@ -2,7 +2,6 @@
 #include "pid.h"
 #include "main.h"
 #include "stm32f30x.h"
-#include "system_control.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -17,7 +16,7 @@ float kp, ki, kd;
 unsigned long now;
 float timeChange, error, dErr ;
 
-void Compute()
+void Compute(void)
 {
    /*How long since we last calculated*/
    now = millis;

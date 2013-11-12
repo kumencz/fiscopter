@@ -1,7 +1,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "init.h"
-#include "system_control.h"
+#include "motors.h"
+#include "time.h"
 #include "stm32f3_discovery.h"
 #include "stm32f30x.h"
 #include <stm32f30x_usart.h>
@@ -34,8 +35,6 @@ void init_acc(void);
 void init_timer(void);
 void init_USART2(uint32_t baudrate);
 /* Private functions ---------------------------------------------------------*/
-void Delay(__IO uint32_t nTime);
-void TimingDelay_Decrement(void);
 /* Private variables ------------------------------------------------------- */
 int period;
 
@@ -91,6 +90,7 @@ void init_ESC(void)
   ESC_SetPower(2,0);
   ESC_SetPower(3,0);
 	ESC_SetPower(4,0);
+	//ESC_Calibrate_All();
 }
 void init_ESC_GPIO(void)
 {
