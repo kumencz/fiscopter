@@ -38,3 +38,4 @@
 .\motors.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h
 .\motors.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
 .\motors.o: ..\time.h
+.\motors.o: ..\init.h

@@ -17,7 +17,7 @@ TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure_IMU;
 USART_InitTypeDef USART_InitStruct_USART2; // USART2 initilization
 NVIC_InitTypeDef NVIC_InitStructure_USART2; // configure NVIC (nested vector interrupt controller)
 /* Private define ------------------------------------------------------------*/
-#define ESC_update_freq 200
+#define ESC_update_freq 200   // !!!!min:100 max:200 !!!!
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -36,6 +36,8 @@ void init_timer(void);
 void init_USART2(uint32_t baudrate);
 /* Private functions ---------------------------------------------------------*/
 /* Private variables ------------------------------------------------------- */
+float ESC_min;
+float ESC_koef;
 int period;
 
 void init_ALL(void)
@@ -83,7 +85,17 @@ void init_Button(void)
 }
 void init_ESC(void)
 {
-	period = 10000000 / ESC_update_freq;
+	int ESC_cycle_time;
+	float ESC_max;
+	float ESC_lenght = 1;
+	
+	period = 5000000 / ESC_update_freq;
+	ESC_cycle_time = 1 / 5000000 * period;
+	ESC_min = (period * 0.001) / ESC_cycle_time;
+	ESC_max = (period * 0.002) / ESC_cycle_time;
+	ESC_lenght = ESC_max - ESC_min;
+	ESC_koef = 10000 / ESC_lenght;
+	
 	init_ESC_GPIO();
 	init_ESC_Timer(period);
 	ESC_SetPower(1,0);
@@ -148,7 +160,7 @@ void init_ESC_Timer(int period)
 
   /* Compute the prescaler value */
   //PrescalerValue = (uint16_t) ((SystemCoreClock /2) / 1000000) - 1;
-	PrescalerValue = (uint16_t) (SystemCoreClock / 10000000) - 1;
+	PrescalerValue = (uint16_t) (SystemCoreClock / 5000000) - 1;
 
   /* Time base configuration */
   TIM_TimeBaseStructure_PWM.TIM_Period = period;

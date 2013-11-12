@@ -7,4 +7,5 @@
 void init_ALL(void);
 void init_discovery_board(void);
 /* Exported variables ------------------------------------------------------- */
-extern int period;
+extern float ESC_koef;
+extern float ESC_min;

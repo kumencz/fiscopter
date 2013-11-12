@@ -17,6 +17,7 @@
 /* Private variables ---------------------------------------------------------*/
 char send[50];
 /* Private function prototypes -----------------------------------------------*/
+void test(void);
 /* Private functions ---------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -52,20 +53,22 @@ int main(void)
 	
 	
 	//----------calibrate ESC---------------
-	//STM_EVAL_LEDOn(LED8);
-	//ESC_Calibrate_All();
-	//STM_EVAL_LEDOff(LED8);
+	STM_EVAL_LEDOn(LED8);
+	ESC_Calibrate_All();
+	STM_EVAL_LEDOff(LED8);
 	//----------calibrate ESC---------------
 	
 	//----------motor test---------------
-	//test_motors(1000);
+	test_motors(1000);
 	//----------motor test---------------
 	
-	SetTunings(0.5,0.4,0.3);
+	//SetTunings(0.5,0.4,0.3);
 	
-	
+}
 		
-		gyrXangle = 0.0f;
+void test(void)
+{
+	gyrXangle = 0.0f;
 		gyrYangle = 0.0f;
 		gyrZangle = 0.0f;
 		while (1)
