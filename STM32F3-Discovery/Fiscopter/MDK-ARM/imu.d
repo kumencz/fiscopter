@@ -37,3 +37,4 @@
 .\imu.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h
 .\imu.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h
 .\imu.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\imu.o: ..\usart.h

@@ -6,8 +6,6 @@
 #include "stm32f30x.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define ESC_min_pulse_ms 1
-#define ESC_max_pulse_lenght 2
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
@@ -15,7 +13,6 @@
 void ESC_SetPower(uint16_t channel,uint16_t lenght) //!!!!! minimum = 0, maximum = 10000 !!!!!
 {
 	lenght = lenght * ESC_koef + ESC_min;
-	
   if (channel == 1)
   {
 		//TIM_SetCompare1(TIM1, lenght);

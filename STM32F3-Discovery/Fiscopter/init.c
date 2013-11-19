@@ -31,7 +31,7 @@ void init_ESC_Timer(int period);
 void init_motor(void);
 void init_motor_GPIO(void);
 void init_gyro(void);
-void init_acc(void);
+void init_acc_mag(void);
 void init_timer(void);
 void init_USART2(uint32_t baudrate);
 /* Private functions ---------------------------------------------------------*/
@@ -47,7 +47,7 @@ void init_ALL(void)
 	init_Button();
 	init_ESC();
 	init_gyro();
-	init_acc();
+	init_acc_mag();
 	init_timer();
 	init_USART2(115200);
 }
@@ -231,7 +231,7 @@ void init_gyro(void)
   
   L3GD20_FilterCmd(L3GD20_HIGHPASSFILTER_ENABLE);
 }
-void init_acc(void)
+void init_acc_mag(void)
 {
   LSM303DLHCMag_InitTypeDef LSM303DLHC_InitStructure;
   LSM303DLHCAcc_InitTypeDef LSM303DLHCAcc_InitStructure;

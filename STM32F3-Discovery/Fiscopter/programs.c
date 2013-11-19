@@ -7,10 +7,11 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-int cnt = 2000;
+int cnt = 0;
 
 void test_motors(int max_torgue)
 {
+	cnt = 0;
 	while(cnt < max_torgue)
 	{
 		if(cnt < max_torgue-1)

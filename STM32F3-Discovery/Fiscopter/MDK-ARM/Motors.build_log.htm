@@ -7,25 +7,39 @@ C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\MDK-ARM\Fiscopter.uvproj
 Project File Date:  11/12/2013
 
 <h2>Output:</h2>
-Rebuild target 'Fiscopter'
-compiling main.c...
-..\main.c(148): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                        Xrot = 0.98 *(Xrot+Buffer[0]*time) + 0.02*accXangle;
-..\main.c(148): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                        Xrot = 0.98 *(Xrot+Buffer[0]*time) + 0.02*accXangle;
-..\main.c(149): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                        Yrot = 0.98 *(Yrot+Buffer[1]*time) + 0.02*accYangle;
-..\main.c(149): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                        Yrot = 0.98 *(Yrot+Buffer[1]*time) + 0.02*accYangle;
-..\main.c(150): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                        Zrot = 0.98 *(Zrot+Buffer[2]*time) + 0.02*accZangle;
-..\main.c(150): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                        Zrot = 0.98 *(Zrot+Buffer[2]*time) + 0.02*accZangle;
-..\main.c: 6 warnings, 0 errors
-compiling init.c...
-compiling programs.c...
-compiling motors.c...
+Build target 'Fiscopter'
 compiling imu.c...
+..\imu.c(303): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                        Xrot = 0.980001 *(Xrot+Buffer[0]*time) + 0.020001*accXangle;
+..\imu.c(303): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                        Xrot = 0.980001 *(Xrot+Buffer[0]*time) + 0.020001*accXangle;
+..\imu.c(304): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                        Yrot = 0.980000 *(Yrot+Buffer[1]*time) + 0.02*accYangle;
+..\imu.c(304): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                        Yrot = 0.980000 *(Yrot+Buffer[1]*time) + 0.02*accYangle;
+..\imu.c(305): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                        Zrot = 0.980000 *(Zrot+Buffer[2]*time) + 0.02*(MagBuffer[0]/2);
+..\imu.c(305): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                        Zrot = 0.980000 *(Zrot+Buffer[2]*time) + 0.02*(MagBuffer[0]/2);
+..\imu.c: 6 warnings, 0 errors
+linking...
+Program Size: Code=13832 RO-data=568 RW-data=236 ZI-data=1236  
+".\Motors.axf" - 0 Error(s), 6 Warning(s).
+Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+cuments and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
+Error: Flash Download failed  -  Target DLL has been cancelled
+Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
+Error: Flash Download failed  -  Target DLL has been cancelled
+Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
+Error: Flash Download failed  -  Target DLL has been cancelled
+Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+\imu.c: 11 warnings, 0 errors
 compiling time.c...
 compiling usart.c...
 compiling PID.c...
@@ -45,13 +59,8 @@ compiling stm32f3_discovery_lsm303dlhc.c...
 compiling stm32f3_discovery_l3gd20.c...
 assembling startup_stm32f30x.s...
 linking...
-Program Size: Code=6644 RO-data=484 RW-data=164 ZI-data=1148  
-".\Motors.axf" - 0 Error(s), 6 Warning(s).
-...
-linking...
-Program Size: Code=6756 RO-data=484 RW-data=164 ZI-data=1148  
-".\Motors.axf" - 0 Error(s), 7 Warning(s).
-t image symbols.
+.\Motors.axf: Error: L6218E: Undefined symbol kalmanCalculate (referred from imu.o).
+Not enough information to list image symbols.
 Finished: 1 information, 0 warning and 1 error messages.
-".\Motors.axf" - 1 Error(s), 7 Warning(s).
+".\Motors.axf" - 1 Error(s), 11 Warning(s).
 Target not created

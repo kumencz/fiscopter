@@ -1,6 +1,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "imu.h"
 #include "main.h"
+#include "usart.h"
 #include "stm32f30x.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -16,6 +17,28 @@
 #define PI                         (float)     3.14159265f
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+char send[50];
+float MagBuffer[3] = {0.00f}, AccBuffer[3] = {0.00f}, Buffer[3] = {0.00f};
+int Xval, Yval, Zval = 0x00;
+__IO uint32_t UserButtonPressed = 0;
+
+float fNormAcc,fNormMag,fSinRoll,YawAng = 0.0f, RollAng = 0.0f, PitchAng = 0.0f;
+float Xrot, Yrot, Zrot;
+float gyrXangle, gyrYangle, gyrZangle;
+float accXangle, accYangle, accZangle;
+float magXangle, magYangle, magZangle;
+
+float time;
+long int counter, counter_old; 
+
+int u = 0;
+
+int reload_gyro = 1000;
+int gyro_cnt;
+int millis;
+
+
+
 
 void Gyro_ReadAngRate (float* pfData)
 {
@@ -66,6 +89,7 @@ void Gyro_ReadAngRate (float* pfData)
     pfData[i]=(float)RawData[i]/sensitivity;
   }
 }
+
 
 void Acc_ReadAcc(float* pfData)
 {
@@ -135,6 +159,7 @@ void Acc_ReadAcc(float* pfData)
 
 }
 
+
 void Compass_ReadMag (float* pfData)
 {
   static uint8_t buffer[6] = {0};
@@ -192,6 +217,8 @@ void Compass_ReadMag (float* pfData)
 
 
 
+
+
 uint32_t LSM303DLHC_TIMEOUT_UserCallback(void)
 {
   return 0;
@@ -201,16 +228,17 @@ uint32_t L3GD20_TIMEOUT_UserCallback(void)
   return 0;
 }
 
+//Kalmanov filtr - asi nefunguje jak má :) potrebuje predelat
+//------------------------------------------
+/*float Q_angle  =  0.001; //0.001
+float Q_gyro   =  0.003;  //0.003
+float R_angle  =  0.03;  //0.03
 
-float Q_angle  =  0.001; //0.001
-    float Q_gyro   =  0.003;  //0.003
-    float R_angle  =  0.03;  //0.03
-
-    float x_angle = 0;
-    float x_bias = 0;
-    float P_00 = 0, P_01 = 0, P_10 = 0, P_11 = 0;
-    float dt, y, S;
-    float K_0, K_1;
+float x_angle = 0;
+float x_bias = 0;
+float P_00 = 0, P_01 = 0, P_10 = 0, P_11 = 0;
+float dt, y, S;
+float K_0, K_1;
 
 float kalmanCalculate(float newAngle, float newRate,float looptime)
 {
@@ -234,4 +262,121 @@ float kalmanCalculate(float newAngle, float newRate,float looptime)
     P_11 -= K_1 * P_01;
 
 		return x_angle;
+}*/
+
+void read_imu(void)
+{
+	gyrXangle = 0.0f;
+	gyrYangle = 0.0f;
+	gyrZangle = 0.0f;
+		
+	while (1)
+    {    
+			if(gyro_cnt > reload_gyro)
+			{
+				gyrXangle = Xrot - 1;
+				gyrYangle = Yrot - 1;
+				gyro_cnt = 0;
+			}
+			
+			
+			/* Read Acc */
+			Acc_ReadAcc(AccBuffer);
+			for(u=0;u<3;u++) AccBuffer[u] /= 100.0f;
+      fNormAcc = sqrt((AccBuffer[0]*AccBuffer[0])+(AccBuffer[1]*AccBuffer[1])+(AccBuffer[2]*AccBuffer[2]));
+      
+			accXangle = ((acos(AccBuffer[0]/fNormAcc))*180/PI)-90;
+			accYangle = ((acos(AccBuffer[1]/fNormAcc))*180/PI)-90;
+			accZangle = ((acos(AccBuffer[2]/fNormAcc))*180/PI)-90;
+			
+			/* Read Gyro */
+			Gyro_ReadAngRate(Buffer);
+         
+			gyrXangle = gyrXangle + ((Buffer[0]*time));
+			gyrYangle = gyrYangle + ((Buffer[1]*time));
+			gyrZangle = gyrZangle + ((Buffer[2]*time));
+			
+			/* Read Mag */
+			Compass_ReadMag(MagBuffer);
+			
+			/* Filter */
+			Xrot = 0.980001 *(Xrot+Buffer[0]*time) + 0.020001*accXangle;
+			Yrot = 0.980000 *(Yrot+Buffer[1]*time) + 0.02*accYangle;
+			Zrot = 0.980000 *(Zrot+Buffer[2]*time) + 0.02*(MagBuffer[0]/2);
+			
+			
+		/*	if(gyrXangle > 180)
+			{
+				accXangle = 360 - (acos(AccBuffer[0]/fNormAcc))*180/PI ;
+				if(gyrXangle > 270)
+				{
+					accXangle = -90-(acos(AccBuffer[0]/fNormAcc))*180/PI;
+					gyrXangle = gyrXangle - 270;
+				}
+			}else if(gyrXangle < 0)
+			{
+				accXangle = -(acos(AccBuffer[0]/fNormAcc))*180/PI ;
+				if(gyrXangle < -90)
+				{
+					accXangle = 90+(acos(AccBuffer[0]/fNormAcc))*180/PI;
+					gyrXangle = 90+(gyrXangle + 90);
+				}
+			}else
+			{
+				accXangle = (acos(AccBuffer[0]/fNormAcc))*180/PI;
+			}
+			*/
+			
+			
+			
+			if(gyrYangle > 180)
+			{
+				accYangle = (360 - (acos(AccBuffer[1]/fNormAcc))*180/PI) ;
+				if(gyrXangle > accXangle && gyrXangle > 335)
+				{
+					accYangle = 360+(acos(AccBuffer[1]/fNormAcc))*180/PI;
+				}
+			}
+			else 
+			{
+				accYangle = (acos(AccBuffer[1]/fNormAcc))*180/PI;
+			}
+			
+			
+
+
+			
+			sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Xrot, Yrot, Zrot, MagBuffer[0], MagBuffer[1], MagBuffer[2], gyrXangle, gyrYangle, gyrZangle);
+			//sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Xrot, Yrot, Zrot, AccBuffer[0], AccBuffer[1], AccBuffer[2], gyrXangle, gyrYangle, gyrZangle);
+			USART_puts(USART2, send); 
+  
+			/////PID
+			/*
+			if(UserButtonPressed != 0x00)
+			{
+				Setpoint = 50;
+			}else
+			{
+				Setpoint = 0;
+			}
+			//if(Setpoint == Output)delete_it();
+			Input = Output/1.5f;
+			Compute();
+			sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Input, Output, Setpoint, accXangle, accYangle, accZangle, gyrXangle, gyrYangle, gyrZangle);
+			USART_puts(USART2, send);			
+			*/
+			
+			counter = TIM3->CNT;
+			if(counter > counter_old)
+			{
+				time = (counter-counter_old)*0.0000005;
+			}else if(counter < counter_old)
+			{
+				time = (50000-counter_old+counter)*0.0000005;
+			}
+			//Delay(5);
+			counter_old = TIM3->CNT;
+			gyro_cnt++;				
+		}
+	
 }

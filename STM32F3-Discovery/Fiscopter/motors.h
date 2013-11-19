@@ -8,5 +8,3 @@
 void ESC_SetPower(uint16_t channel,uint16_t lenght);
 void ESC_Calibrate_All(void);
 /* Exported variables ------------------------------------------------------- */
-extern float ESC_SetPower_MIN;
-extern float ESC_SetPower_MAX;

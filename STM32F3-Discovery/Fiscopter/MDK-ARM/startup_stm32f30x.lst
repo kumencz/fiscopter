@@ -784,9 +784,9 @@ rtup_stm32f30x.d -o.\startup_stm32f30x.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\P
 ARM Macro Assembler    Page 13 
 
 
-ACK\ARM\CMSIS\3.20.3\CMSIS\Include -IC:\Keil\ARM\Inc\ST\STM32F30x --predefine="
-__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --list=.\startup_stm32f30x.lst s
-tartup_stm32f30x.s
+ACK\ARM\CMSIS\3.20.3\CMSIS\Include -IC:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\
+Device\Include -IC:\Keil\ARM\Inc\ST\STM32F30x --predefine="__EVAL SETA 1" --pre
+define="__MICROLIB SETA 1" --list=.\startup_stm32f30x.lst startup_stm32f30x.s
 
 
 
