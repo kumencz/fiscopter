@@ -111,10 +111,10 @@ void init_ESC_GPIO(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 
   /* GPIOC and GPIOB clock enable */
-  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB | RCC_AHBPeriph_GPIOC, ENABLE);
   
   /* GPIOC Configuration: TIM3 CH1 (PC6) and TIM3 CH2 (PC7) */
-  GPIO_InitStructure_PWM.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9;
+  GPIO_InitStructure_PWM.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 	//GPIO_InitStructure_PWM.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_11 | GPIO_Pin_13 | GPIO_Pin_14;
   GPIO_InitStructure_PWM.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure_PWM.GPIO_Speed = GPIO_Speed_50MHz;
@@ -122,11 +122,15 @@ void init_ESC_GPIO(void)
   GPIO_InitStructure_PWM.GPIO_PuPd = GPIO_PuPd_UP ;
   GPIO_Init(GPIOC, &GPIO_InitStructure_PWM); 
 
+  
+	GPIO_InitStructure_PWM.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+	GPIO_Init(GPIOB, &GPIO_InitStructure_PWM);
+	
   /* Connect TIM3 pins to AF2 */  
   GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_2);
   GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_2); 
-  GPIO_PinAFConfig(GPIOC, GPIO_PinSource8, GPIO_AF_2);
-	GPIO_PinAFConfig(GPIOC, GPIO_PinSource9, GPIO_AF_2);
+  GPIO_PinAFConfig(GPIOB, GPIO_PinSource0, GPIO_AF_2);
+	GPIO_PinAFConfig(GPIOB, GPIO_PinSource1, GPIO_AF_2);
 
 
 

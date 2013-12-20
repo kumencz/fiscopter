@@ -7,7 +7,11 @@ C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\MDK-ARM\Fiscopter.uvproj
 Project File Date:  11/12/2013
 
 <h2>Output:</h2>
-Build target 'Fiscopter'
+Rebuild target 'Fiscopter'
+compiling main.c...
+compiling init.c...
+compiling programs.c...
+compiling motors.c...
 compiling imu.c...
 ..\imu.c(303): warning:  #1035-D: single-precision operand implicitly converted to double-precision
                         Xrot = 0.980001 *(Xrot+Buffer[0]*time) + 0.020001*accXangle;
@@ -22,24 +26,6 @@ compiling imu.c...
 ..\imu.c(305): warning:  #1035-D: single-precision operand implicitly converted to double-precision
                         Zrot = 0.980000 *(Zrot+Buffer[2]*time) + 0.02*(MagBuffer[0]/2);
 ..\imu.c: 6 warnings, 0 errors
-linking...
-Program Size: Code=13832 RO-data=568 RW-data=236 ZI-data=1236  
-".\Motors.axf" - 0 Error(s), 6 Warning(s).
-Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-cuments and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
-Error: Flash Download failed  -  Target DLL has been cancelled
-Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
-Error: Flash Download failed  -  Target DLL has been cancelled
-Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
-Error: Flash Download failed  -  Target DLL has been cancelled
-Load "C:\\Documents and Settings\\Kuba\\Plocha\\ARM\\Fiscopter\\MDK-ARM\\Motors.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-\imu.c: 11 warnings, 0 errors
 compiling time.c...
 compiling usart.c...
 compiling PID.c...
@@ -59,8 +45,5 @@ compiling stm32f3_discovery_lsm303dlhc.c...
 compiling stm32f3_discovery_l3gd20.c...
 assembling startup_stm32f30x.s...
 linking...
-.\Motors.axf: Error: L6218E: Undefined symbol kalmanCalculate (referred from imu.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-".\Motors.axf" - 1 Error(s), 11 Warning(s).
-Target not created
+Program Size: Code=13848 RO-data=568 RW-data=236 ZI-data=1236  
+".\Motors.axf" - 0 Error(s), 6 Warning(s).
