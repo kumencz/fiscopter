@@ -19,7 +19,10 @@
 ///USARTS:::::::::::::::::::::::::::::::::::::::
 char received_string2[MAX_STRLEN+1];
 char received_string3[MAX_STRLEN+1];
+char *s1;
 char *rs;
+char *ps;
+char strr;
 static uint16_t cnt2 = 0; // USART2 input string length
 
 extern __IO uint32_t UserButtonPressed;
@@ -135,7 +138,7 @@ void USART2_IRQHandler(void)
 	if( USART_GetITStatus(USART2, USART_IT_RXNE) ){
 		
 		char t = (USART_ReceiveData(USART2) & 0x7F); // the character from the USART3 data register is saved in t
-		STM_EVAL_LEDOn(LED6);
+		STM_EVAL_LEDToggle(LED6);
 		/* check if the received character is not the LF character (used to determine end of string) 
 		 * or the if the maximum string length has been been reached 
 		 */
@@ -144,11 +147,57 @@ void USART2_IRQHandler(void)
 			cnt2++;
 		}
 		else{ // otherwise reset the character counter and print the received string
-			received_string2[cnt2] = '\0';
+			//received_string2[cnt2] = '\0';
 			cnt2 = 0;
 			//STM_EVAL_LEDOn(LED3);
+			rs = received_string2;	
+			s1 = "Router";		
+			
+			i = strcmp(s1, rs);		
+			if(i == 0)					 
+			{							
+				USART_puts(USART2, "STM32F3\n");							
+				STM_EVAL_LEDOn(LED4);
+			} 
+			
+			//USART_puts(USART3, received_string3);
+		
+			/*ps = strtok(rs,"|");		
+			
+			while (ps != NULL)	
+			{							 
 
-			rs = received_string2;				
+					
+					s1 = "c";		
+					i = strcmp(s1, ps);		
+					if(i == 0)					 
+					{										
+								ps = strtok (NULL, "/");
+								while (ps != NULL)	
+								{
+									sscanf (ps, "%d", &candle[cnt]);
+ 									ps = strtok (NULL, "/");	
+									cnt++;
+								}
+								if(first_candle == 1)
+								{
+									candle_saw = 1;
+									candle_position(candle [0],candle [1]);
+									STM_EVAL_LEDOn(LED6);
+								}else first_candle = 1;
+								cnt = 0;
+					}
+					s1 = "cn";		
+					i = strcmp(s1, ps);		
+					if(i == 0)					 
+					{										
+								candle_saw = 0;
+								first_candle = 0;
+								STM_EVAL_LEDOff(LED6);
+					}
+					ps = strtok (NULL, "|");	 
+			}		*/
+			
 		}
 	}
 }

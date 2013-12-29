@@ -31,13 +31,21 @@ void calib(void);
   */
 int main(void)
 {  
-	init_ALL();
 	
+	init_ALL();
+	USART_puts(USART2, "System initialized\n");
+	Delay(3000);
 	
 	//----------calibrate ESC---------------
-	STM_EVAL_LEDOn(LED8);
-	ESC_Calibrate_All();
-	STM_EVAL_LEDOff(LED8);
+	//USART_puts(USART2, "ESC calibrating ...\n");
+	//ESC_Calibrate_All();
+	
+	/*USART_puts(USART2, "Test motors: 8000\n");
+	while(1)
+	{
+		test_motors(8000);
+	}*/
+	read_imu();
 	//----------calibrate ESC---------------
 	
 	//----------motor test---------------
@@ -47,7 +55,7 @@ int main(void)
 	//----------motor test---------------
 	
 	//SetTunings(0.5,0.4,0.3);
-	read_imu();
+//	read_imu();
 }
 
 #ifdef  USE_FULL_ASSERT

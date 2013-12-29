@@ -15,6 +15,7 @@
 volatile uint8_t USART1_ringbuf[RINGBUF_SIZE];
 volatile uint32_t USART1_readidx = 0;
 volatile uint32_t USART1_writeidx = 0;
+char send[50];
 
 void USART_puts(USART_TypeDef* USARTx, char *s)
 {

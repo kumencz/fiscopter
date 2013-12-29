@@ -7,5 +7,6 @@
 void init_ALL(void);
 void init_discovery_board(void);
 /* Exported variables ------------------------------------------------------- */
-extern float ESC_koef;
-extern float ESC_min;
+extern double ESC_koef;
+extern double ESC_min;
+extern double ESC_max;

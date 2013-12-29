@@ -17,7 +17,7 @@ TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure_IMU;
 USART_InitTypeDef USART_InitStruct_USART2; // USART2 initilization
 NVIC_InitTypeDef NVIC_InitStructure_USART2; // configure NVIC (nested vector interrupt controller)
 /* Private define ------------------------------------------------------------*/
-#define ESC_update_freq 200   // !!!!min:100 max:200 !!!!
+#define ESC_update_freq 100   // !!!!min:100 max:200 !!!!
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -36,8 +36,11 @@ void init_timer(void);
 void init_USART2(uint32_t baudrate);
 /* Private functions ---------------------------------------------------------*/
 /* Private variables ------------------------------------------------------- */
-float ESC_min;
-float ESC_koef;
+double ESC_min;
+double ESC_max;
+double ESC_lenght;
+double ESC_koef;
+double ESC_cycle_time;
 int period;
 
 void init_ALL(void)
@@ -85,23 +88,23 @@ void init_Button(void)
 }
 void init_ESC(void)
 {
-	int ESC_cycle_time;
-	float ESC_max;
-	float ESC_lenght = 1;
 	
-	period = 5000000 / ESC_update_freq;
-	ESC_cycle_time = 1 / 5000000 * period;
+	
+	period = 2500000 / ESC_update_freq;
+	ESC_cycle_time = (double) period / 2500000;
 	ESC_min = (period * 0.001) / ESC_cycle_time;
+	//ESC_min = 2000;
 	ESC_max = (period * 0.002) / ESC_cycle_time;
+	//ESC_max = 4000;
 	ESC_lenght = ESC_max - ESC_min;
-	ESC_koef = 10000 / ESC_lenght;
+	ESC_koef = ESC_lenght / 10000;
 	
 	init_ESC_GPIO();
 	init_ESC_Timer(period);
-	ESC_SetPower(1,0);
+	/*ESC_SetPower(1,0);
   ESC_SetPower(2,0);
   ESC_SetPower(3,0);
-	ESC_SetPower(4,0);
+	ESC_SetPower(4,0);*/
 	//ESC_Calibrate_All();
 }
 void init_ESC_GPIO(void)
@@ -111,7 +114,7 @@ void init_ESC_GPIO(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 
   /* GPIOC and GPIOB clock enable */
-  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB | RCC_AHBPeriph_GPIOC, ENABLE);
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOB, ENABLE);
   
   /* GPIOC Configuration: TIM3 CH1 (PC6) and TIM3 CH2 (PC7) */
   GPIO_InitStructure_PWM.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
@@ -121,17 +124,23 @@ void init_ESC_GPIO(void)
   GPIO_InitStructure_PWM.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure_PWM.GPIO_PuPd = GPIO_PuPd_UP ;
   GPIO_Init(GPIOC, &GPIO_InitStructure_PWM); 
+	
+	
 
   
 	GPIO_InitStructure_PWM.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+	GPIO_InitStructure_PWM.GPIO_Mode = GPIO_Mode_AF;
+  GPIO_InitStructure_PWM.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure_PWM.GPIO_OType = GPIO_OType_PP;
+  GPIO_InitStructure_PWM.GPIO_PuPd = GPIO_PuPd_UP ;
 	GPIO_Init(GPIOB, &GPIO_InitStructure_PWM);
 	
   /* Connect TIM3 pins to AF2 */  
   GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_2);
   GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_2); 
+	GPIO_PinAFConfig(GPIOB, GPIO_PinSource1, GPIO_AF_2); 
   GPIO_PinAFConfig(GPIOB, GPIO_PinSource0, GPIO_AF_2);
-	GPIO_PinAFConfig(GPIOB, GPIO_PinSource1, GPIO_AF_2);
-
+	//GPIO_PinAFConfig(GPIOB, GPIO_PinSource1, GPIO_AF_10);
 
 
 }
@@ -164,7 +173,7 @@ void init_ESC_Timer(int period)
 
   /* Compute the prescaler value */
   //PrescalerValue = (uint16_t) ((SystemCoreClock /2) / 1000000) - 1;
-	PrescalerValue = (uint16_t) (SystemCoreClock / 5000000) - 1;
+	PrescalerValue = (uint16_t) (SystemCoreClock / 2500000) - 1;
 
   /* Time base configuration */
   TIM_TimeBaseStructure_PWM.TIM_Period = period;
@@ -176,12 +185,12 @@ void init_ESC_Timer(int period)
 
   /* PWM1 Mode configuration: Channel1 */
   TIM_OCInitStructure_PWM.TIM_OCMode = TIM_OCMode_PWM1;
+	TIM_OCInitStructure_PWM.TIM_OCPolarity = TIM_OCPolarity_High;
+	
   TIM_OCInitStructure_PWM.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure_PWM.TIM_Pulse = 0;
-  TIM_OCInitStructure_PWM.TIM_OCPolarity = TIM_OCPolarity_High;
-
+  
   TIM_OC1Init(TIM3, &TIM_OCInitStructure_PWM);
-
   TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
 
   /* PWM1 Mode configuration: Channel2 */
@@ -202,8 +211,8 @@ void init_ESC_Timer(int period)
   TIM_OCInitStructure_PWM.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure_PWM.TIM_Pulse = 0;
 
-  TIM_OC3Init(TIM3, &TIM_OCInitStructure_PWM);
-  TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Enable);
+  TIM_OC4Init(TIM3, &TIM_OCInitStructure_PWM);
+  TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Enable);
 
 
   TIM_ARRPreloadConfig(TIM3, ENABLE);
@@ -281,7 +290,7 @@ void init_timer(void)
   TIM_TimeBaseStructure_IMU.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure_IMU.TIM_CounterMode = TIM_CounterMode_Up;
 
-  TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure_IMU);
+  TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure_IMU);
 	
 	TIM_ARRPreloadConfig(TIM4, ENABLE);
   /* TIM3 enable counter */
@@ -299,24 +308,26 @@ void init_USART2(uint32_t baudrate)
 	/* enable the peripheral clock for the pins used by 
 	 * USART2, PB6 for TX and PB7 for RX
 	 */
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOD, ENABLE);
 	
 	/* This sequence sets up the TX and RX pins 
 	 * so they work correctly with the USART2 peripheral
 	 */
-	GPIO_InitStruct_USART2.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3; // Pins 2 (TX) and 3 (RX) are used
+	GPIO_InitStruct_USART2.GPIO_Pin = GPIO_Pin_6 ; // Pins 2 (TX) and 3 (RX) are used
 	GPIO_InitStruct_USART2.GPIO_Mode = GPIO_Mode_AF;			 // the pins are configured as alternate function so the USART peripheral has access to them
 	GPIO_InitStruct_USART2.GPIO_Speed = GPIO_Speed_50MHz;		// this defines the IO speed and has nothing to do with the baudrate!
 	GPIO_InitStruct_USART2.GPIO_OType = GPIO_OType_PP;			// this defines the output type as push pull mode (as opposed to open drain)
 	GPIO_InitStruct_USART2.GPIO_PuPd = GPIO_PuPd_UP;			// this activates the pullup resistors on the IO pins
-	GPIO_Init(GPIOA, &GPIO_InitStruct_USART2);					// now all the values are passed to the GPIO_Init() function which sets the GPIO registers
+	GPIO_Init(GPIOD, &GPIO_InitStruct_USART2);					// now all the values are passed to the GPIO_Init() function which sets the GPIO registers
 	
+	GPIO_InitStruct_USART2.GPIO_Pin = GPIO_Pin_14;
+	GPIO_Init(GPIOA, &GPIO_InitStruct_USART2);	
 	/* The RX and TX pins are now connected to their AF
 	 * so that the USART2 can take over control of the 
 	 * pins
 	 */
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_7); //
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_7);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_7); //
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource14, GPIO_AF_7);
 	
 	/* Now the USART_InitStruct is used to define the 
 	 * properties of USART2 

@@ -5,6 +5,6 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void ESC_SetPower(uint16_t channel,uint16_t lenght);
+void ESC_SetPower(uint16_t channel,int lenght);
 void ESC_Calibrate_All(void);
 /* Exported variables ------------------------------------------------------- */

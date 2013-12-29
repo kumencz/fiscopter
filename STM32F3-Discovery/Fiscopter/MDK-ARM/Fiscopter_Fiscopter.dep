@@ -1,5 +1,5 @@
 Dependencies for Project 'Fiscopter', Target 'Fiscopter': (DO NOT MODIFY !)
-F (..\main.c)(0x528BCFDC)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (..\main.c)(0x52C06A96)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\main.h)(0x52756C48)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h)(0x506309EB)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h)(0x512C80D2)
@@ -36,14 +36,14 @@ I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52829585)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52BC2631)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\programs.h)(0x52820D79)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52756C4A)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52BC7204)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\PID.h)(0x528206D7)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x5282B46E)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x52BB3A64)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\time.h)(0x528206A9)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\imu.h)(0x528BCFDC)
-F (..\init.c)(0x528BBBF3)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\init.o --omf_browse .\init.crf --depend .\init.d)
+F (..\init.c)(0x52BC7C3B)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\init.o --omf_browse .\init.crf --depend .\init.d)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\main.h)(0x52756C48)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h)(0x506309EB)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h)(0x512C80D2)
@@ -80,10 +80,10 @@ I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52829585)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x5282B46E)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52BC2631)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x52BB3A64)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\time.h)(0x528206A9)
-F (..\programs.c)(0x528BAE8C)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\programs.o --omf_browse .\programs.crf --depend .\programs.d)
+F (..\programs.c)(0x52BC7D1F)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\programs.o --omf_browse .\programs.crf --depend .\programs.d)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\programs.h)(0x52820D79)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h)(0x506309EB)
@@ -121,10 +121,11 @@ I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x5282B46E)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x52BB3A64)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\time.h)(0x528206A9)
-F (..\motors.c)(0x5282B46E)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\motors.o --omf_browse .\motors.crf --depend .\motors.d)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x5282B46E)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52BC7204)
+F (..\motors.c)(0x52BC487B)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\motors.o --omf_browse .\motors.crf --depend .\motors.d)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\motors.h)(0x52BB3A64)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h)(0x506309EB)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h)(0x512C80D2)
@@ -162,8 +163,8 @@ I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\S
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\time.h)(0x528206A9)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52829585)
-F (..\imu.c)(0x528BE58A)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\imu.o --omf_browse .\imu.crf --depend .\imu.d)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52BC2631)
+F (..\imu.c)(0x52C06A96)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\imu.o --omf_browse .\imu.crf --depend .\imu.d)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\imu.h)(0x528BCFDC)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h)(0x506309EB)
@@ -201,7 +202,7 @@ I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52756C4A)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52BC7204)
 F (..\time.c)(0x528206A9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\time.o --omf_browse .\time.crf --depend .\time.d)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\time.h)(0x528206A9)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h)(0x50630AA2)
@@ -240,8 +241,8 @@ I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
-F (..\usart.c)(0x52820C98)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\usart.o --omf_browse .\usart.crf --depend .\usart.d)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52756C4A)
+F (..\usart.c)(0x52BC71EF)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\usart.o --omf_browse .\usart.crf --depend .\usart.d)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52BC7204)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h)(0x506309EB)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h)(0x512C80D2)
@@ -313,7 +314,7 @@ I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
-F (..\stm32f30x_it.c)(0x52820F15)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\stm32f30x_it.o --omf_browse .\stm32f30x_it.crf --depend .\stm32f30x_it.d)
+F (..\stm32f30x_it.c)(0x52BCA9F3)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\stm32f30x_it.o --omf_browse .\stm32f30x_it.crf --depend .\stm32f30x_it.d)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\stm32f30x_it.h)(0x52756C49)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h)(0x506309EB)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h)(0x512C80D2)
@@ -351,8 +352,8 @@ I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C80BA4)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h)(0x50630AA2)
 I (C:\Documents and Settings\Kuba\Plocha\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h)(0x50630AA2)
 I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C80BA4)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52829585)
-I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52756C4A)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\init.h)(0x52BC2631)
+I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\usart.h)(0x52BC7204)
 I (C:\Documents and Settings\Kuba\Plocha\ARM\Fiscopter\time.h)(0x528206A9)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C80BA4)
 F (..\system_stm32f30x.c)(0x52756C49)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\..\ -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include-I C:\Keil\ARM\PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include-I C:\Keil\ARM\Inc\ST\STM32F30x-DSTM32F30x -DUSE_STDPERIPH_DRIVER -DSTM32F30X -o .\system_stm32f30x.o --omf_browse .\system_stm32f30x.crf --depend .\system_stm32f30x.d)

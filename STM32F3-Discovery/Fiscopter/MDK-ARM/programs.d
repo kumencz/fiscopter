@@ -39,3 +39,4 @@
 .\programs.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
 .\programs.o: ..\motors.h
 .\programs.o: ..\time.h
+.\programs.o: ..\usart.h
