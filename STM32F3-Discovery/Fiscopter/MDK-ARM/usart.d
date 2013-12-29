@@ -1,5 +1,6 @@
 .\usart.o: ..\usart.c
-.\usart.o: ..\usart.h
+.\usart.o: ..\main.h
+.\usart.o: ..\programs.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h
 .\usart.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h
@@ -32,5 +33,14 @@
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_usart.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_wwdg.h
 .\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_misc.h
+.\usart.o: ..\PID.h
+.\usart.o: ..\imu.h
+.\usart.o: ..\init.h
+.\usart.o: ..\motors.h
+.\usart.o: ..\time.h
+.\usart.o: ..\usart.h
+.\usart.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
 .\usart.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\usart.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h
+.\usart.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h

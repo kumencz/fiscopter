@@ -1,4 +1,5 @@
 .\programs.o: ..\programs.c
+.\programs.o: ..\main.h
 .\programs.o: ..\programs.h
 .\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h
 .\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h
@@ -32,11 +33,14 @@
 .\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_usart.h
 .\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_wwdg.h
 .\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_misc.h
-.\programs.o: ..\main.h
-.\programs.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h
-.\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h
-.\programs.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\programs.o: ..\PID.h
+.\programs.o: ..\imu.h
+.\programs.o: ..\init.h
 .\programs.o: ..\motors.h
 .\programs.o: ..\time.h
 .\programs.o: ..\usart.h
+.\programs.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\programs.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\programs.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h
+.\programs.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h

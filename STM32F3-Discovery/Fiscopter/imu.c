@@ -1,8 +1,5 @@
 /* Includes ------------------------------------------------------------------*/
-#include "imu.h"
 #include "main.h"
-#include "usart.h"
-#include "stm32f30x.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define L3G_Sensitivity_250dps     (float)    114.285f        /*!< gyroscope sensitivity with 250 dps full scale [LSB/dps] */

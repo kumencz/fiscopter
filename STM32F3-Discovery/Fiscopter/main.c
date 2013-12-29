@@ -1,14 +1,5 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "init.h"
-#include "programs.h"
-#include "usart.h"
-#include "PID.h"
-#include "motors.h"
-#include "time.h"
-#include "imu.h"
-#include "stm32f3_discovery.h"
-#include "math.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/

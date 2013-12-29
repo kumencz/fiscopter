@@ -1,5 +1,6 @@
 .\pid.o: ..\PID.c
-.\pid.o: ..\pid.h
+.\pid.o: ..\main.h
+.\pid.o: ..\programs.h
 .\pid.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery.h
 .\pid.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\CMSIS\Device\ST\STM32F30x\Include\stm32f30x.h
 .\pid.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include\core_cm4.h
@@ -32,8 +33,14 @@
 .\pid.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_usart.h
 .\pid.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_wwdg.h
 .\pid.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Libraries\STM32F30x_StdPeriph_Driver\inc\stm32f30x_misc.h
-.\pid.o: ..\main.h
+.\pid.o: ..\PID.h
+.\pid.o: ..\imu.h
+.\pid.o: ..\init.h
+.\pid.o: ..\motors.h
+.\pid.o: ..\time.h
+.\pid.o: ..\usart.h
+.\pid.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\pid.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\pid.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\pid.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_lsm303dlhc.h
 .\pid.o: ..\..\..\STM32F3-Discovery_FW_V1.1.0\Utilities\STM32F3_Discovery\stm32f3_discovery_l3gd20.h
-.\pid.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h

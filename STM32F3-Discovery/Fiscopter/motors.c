@@ -1,9 +1,5 @@
 /* Includes ------------------------------------------------------------------*/
-#include "motors.h"
 #include "main.h"
-#include "time.h"
-#include "init.h"
-#include "stm32f30x.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -36,14 +32,14 @@ void ESC_SetPower(uint16_t channel,int lenght) //!!!!! minimum = 0, maximum = 10
 }
 void ESC_Calibrate_All(void)
 {
-	//set motors to minimum performance
+	//set motors to maximum performance
 	STM_EVAL_LEDOn(LED8);
 	ESC_SetPower(1,0);
 	ESC_SetPower(2,0);
 	ESC_SetPower(3,0);
 	ESC_SetPower(4,0);
 	Delay(500);
-	//set motors to maximum performance
+	//set motors to minimum performance
 	ESC_SetPower(1,10000);
 	ESC_SetPower(2,10000);
 	ESC_SetPower(3,10000);

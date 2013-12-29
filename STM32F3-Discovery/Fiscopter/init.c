@@ -1,12 +1,5 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "init.h"
-#include "motors.h"
-#include "time.h"
-#include "stm32f3_discovery.h"
-#include "stm32f30x.h"
-#include <stm32f30x_usart.h>
-
 /* Private typedef -----------------------------------------------------------*/
 GPIO_InitTypeDef GPIO_InitStructure_PWM;
 GPIO_InitTypeDef GPIO_InitStructure_Motor;
@@ -88,7 +81,8 @@ void init_Button(void)
 }
 void init_ESC(void)
 {
-	
+	sprintf(send, "- ESC update freq. is set to: %d", ESC_update_freq);
+	USART_puts(USART2, send); 
 	
 	period = 2500000 / ESC_update_freq;
 	ESC_cycle_time = (double) period / 2500000;
