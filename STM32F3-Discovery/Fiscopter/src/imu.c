@@ -266,8 +266,7 @@ void read_imu(void)
 	gyrYangle = 0.0f;
 	gyrZangle = 0.0f;
 		
-	while (1)
-    {    
+   
 			if(gyro_cnt > reload_gyro)
 			{
 				gyrXangle = Xrot - 1;
@@ -373,6 +372,6 @@ void read_imu(void)
 			//Delay(5);
 			counter_old = TIM4->CNT;
 			gyro_cnt++;				
-		}
+		
 	
 }

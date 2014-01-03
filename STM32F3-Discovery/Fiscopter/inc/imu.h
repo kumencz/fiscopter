@@ -13,3 +13,4 @@ uint32_t LSM303DLHC_TIMEOUT_UserCallback(void);
 uint32_t L3GD20_TIMEOUT_UserCallback(void);
 void read_imu(void);
 /* Exported variables ------------------------------------------------------- */
+extern float Xrot, Yrot, Zrot;

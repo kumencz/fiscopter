@@ -4,6 +4,7 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+uint16_t M1_speed, M2_speed, M3_speed, M4_speed;
 
 
 void ESC_SetPower(uint16_t channel,int lenght) //!!!!! minimum = 0, maximum = 10000 !!!!!
@@ -52,5 +53,13 @@ void ESC_Calibrate_All(void)
 	ESC_SetPower(3,0);
 	ESC_SetPower(4,0);
 	Delay(4000);
+}
+
+  void ESC_recompute(void)
+{
+	ESC_SetPower(1, (M1_speed + x_out + y_out));
+	ESC_SetPower(2, (M2_speed + x_out + y_out_neg));
+	ESC_SetPower(3, (M3_speed + x_out_neg + y_out_neg));
+	ESC_SetPower(4, (M4_speed + x_out_neg + y_out));
 }
 

@@ -36,7 +36,7 @@ int main(void)
 	{
 		test_motors(8000);
 	}*/
-	read_imu();
+//	read_imu();
 	//----------calibrate ESC---------------
 	
 	//----------motor test---------------
@@ -47,6 +47,18 @@ int main(void)
 	
 	//SetTunings(0.5,0.4,0.3);
 //	read_imu();
+	SetTunings(100, 100, 100);
+	M1_speed = 5000;
+	M2_speed = 5000;
+	M3_speed = 5000; 
+	M4_speed = 5000;
+	ESC_recompute();
+	/* ------ infinity loop ---------- */
+	while (1)
+	{
+		period_time_check_flags();
+		read_imu();
+	}
 }
 
 #ifdef  USE_FULL_ASSERT
