@@ -57,9 +57,9 @@ void ESC_Calibrate_All(void)
 
   void ESC_recompute(void)
 {
-	ESC_SetPower(1, (M1_speed + x_out + y_out));
+	ESC_SetPower(1, (M1_speed + x_out_neg + y_out_neg));
 	ESC_SetPower(2, (M2_speed + x_out + y_out_neg));
-	ESC_SetPower(3, (M3_speed + x_out_neg + y_out_neg));
+	ESC_SetPower(3, (M3_speed + x_out + y_out));
 	ESC_SetPower(4, (M4_speed + x_out_neg + y_out));
 }
 

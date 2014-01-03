@@ -28,8 +28,8 @@ int main(void)
 	Delay(3000);
 	
 	//----------calibrate ESC---------------
-	//USART_puts(USART2, "ESC calibrating ...\n");
-	//ESC_Calibrate_All();
+	USART_puts(USART2, "ESC calibrating ...\n");
+	ESC_Calibrate_All();
 	
 	/*USART_puts(USART2, "Test motors: 8000\n");
 	while(1)
@@ -47,11 +47,11 @@ int main(void)
 	
 	//SetTunings(0.5,0.4,0.3);
 //	read_imu();
-	SetTunings(100, 100, 100);
-	M1_speed = 5000;
-	M2_speed = 5000;
-	M3_speed = 5000; 
-	M4_speed = 5000;
+	SetTunings(20, 50, 10);
+	M1_speed = 3000;
+	M2_speed = 3000;
+	M3_speed = 3000; 
+	M4_speed = 3000;
 	ESC_recompute();
 	/* ------ infinity loop ---------- */
 	while (1)
