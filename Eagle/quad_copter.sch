@@ -954,21 +954,21 @@ paja-trb@seznam.cz
 <plain>
 </plain>
 <instances>
-<instance part="X1" gate="PWR" x="106.68" y="81.28" rot="R90"/>
+<instance part="X1" gate="PWR" x="71.12" y="-5.08" rot="R90"/>
 <instance part="X1" gate="PORTA" x="134.62" y="10.16" rot="R90"/>
 <instance part="X1" gate="PORTB" x="17.78" y="-83.82" rot="R180"/>
 <instance part="X1" gate="PORTC" x="7.62" y="-7.62"/>
 <instance part="X1" gate="PORTD" x="129.54" y="-20.32"/>
-<instance part="X1" gate="PORTE" x="53.34" y="50.8"/>
-<instance part="X1" gate="PORTH" x="-2.54" y="20.32"/>
+<instance part="X1" gate="PORTE" x="50.8" y="66.04"/>
+<instance part="X1" gate="PORTH" x="-15.24" y="66.04"/>
 <instance part="USART1" gate="JUMP" x="167.64" y="27.94" rot="R270"/>
 <instance part="USART2" gate="JUMP" x="167.64" y="-38.1" rot="R270"/>
 <instance part="0V2" gate="0" x="165.1" y="-45.72"/>
 <instance part="0V3" gate="0" x="165.1" y="17.78"/>
 <instance part="NAP2" gate="+5" x="165.1" y="40.64"/>
 <instance part="NAP3" gate="+5" x="165.1" y="-27.94"/>
-<instance part="NAP4" gate="+5" x="83.82" y="71.12" rot="R90"/>
-<instance part="0V4" gate="0" x="121.92" y="66.04"/>
+<instance part="NAP4" gate="+5" x="48.26" y="-15.24" rot="R90"/>
+<instance part="0V4" gate="0" x="86.36" y="-20.32"/>
 <instance part="BEC1" gate="JUMP" x="-35.56" y="-27.94" rot="R90"/>
 <instance part="BEC2" gate="JUMP" x="-35.56" y="-45.72" rot="R90"/>
 <instance part="BEC3" gate="JUMP" x="-35.56" y="-60.96" rot="R90"/>
@@ -1002,7 +1002,7 @@ paja-trb@seznam.cz
 <pinref part="X1" gate="PWR" pin="5V@2"/>
 <pinref part="NAP4" gate="+5" pin="+5V"/>
 <pinref part="X1" gate="PWR" pin="5V@1"/>
-<wire x1="88.9" y1="68.58" x2="88.9" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="-17.78" x2="53.34" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JUM1" gate="JUMP" pin="2"/>
@@ -1043,12 +1043,12 @@ paja-trb@seznam.cz
 <pinref part="0V4" gate="0" pin="0V"/>
 <pinref part="X1" gate="PWR" pin="GND@3"/>
 <pinref part="X1" gate="PWR" pin="GND@2"/>
-<wire x1="121.92" y1="68.58" x2="121.92" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="71.12" x2="121.92" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-17.78" x2="86.36" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-15.24" x2="86.36" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="X1" gate="PWR" pin="GND@4"/>
 <pinref part="X1" gate="PWR" pin="GND@5"/>
-<wire x1="121.92" y1="76.2" x2="121.92" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="73.66" x2="121.92" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-10.16" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-12.7" x2="86.36" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="BEC1" gate="JUMP" pin="3"/>
@@ -1094,7 +1094,7 @@ paja-trb@seznam.cz
 <segment>
 <pinref part="X1" gate="PWR" pin="3V3@2"/>
 <pinref part="X1" gate="PWR" pin="3V3@1"/>
-<wire x1="88.9" y1="78.74" x2="88.9" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="-7.62" x2="53.34" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
