@@ -45,7 +45,7 @@ void init_ALL(void)
 	init_gyro();
 	init_acc_mag();
 	init_timer();
-	init_USART2(115200);
+	init_USART2(57600);
 }
 
 void init_discovery_board(void)

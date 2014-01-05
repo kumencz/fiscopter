@@ -80,6 +80,7 @@ void period_time_check_flags(void)
 void tim_1ms_loop(void)
 {
 	TIM_1MS_FLAG = 0;
+	read_imu();
 	Compute(Xrot,Yrot);
 	ESC_recompute();
 }
@@ -96,7 +97,6 @@ void tim_100ms_loop(void)
 
 void tim_1000ms_loop(void)
 {
-	 TIM_1000MS_FLAG = 0;
+	TIM_1000MS_FLAG = 0;
 	STM_EVAL_LEDToggle(LED5);
-	
 }

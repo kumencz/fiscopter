@@ -57,7 +57,7 @@ int main(void)
 	while (1)
 	{
 		period_time_check_flags();
-		read_imu();
+		//read_imu();
 	}
 }
 

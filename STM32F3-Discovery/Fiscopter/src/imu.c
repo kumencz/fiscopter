@@ -262,9 +262,9 @@ float kalmanCalculate(float newAngle, float newRate,float looptime)
 
 void read_imu(void)
 {
-	gyrXangle = 0.0f;
-	gyrYangle = 0.0f;
-	gyrZangle = 0.0f;
+	//gyrXangle = 0.0f;
+	//gyrYangle = 0.0f;
+	//gyrZangle = 0.0f;
 		
    
 			if(gyro_cnt > reload_gyro)
@@ -341,7 +341,8 @@ void read_imu(void)
 
 
 			
-			sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Xrot, Yrot, gyrZangle, MagBuffer[0], MagBuffer[1], MagBuffer[2], gyrXangle, gyrYangle, gyrZangle);
+			//sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Xrot, Yrot, gyrZangle, MagBuffer[0], MagBuffer[1], MagBuffer[2], gyrXangle, gyrYangle, gyrZangle);
+			sprintf(send, "0|%f|%f|%f|0|0|\n", Xrot, Yrot, gyrZangle);
 			//sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Xrot, Yrot, Zrot, AccBuffer[0], AccBuffer[1], AccBuffer[2], gyrXangle, gyrYangle, gyrZangle);
 			USART_puts(USART2, send); 
   
@@ -360,6 +361,7 @@ void read_imu(void)
 			sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Input, Output, Setpoint, accXangle, accYangle, accZangle, gyrXangle, gyrYangle, gyrZangle);
 			USART_puts(USART2, send);			
 			*/
+			
 			
 			counter = TIM4->CNT;
 			if(counter > counter_old)
