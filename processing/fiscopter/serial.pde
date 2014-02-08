@@ -1,6 +1,6 @@
 void serialEvent (Serial myPort) {
   // get the ASCII string:
-  String inString = myPort.readStringUntil('\n');
+  inString = myPort.readStringUntil('\n');
  // println(inString);
   select = float(split(inString,"|"));
   println(split(inString,"|"));
