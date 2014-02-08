@@ -33,5 +33,9 @@ void test_motors(int max_torgue)
 			ESC_SetPower(4,0);
 			Delay(3000);
 		}
+		if(UserButtonPressed == 1)
+		{
+			break;
+		}
 	}
 }

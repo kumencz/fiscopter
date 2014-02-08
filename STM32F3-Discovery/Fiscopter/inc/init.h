@@ -10,3 +10,6 @@ void init_discovery_board(void);
 extern double ESC_koef;
 extern double ESC_min;
 extern double ESC_max;
+extern int north_master;
+extern int Mag_correction;
+

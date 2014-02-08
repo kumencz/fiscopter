@@ -11,6 +11,9 @@ USART_InitTypeDef USART_InitStruct_USART2; // USART2 initilization
 NVIC_InitTypeDef NVIC_InitStructure_USART2; // configure NVIC (nested vector interrupt controller)
 /* Private define ------------------------------------------------------------*/
 #define ESC_update_freq 100   // !!!!min:100 max:200 !!!!
+#define USE_NORTH_AS_MASTER 0
+
+#define PI                         (float)     3.14159265f
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -27,6 +30,7 @@ void init_gyro(void);
 void init_acc_mag(void);
 void init_timer(void);
 void init_USART2(uint32_t baudrate);
+void init_settings(void);
 /* Private functions ---------------------------------------------------------*/
 /* Private variables ------------------------------------------------------- */
 double ESC_min;
@@ -35,6 +39,8 @@ double ESC_lenght;
 double ESC_koef;
 double ESC_cycle_time;
 int period;
+int north_master;
+int Mag_correction;
 
 void init_ALL(void)
 {
@@ -45,7 +51,8 @@ void init_ALL(void)
 	init_gyro();
 	init_acc_mag();
 	init_timer();
-	init_USART2(57600);
+	init_USART2(115200);
+	init_settings();
 }
 
 void init_discovery_board(void)
@@ -270,6 +277,9 @@ void init_acc_mag(void)
 
   /* Configure the accelerometer LPF main parameters */
   LSM303DLHC_AccFilterConfig(&LSM303DLHCFilter_InitStructure);
+	
+	//use north or not
+	
 }
 void init_timer(void)
 {
@@ -350,4 +360,19 @@ void init_USART2(uint32_t baudrate)
 
 	// finally this enables the complete USART2 peripheral
 	USART_Cmd(USART2, ENABLE);
+}
+void init_settings(void)
+{
+	//-------------- set mag --------------
+	//use north or not?
+	if(! USE_NORTH_AS_MASTER)
+	{
+		float Mag_Buffer[3] = {0.00f};
+		north_master = 0;
+		
+		Compass_ReadMag(Mag_Buffer);
+		
+		Mag_correction = (atan2(Mag_Buffer[1],Mag_Buffer[2])*180/PI);
+		if (Mag_correction < 0) Mag_correction += 360;
+	}
 }

@@ -25,6 +25,8 @@ void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
 
+extern __IO uint32_t UserButtonPressed;
+
 #ifdef __cplusplus
 }
 #endif

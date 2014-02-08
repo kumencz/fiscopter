@@ -30,35 +30,34 @@ int main(void)
 	//----------calibrate ESC---------------
 	USART_puts(USART2, "ESC calibrating ...\n");
 	ESC_Calibrate_All();
-	
-	/*USART_puts(USART2, "Test motors: 8000\n");
-	while(1)
-	{
-		test_motors(8000);
-	}*/
-//	read_imu();
 	//----------calibrate ESC---------------
 	
-	//----------motor test---------------
-	//STM_EVAL_LEDOn(LED9);
-  //test_motors(1000);
-	//STM_EVAL_LEDOff(LED9);
-	//----------motor test---------------
 	
-	//SetTunings(0.5,0.4,0.3);
-//	read_imu();
-	SetTunings(20, 50, 10);
-	M1_speed = 3000;
-	M2_speed = 3000;
-	M3_speed = 3000; 
-	M4_speed = 3000;
-	ESC_recompute();
-	/* ------ infinity loop ---------- */
+	//----------motor test---------------
+	/*
+	USART_puts(USART2, "Test motors: 8000\n");
+	STM_EVAL_LEDOn(LED9);
+  test_motors(1000);
+	STM_EVAL_LEDOff(LED9);
+	*/
+	//----------motor test---------------
+
+
+
+	//----------main program----------
+  SetTunings(20, 50, 10); //PID setting
+	M1_speed = 3000;  			//main motor speed
+	M2_speed = 3000; 				//main motor speed
+	M3_speed = 3000;  			//main motor speed
+	M4_speed = 3000;				//main motor speed
+	ESC_recompute();				//main motor speed
+	
 	while (1)
 	{
 		period_time_check_flags();
-		//read_imu();
 	}
+	
+	//----------main program----------
 }
 
 #ifdef  USE_FULL_ASSERT

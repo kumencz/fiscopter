@@ -14,22 +14,24 @@
 #define PI                         (float)     3.14159265f
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-float MagBuffer[3] = {0.00f}, AccBuffer[3] = {0.00f}, Buffer[3] = {0.00f};
+float Mag_Buffer[3] = {0.00f}, Acc_Buffer[3] = {0.00f}, Gyro_Buffer[3] = {0.00f};
 int Xval, Yval, Zval = 0x00;
 __IO uint32_t UserButtonPressed = 0;
 
-float fNormAcc,fNormMag,fSinRoll,YawAng = 0.0f, RollAng = 0.0f, PitchAng = 0.0f;
+float fNormAcc,fNormMag;
+float YawAng = 0.0f, RollAng = 0.0f, PitchAng = 0.0f;
 float Xrot, Yrot, Zrot;
 float gyrXangle, gyrYangle, gyrZangle;
 float accXangle, accYangle, accZangle;
 float magXangle, magYangle, magZangle;
+float Mag_angle = 0.0f;
 
 float time;
 long int counter, counter_old; 
 
 int u = 0;
 
-int reload_gyro = 1000;
+int reload_gyro = 1000;  //reload acc to gyro after $X cycles
 int gyro_cnt;
 int millis;
 
@@ -224,7 +226,7 @@ uint32_t L3GD20_TIMEOUT_UserCallback(void)
   return 0;
 }
 
-//Kalmanov filtr - asi nefunguje jak má :) potrebuje predelat
+//Kalmanuv filtr - asi nefunguje jak ma :) potrebuje predelat
 //------------------------------------------
 /*float Q_angle  =  0.001; //0.001
 float Q_gyro   =  0.003;  //0.003
@@ -261,119 +263,65 @@ float kalmanCalculate(float newAngle, float newRate,float looptime)
 }*/
 
 void read_imu(void)
-{
-	//gyrXangle = 0.0f;
-	//gyrYangle = 0.0f;
-	//gyrZangle = 0.0f;
-		
-   
-			if(gyro_cnt > reload_gyro)
-			{
-				gyrXangle = Xrot - 1;
-				gyrYangle = Yrot - 1;
-				gyro_cnt = 0;
-			}
-			
-			
-			/* Read Acc */
-			Acc_ReadAcc(AccBuffer);
-			for(u=0;u<3;u++) AccBuffer[u] /= 100.0f;
-      fNormAcc = sqrt((AccBuffer[0]*AccBuffer[0])+(AccBuffer[1]*AccBuffer[1])+(AccBuffer[2]*AccBuffer[2]));
-      
-			accXangle = ((acos(AccBuffer[0]/fNormAcc))*180/PI)-90;
-			accYangle = ((acos(AccBuffer[1]/fNormAcc))*180/PI)-90;
-			accZangle = ((acos(AccBuffer[2]/fNormAcc))*180/PI)-90;
-			
-			/* Read Gyro */
-			Gyro_ReadAngRate(Buffer);
-         
-			gyrXangle = gyrXangle + ((Buffer[0]*time));
-			gyrYangle = gyrYangle + ((Buffer[1]*time));
-			gyrZangle = gyrZangle + ((Buffer[2]*time));
-			
-			/* Read Mag */
-			Compass_ReadMag(MagBuffer);
-			
-			/* Filter */
-			Xrot = 0.98 *(Xrot+Buffer[0]*time) + 0.02*accXangle;
-			Yrot = 0.98 *(Yrot+Buffer[1]*time) + 0.02*accYangle;
-			Zrot = 0.98 *(Zrot+Buffer[2]*time) + 0.02*(gyrZangle/2);
-			
-			
-		/*	if(gyrXangle > 180)
-			{
-				accXangle = 360 - (acos(AccBuffer[0]/fNormAcc))*180/PI ;
-				if(gyrXangle > 270)
-				{
-					accXangle = -90-(acos(AccBuffer[0]/fNormAcc))*180/PI;
-					gyrXangle = gyrXangle - 270;
-				}
-			}else if(gyrXangle < 0)
-			{
-				accXangle = -(acos(AccBuffer[0]/fNormAcc))*180/PI ;
-				if(gyrXangle < -90)
-				{
-					accXangle = 90+(acos(AccBuffer[0]/fNormAcc))*180/PI;
-					gyrXangle = 90+(gyrXangle + 90);
-				}
-			}else
-			{
-				accXangle = (acos(AccBuffer[0]/fNormAcc))*180/PI;
-			}
-			*/
-			
-			
-			
-			if(gyrYangle > 180)
-			{
-				accYangle = (360 - (acos(AccBuffer[1]/fNormAcc))*180/PI) ;
-				if(gyrXangle > accXangle && gyrXangle > 335)
-				{
-					accYangle = 360+(acos(AccBuffer[1]/fNormAcc))*180/PI;
-				}
-			}
-			else 
-			{
-				accYangle = (acos(AccBuffer[1]/fNormAcc))*180/PI;
-			}
-			
-			
+{   
+	//repair gyro -> set gyro to acc value
+	//opravy offset/rozjezd gyroskopu od prave hodnoty akcelerometru
+	if(gyro_cnt > reload_gyro)
+	{
+		gyrXangle = Xrot - 1;
+		gyrYangle = Yrot - 1;
+		gyro_cnt = 0;
+	}
 
+	/*--------------- Read Acc ---------------*/
+	Acc_ReadAcc(Acc_Buffer);
 
-			
-			//sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Xrot, Yrot, gyrZangle, MagBuffer[0], MagBuffer[1], MagBuffer[2], gyrXangle, gyrYangle, gyrZangle);
-			sprintf(send, "0|%f|%f|%f|0|0|\n", Xrot, Yrot, gyrZangle);
-			//sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Xrot, Yrot, Zrot, AccBuffer[0], AccBuffer[1], AccBuffer[2], gyrXangle, gyrYangle, gyrZangle);
-			USART_puts(USART2, send); 
-  
-			/////PID
-			/*
-			if(UserButtonPressed != 0x00)
-			{
-				Setpoint = 50;
-			}else
-			{
-				Setpoint = 0;
-			}
-			//if(Setpoint == Output)delete_it();
-			Input = Output/1.5f;
-			Compute();
-			sprintf(send, "|%f|%f|%f|%f|%f|%f|%f|%f|%f|\n", Input, Output, Setpoint, accXangle, accYangle, accZangle, gyrXangle, gyrYangle, gyrZangle);
-			USART_puts(USART2, send);			
-			*/
-			
-			
-			counter = TIM4->CNT;
-			if(counter > counter_old)
-			{
-				time = (counter-counter_old)*0.0000005;
-			}else if(counter < counter_old)
-			{
-				time = (50000-counter_old+counter)*0.0000005;
-			}
-			//Delay(5);
-			counter_old = TIM4->CNT;
-			gyro_cnt++;				
-		
+	Acc_Buffer[0] /= 100.0f;
+	Acc_Buffer[1] /= 100.0f;
+	Acc_Buffer[2] /= 100.0f;
+
+	fNormAcc = sqrt((Acc_Buffer[0]*Acc_Buffer[0])+(Acc_Buffer[1]*Acc_Buffer[1])+(Acc_Buffer[2]*Acc_Buffer[2])); //vector length of acceleration
 	
+	accXangle = -(atan2((Acc_Buffer[0]/fNormAcc),Acc_Buffer[2]/fNormAcc)*180/PI);
+	accYangle = -(atan2((Acc_Buffer[1]/fNormAcc),Acc_Buffer[2]/fNormAcc)*180/PI);			
+
+	/*--------------- Read Gyro ---------------*/
+	Gyro_ReadAngRate(Gyro_Buffer);
+		 
+	gyrXangle = gyrXangle + ((Gyro_Buffer[0]*time));
+	gyrYangle = gyrYangle + ((Gyro_Buffer[1]*time));
+	gyrZangle = gyrZangle + ((Gyro_Buffer[2]*time));
+
+	/*--------------- Read Mag ---------------*/
+	Compass_ReadMag(Mag_Buffer);
+	
+	Mag_angle = (atan2(Mag_Buffer[1],Mag_Buffer[0])*180/PI)-Mag_correction;
+	if (Mag_angle < 0) Mag_angle += 360;
+	
+	/* Filter and combine acc + gyro (+ mag)*/
+
+	YawAng 		= 0.98f *(YawAng+Gyro_Buffer[0]*time) + 0.02f*accXangle;
+	RollAng 	= 0.98f *(RollAng+Gyro_Buffer[1]*time) + 0.02f*accYangle;
+	PitchAng 	= 0.98f *(PitchAng-Gyro_Buffer[2]*time) + 0.02f*Mag_angle;
+
+
+	sprintf(send, "0|%f|%f|%f|%f|%f|0|\n",YawAng,RollAng,PitchAng,time,Mag_angle);
+	//sprintf(send, "0|%f|%f|%f|0|0|0|\n",YawAng,RollAng,PitchAng);
+	USART_puts(USART2, send); 
+
+
+	//counter pocita tiky timeru
+	//TIM4->CNT obsahuje soucasny stav citace tiku timeru 4
+	counter = TIM4->CNT;	
+	if(counter > counter_old)
+	{
+		time = (counter-counter_old)*0.0000005; //pocet tiku od minule * doba tiku
+	}else if(counter < counter_old)  //pokud counter napocita 50000 pocita znova od 0 -> counter bude mensi nez minule
+	{
+		time = (50000-counter_old+counter)*0.0000005;
+	}
+	//Delay(5);
+	counter_old = TIM4->CNT; //ulozit soucasny stav counteru do counter_old
+
+	gyro_cnt++;	//pocitani cyklu pro obnoveni hodnoty gyroskopu			
 }

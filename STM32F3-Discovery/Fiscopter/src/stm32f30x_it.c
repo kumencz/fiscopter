@@ -25,7 +25,7 @@ char *ps;
 char strr;
 static uint16_t cnt2 = 0; // USART2 input string length
 
-extern __IO uint32_t UserButtonPressed;
+
 __IO uint32_t i =0;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/

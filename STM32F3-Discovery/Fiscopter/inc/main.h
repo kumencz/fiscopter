@@ -38,6 +38,7 @@
 #include "time.h"
 #include "usart.h"
 #include "math.h"
+#include "stm32f30x_it.h"
 #include <string.h>
 #include <stdio.h>
 #include <stm32f30x_usart.h>
