@@ -2,7 +2,7 @@
 readme.txt
 
 
-#ignore pracovni souboruy
+#ignore pracovni soubory
 obj/
 lst/
 
@@ -16,7 +16,7 @@ lst/
 *.map
 *.skalda
 *.uvopt
-
+*.Kuba
 *.o
 
 #ignore in Libraries/CMIS/
