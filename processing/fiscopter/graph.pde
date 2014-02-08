@@ -52,7 +52,7 @@ void print_graph()
     
     
     
-    for(u = 1; u < 6; u++)
+    for(u = 1; u < 7; u++)
     {
       for(i = 1; i < width; i++)
       {

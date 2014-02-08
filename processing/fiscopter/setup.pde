@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 PFrame f;
 secondApplet graph;
 
-float input[] = new float [6];
-float input_3D[] = new float [6];
-float input_graph[] = new float [6];
-float select[] = new float [6];
+float input[] = new float [7];
+float input_3D[] = new float [7];
+float input_graph[] = new float [7];
+float select[] = new float [7];
 
 int min_input =  -180;
 int max_input =  180;
@@ -17,8 +17,8 @@ int max_input =  180;
 float min_3D_output =  1.5;
 float max_3D_output =  -1.5;
 
-float min_graph_output =  -200;
-float max_graph_output =  700;
+float min_graph_output =  0;
+float max_graph_output =  650;
 
 float xmag, ymag = 0;
 float newXmag, newYmag = 0; 

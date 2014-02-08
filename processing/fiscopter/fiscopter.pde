@@ -28,8 +28,8 @@ void draw()  {
     translate(150, 200, 0); 
     
     rotateX(input_3D[1]+1.5); 
-    rotateY(input_3D[2]);
-    rotateZ(input_3D[3]);
+    rotateY(-input_3D[2]);
+    rotateZ(-input_3D[3]*2);
 
     scale(100);
     draw_quad(); 
