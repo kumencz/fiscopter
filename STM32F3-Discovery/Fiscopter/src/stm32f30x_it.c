@@ -201,6 +201,10 @@ void USART2_IRQHandler(void)
 			
 		}
 	}
+	else if (USART_GetITStatus(USART2, USART_IT_TXE))
+	{
+		USART_byte_sended();
+	}
 }
 void EXTI0_IRQHandler(void)
 { 

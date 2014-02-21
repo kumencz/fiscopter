@@ -350,7 +350,9 @@ void init_USART2(uint32_t baudrate)
 	 * to jump to the USART2_IRQHandler() function
 	 * if the USART2 receive interrupt occurs
 	 */
-	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE); // enable the USART2 receive interrupt 
+	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE); // enable the USART2 receive interrupt
+	
+	USART_ITConfig(USART2, USART_IT_TXE, ENABLE); // enable the USART2 transmit interrupt 
 	
 	NVIC_InitStructure_USART2.NVIC_IRQChannel = USART2_IRQn;		 // we want to configure the USART2 interrupts
 	NVIC_InitStructure_USART2.NVIC_IRQChannelPreemptionPriority = 0;// this sets the priority group of the USART2 interrupts
