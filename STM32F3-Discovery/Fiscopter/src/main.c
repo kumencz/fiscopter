@@ -55,6 +55,7 @@ int main(void)
 	while (1)
 	{
 		period_time_check_flags();
+		USART_manage_RX();
 	}
 	
 	//----------main program----------

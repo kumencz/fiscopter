@@ -141,7 +141,7 @@
             <RestoreTracepoints>0</RestoreTracepoints>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>12</TargetSelection>
+          <TargetSelection>11</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -447,6 +447,11 @@
               <FileName>system_stm32f30x.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src\system_stm32f30x.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\usart_protocol.c</FilePath>
             </File>
           </Files>
         </Group>

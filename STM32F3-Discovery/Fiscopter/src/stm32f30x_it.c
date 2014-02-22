@@ -136,30 +136,32 @@ void SysTick_Handler(void)
 void USART2_IRQHandler(void)
 {
 	// check if the USART3 receive interrupt flag was set
-	if( USART_GetITStatus(USART2, USART_IT_RXNE) ){
+	if( USART_GetITStatus(USART2, USART_IT_RXNE) )
+	{
+		USART_byte_received(USART_ReceiveData(USART2));
 		
-		char t = (USART_ReceiveData(USART2) & 0x7F); // the character from the USART3 data register is saved in t
-		STM_EVAL_LEDToggle(LED6);
-		/* check if the received character is not the LF character (used to determine end of string) 
-		 * or the if the maximum string length has been been reached 
-		 */
-		if( (t != '\n') && (cnt2 < MAX_STRLEN) ){ 
-			received_string2[cnt2] = t;
-			cnt2++;
-		}
-		else{ // otherwise reset the character counter and print the received string
-			//received_string2[cnt2] = '\0';
-			cnt2 = 0;
-			//STM_EVAL_LEDOn(LED3);
-			rs = received_string2;	
-			s1 = "Router";		
-			
-			i = strcmp(s1, rs);		
-			if(i == 0)					 
-			{							
-				USART_puts(USART2, "STM32F3\n");							
-				STM_EVAL_LEDOn(LED4);
-			} 
+//		char t = (USART_ReceiveData(USART2) & 0x7F); // the character from the USART3 data register is saved in t
+//		STM_EVAL_LEDToggle(LED6);
+//		/* check if the received character is not the LF character (used to determine end of string) 
+//		 * or the if the maximum string length has been been reached 
+//		 */
+//		if( (t != '\n') && (cnt2 < MAX_STRLEN) ){ 
+//			received_string2[cnt2] = t;
+//			cnt2++;
+//		}
+//		else{ // otherwise reset the character counter and print the received string
+//			//received_string2[cnt2] = '\0';
+//			cnt2 = 0;
+//			//STM_EVAL_LEDOn(LED3);
+//			rs = received_string2;	
+//			s1 = "Router";		
+//			
+//			i = strcmp(s1, rs);		
+//			if(i == 0)					 
+//			{							
+//				USART_puts(USART2, "STM32F3\n");							
+//				STM_EVAL_LEDOn(LED4);
+//			} 
 			
 			//USART_puts(USART3, received_string3);
 		
@@ -198,8 +200,8 @@ void USART2_IRQHandler(void)
 					}
 					ps = strtok (NULL, "|");	 
 			}		*/
-			
-		}
+//			
+//		}
 	}
 	else if (USART_GetITStatus(USART2, USART_IT_TXE))
 	{
