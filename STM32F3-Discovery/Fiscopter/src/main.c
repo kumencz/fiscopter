@@ -24,11 +24,11 @@ int main(void)
 {  
 	
 	init_ALL();
-	USART_puts(USART2, "System initialized\n");
+	USART_puts(USART3, "System initialized\n");
 	Delay(3000);
 	
 	//----------calibrate ESC---------------
-	USART_puts(USART2, "ESC calibrating ...\n");
+	USART_puts(USART3, "ESC calibrating ...\n");
 	ESC_Calibrate_All();
 	//----------calibrate ESC---------------
 	

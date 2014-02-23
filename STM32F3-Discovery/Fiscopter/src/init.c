@@ -4,11 +4,14 @@
 GPIO_InitTypeDef GPIO_InitStructure_PWM;
 GPIO_InitTypeDef GPIO_InitStructure_Motor;
 GPIO_InitTypeDef GPIO_InitStruct_USART2; // USART2 GPIO pins -> TX, RX
+GPIO_InitTypeDef GPIO_InitStruct_USART3; // USART3 GPIO pins -> TX, RX
 TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure_PWM;
 TIM_OCInitTypeDef TIM_OCInitStructure_PWM;
 TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure_IMU;
 USART_InitTypeDef USART_InitStruct_USART2; // USART2 initilization
+USART_InitTypeDef USART_InitStruct_USART3; // USART3 initilization
 NVIC_InitTypeDef NVIC_InitStructure_USART2; // configure NVIC (nested vector interrupt controller)
+NVIC_InitTypeDef NVIC_InitStructure_USART3; // configure NVIC (nested vector interrupt controller)
 /* Private define ------------------------------------------------------------*/
 #define ESC_update_freq 100   // !!!!min:100 max:200 !!!!
 #define USE_NORTH_AS_MASTER 0
@@ -30,6 +33,7 @@ void init_gyro(void);
 void init_acc_mag(void);
 void init_timer(void);
 void init_USART2(uint32_t baudrate);
+void init_USART3(uint32_t baudrate);
 void init_settings(void);
 /* Private functions ---------------------------------------------------------*/
 /* Private variables ------------------------------------------------------- */
@@ -51,7 +55,8 @@ void init_ALL(void)
 	init_gyro();
 	init_acc_mag();
 	init_timer();
-	init_USART2(115200);
+	//init_USART2(115200);
+	init_USART3(115200);
 	init_settings();
 }
 
@@ -360,6 +365,58 @@ void init_USART2(uint32_t baudrate)
 
 	// finally this enables the complete USART2 peripheral
 	USART_Cmd(USART2, ENABLE);
+}
+void init_USART3(uint32_t baudrate)
+{
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE);
+	
+	// enable the peripheral clock for the pins used by USART2
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOD, ENABLE);
+	
+	/* This sequence sets up the TX and RX pins 
+	 * so they work correctly with the USART3 peripheral
+	 */
+	GPIO_InitStruct_USART3.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 ; // Pins 8 (TX) and 9 (RX) are used
+	GPIO_InitStruct_USART3.GPIO_Mode = GPIO_Mode_AF;			 // the pins are configured as alternate function so the USART peripheral has access to them
+	GPIO_InitStruct_USART3.GPIO_Speed = GPIO_Speed_50MHz;		// this defines the IO speed and has nothing to do with the baudrate!
+	GPIO_InitStruct_USART3.GPIO_OType = GPIO_OType_PP;			// this defines the output type as push pull mode (as opposed to open drain)
+	GPIO_InitStruct_USART3.GPIO_PuPd = GPIO_PuPd_UP;			// this activates the pullup resistors on the IO pins
+	GPIO_Init(GPIOD, &GPIO_InitStruct_USART3);					// now all the values are passed to the GPIO_Init() function which sets the GPIO registers
+	
+	/* The RX and TX pins are now connected to their AF
+	 * so that the USART3 can take over control of the 
+	 * pins
+	 */
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_7); //
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_7);
+	
+	/* Now the USART_InitStruct is used to define the 
+	 * properties of USART3
+	 */
+	USART_InitStruct_USART3.USART_BaudRate = baudrate;				// the baudrate is set to the value we passed into this init function
+	USART_InitStruct_USART3.USART_WordLength = USART_WordLength_8b;// we want the data frame size to be 8 bits (standard)
+	USART_InitStruct_USART3.USART_StopBits = USART_StopBits_1;		// we want 1 stop bit (standard)
+	USART_InitStruct_USART3.USART_Parity = USART_Parity_No;		// we don't want a parity bit (standard)
+	USART_InitStruct_USART3.USART_HardwareFlowControl = USART_HardwareFlowControl_None; // we don't want flow control (standard)
+	USART_InitStruct_USART3.USART_Mode = USART_Mode_Tx | USART_Mode_Rx; // we want to enable the transmitter and the receiver
+	USART_Init(USART3, &USART_InitStruct_USART3);					// again all the properties are passed to the USART_Init function which takes care of all the bit setting
+	
+	
+	/* Here the USART3 receive interrupt is enabled
+	 * and the interrupt controller is configured 
+	 * to jump to the USART3_IRQHandler() function
+	 * if the USART3 receive interrupt occurs
+	 */
+	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE); // enable the USART2 receive interrupt 
+	
+	NVIC_InitStructure_USART3.NVIC_IRQChannel = USART3_IRQn;		 // we want to configure the USART3 interrupts
+	NVIC_InitStructure_USART3.NVIC_IRQChannelPreemptionPriority = 0;// this sets the priority group of the USART2 interrupts
+	NVIC_InitStructure_USART3.NVIC_IRQChannelSubPriority = 0;		 // this sets the subpriority inside the group
+	NVIC_InitStructure_USART3.NVIC_IRQChannelCmd = ENABLE;			 // the USART3 interrupts are globally enabled
+	NVIC_Init(&NVIC_InitStructure_USART3);							 // the properties are passed to the NVIC_Init function which takes care of the low level stuff	
+
+	// finally this enables the complete USART3 peripheral
+	USART_Cmd(USART3, ENABLE);
 }
 void init_settings(void)
 {
