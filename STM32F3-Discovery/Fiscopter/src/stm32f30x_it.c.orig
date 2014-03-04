@@ -138,7 +138,8 @@ void USART2_IRQHandler(void)
 	// check if the USART3 receive interrupt flag was set
 	if( USART_GetITStatus(USART2, USART_IT_RXNE) )
 	{
-			
+		
+<<<<<<< HEAD
 //		char t = (USART_ReceiveData(USART2) & 0x7F); // the character from the USART3 data register is saved in t
 //		STM_EVAL_LEDToggle(LED6);
 //		/* check if the received character is not the LF character (used to determine end of string) 
@@ -161,6 +162,61 @@ void USART2_IRQHandler(void)
 //				USART_puts(USART2, "STM32F3\n");							
 //				STM_EVAL_LEDOn(LED4);
 //			} 
+=======
+		char t = (USART_ReceiveData(USART2) & 0x7F); // the character from the USART3 data register is saved in t
+		STM_EVAL_LEDToggle(LED6);
+		/* check if the received character is not the LF character (used to determine end of string) 
+		 * or the if the maximum string length has been been reached 
+		 */
+		if( (t != '\n') && (cnt2 < MAX_STRLEN) ){ 
+			received_string2[cnt2] = t;
+			cnt2++;
+		}
+		else{ // otherwise reset the character counter and print the received string
+			//received_string2[cnt2] = '\0';
+			cnt2 = 0;
+			//STM_EVAL_LEDOn(LED3);
+			rs = received_string2;	
+			s1 = "Router";		
+			
+			i = strcmp(s1, rs);		
+			if(i == 0)					 
+			{							
+				USART_puts(USART2, "STM32F3\n");							
+				STM_EVAL_LEDOn(LED4);
+			} 
+			
+		}
+	}
+}
+void USART3_IRQHandler(void)
+{
+	// check if the USART3 receive interrupt flag was set
+	if( USART_GetITStatus(USART3, USART_IT_RXNE) ){
+		
+		char t = (USART_ReceiveData(USART3) & 0x7F); // the character from the USART3 data register is saved in t
+		STM_EVAL_LEDToggle(LED7);
+		/* check if the received character is not the LF character (used to determine end of string) 
+		 * or the if the maximum string length has been been reached 
+		 */
+		if( (t != '\n') && (cnt2 < MAX_STRLEN) ){ 
+			received_string2[cnt2] = t;
+			cnt2++;
+		}
+		else{ // otherwise reset the character counter and print the received string
+			//received_string2[cnt2] = '\0';
+			cnt2 = 0;
+			//STM_EVAL_LEDOn(LED3);
+			rs = received_string2;	
+			s1 = "Router";		
+			
+			i = strcmp(s1, rs);		
+			if(i == 0)					 
+			{							
+				USART_puts(USART2, "STM32F3\n");							
+				STM_EVAL_LEDOn(LED4);
+			} 
+>>>>>>> 3cdfe028c5bc7440941e5ee9c41a888c805f5f2a
 			
 		}
 }
@@ -169,24 +225,10 @@ void USART3_IRQHandler(void)
 {
 	// check if the USART3 receive interrupt flag was set
 	if( USART_GetITStatus(USART3, USART_IT_RXNE) )
-}
-void USART3_IRQHandler(void)
 	{		
 		USART_byte_received(USART_ReceiveData(USART3));
-		/* check if the received character is not the LF character (used to determine end of string) 
-		 * or the if the maximum string length has been been reached 
-		 */
-		if( (t != '\n') && (cnt2 < MAX_STRLEN) ){ 
-			received_string2[cnt2] = t;
-			cnt2++;
 	}
 	else if (USART_GetITStatus(USART3, USART_IT_TXE))
-			cnt2 = 0;
-			//STM_EVAL_LEDOn(LED3);
-			rs = received_string2;	
-			s1 = "Router";		
-			
-			i = strcmp(s1, rs);		
 	{
 		USART_byte_sended();
 		
