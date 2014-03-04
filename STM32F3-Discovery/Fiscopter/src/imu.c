@@ -307,7 +307,7 @@ void read_imu(void)
 
 	sprintf(send, "0|%f|%f|%f|%f|%f|0|\n",YawAng,RollAng,PitchAng,time,Mag_angle);
 	//sprintf(send, "0|%f|%f|%f|0|0|0|\n",YawAng,RollAng,PitchAng);
-	USART_puts(USART2, send); 
+	USART_puts(USART3, send); 
 
 
 	//counter pocita tiky timeru

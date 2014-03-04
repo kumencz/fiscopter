@@ -138,7 +138,6 @@ void USART2_IRQHandler(void)
 	// check if the USART3 receive interrupt flag was set
 	if( USART_GetITStatus(USART2, USART_IT_RXNE) )
 	{
-		USART_byte_received(USART_ReceiveData(USART2));
 		
 //		char t = (USART_ReceiveData(USART2) & 0x7F); // the character from the USART3 data register is saved in t
 //		STM_EVAL_LEDToggle(LED6);
@@ -163,51 +162,23 @@ void USART2_IRQHandler(void)
 //				STM_EVAL_LEDOn(LED4);
 //			} 
 			
-			//USART_puts(USART3, received_string3);
-		
-			/*ps = strtok(rs,"|");		
-			
-			while (ps != NULL)	
-			{							 
+		}
+}
 
-					
-					s1 = "c";		
-					i = strcmp(s1, ps);		
-					if(i == 0)					 
-					{										
-								ps = strtok (NULL, "/");
-								while (ps != NULL)	
-								{
-									sscanf (ps, "%d", &candle[cnt]);
- 									ps = strtok (NULL, "/");	
-									cnt++;
-								}
-								if(first_candle == 1)
-								{
-									candle_saw = 1;
-									candle_position(candle [0],candle [1]);
-									STM_EVAL_LEDOn(LED6);
-								}else first_candle = 1;
-								cnt = 0;
-					}
-					s1 = "cn";		
-					i = strcmp(s1, ps);		
-					if(i == 0)					 
-					{										
-								candle_saw = 0;
-								first_candle = 0;
-								STM_EVAL_LEDOff(LED6);
-					}
-					ps = strtok (NULL, "|");	 
-			}		*/
-//			
-//		}
+void USART3_IRQHandler(void)
+{
+	// check if the USART3 receive interrupt flag was set
+	if( USART_GetITStatus(USART3, USART_IT_RXNE) )
+	{		
+		USART_byte_received(USART_ReceiveData(USART3));
 	}
-	else if (USART_GetITStatus(USART2, USART_IT_TXE))
+	else if (USART_GetITStatus(USART3, USART_IT_TXE))
 	{
 		USART_byte_sended();
+		
 	}
 }
+	
 void EXTI0_IRQHandler(void)
 { 
   if ((EXTI_GetITStatus(USER_BUTTON_EXTI_LINE) == SET)&&(STM_EVAL_PBGetState(BUTTON_USER) != RESET))
