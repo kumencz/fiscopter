@@ -45,7 +45,8 @@ void setup()  {
   PFrame f = new PFrame();
   colorMode(RGB, 255);
   println(Serial.list());
-  myPort = new Serial(this, Serial.list()[4], 115200); 
+  myPort = new Serial(this, "/dev/ttyUSB0", 115200);
+  //myPort = new Serial(this, "/dev/COM1", 115200); 
   myPort.bufferUntil('\n');
   textFont(loadFont("LiberationSerif-40.vlw"), 40);
 } 
