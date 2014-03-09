@@ -1,7 +1,10 @@
 
 void draw()  { 
-  /*newXmag = mouseX/float(width) * TWO_PI;
-  newYmag = mouseY/float(height) * TWO_PI;
+  /*
+    model controlling by mouse
+  //----------------------------
+  newXmag = (mouseX/float(width) * TWO_PI)/2;
+  newYmag = (mouseY/float(height) * TWO_PI)/2;
   
   float diff = xmag-newXmag;
   if (abs(diff) >  0.01) { 
@@ -12,10 +15,12 @@ void draw()  {
   if (abs(diff) >  0.01) { 
     ymag -= diff/4.0; 
   }
-  input_3D[1] = ymag;
-  input_3D[2] = xmag;
+  input_3D[1] = -ymag;
+  input_3D[2] = -xmag;
   
+  //----------------------------
   */
+  
   background(25);
   ortho();
   textSize(30);
