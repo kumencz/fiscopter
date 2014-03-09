@@ -49,9 +49,35 @@ void USART_puts(USART_TypeDef* USARTx, char *s)
 	if (!USART_GetITStatus(USART3, USART_IT_TXE)) 
 	{											
 		USART_ITConfig(USART3, USART_IT_TXE, ENABLE);
-		USART_SendData(USART3, USART_ringbuf_tx[USART_readidx_tx]);	
-		USART_readidx_tx++;
-		if (USART_readidx_tx >= RINGBUF_SIZE_TX) USART_readidx_tx = 0; 
+	}
+}
+
+void USART_puts_len(USART_TypeDef* USARTx, char *s, int len)
+{
+	while(len > 0)
+	{
+		if (USART_ToSend < RINGBUF_SIZE_TX)
+		{
+			USART_ringbuf_tx[USART_writeidx_tx] = *s;
+			USART_writeidx_tx++;
+			USART_ToSend++;
+			s++;
+			len--;
+			if (USART_writeidx_tx >= RINGBUF_SIZE_TX) USART_writeidx_tx = 0;
+			
+		}
+		else 
+		{
+			// Buffer je plný
+		}
+//		// wait until data register is empty
+//		while( !(USARTx->ISR & 0x00000040) ); 
+//		USART_SendData(USARTx, *s);
+//		*s++;
+	}	
+	if (!USART_GetITStatus(USART3, USART_IT_TXE)) 
+	{											
+		USART_ITConfig(USART3, USART_IT_TXE, ENABLE);
 	}
 }
 
@@ -59,17 +85,14 @@ void USART_byte_sended(void)
 {
 	if (USART_ToSend > 0)
 	{
+		USART_SendData(USART3, USART_ringbuf_tx[USART_readidx_tx]);
 		USART_ToSend--;
-		if (USART_ToSend > 0)
-		{
-			USART_SendData(USART3, USART_ringbuf_tx[USART_readidx_tx]);
-			USART_readidx_tx++;
-			if (USART_readidx_tx >= RINGBUF_SIZE_TX) USART_readidx_tx = 0; 
-		}
-		else
-		{
-			USART_ITConfig(USART3, USART_IT_TXE, DISABLE);
-		}
+		USART_readidx_tx++;
+		if (USART_readidx_tx >= RINGBUF_SIZE_TX) USART_readidx_tx = 0; 
+	}
+	else
+	{
+		USART_ITConfig(USART3, USART_IT_TXE, DISABLE);
 	}
 }
 
@@ -98,7 +121,7 @@ void USART_manage_RX(void)
 	uint8_t * data;
 	if (USART_ToParse > 0)
 	{
-		data = USART_ringbuf_rx +USART_readidx_rx;
+		data = &(USART_ringbuf_rx[USART_readidx_rx]);
 		msgLen = USART_Protocol_RX_Parse(data);
 		if (msgLen > 0)
 		{
