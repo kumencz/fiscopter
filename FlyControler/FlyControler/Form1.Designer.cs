@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.tstb_IP = new System.Windows.Forms.ToolStripTextBox();
             this.tsbtn_SSH_connect = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
@@ -49,7 +49,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
-            this.toolStripTextBox1,
+            this.tstb_IP,
             this.tsbtn_SSH_connect,
             this.toolStripLabel2,
             this.toolStripLabel3,
@@ -72,10 +72,11 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(21, 22);
             this.toolStripLabel1.Text = "IP:";
             // 
-            // toolStripTextBox1
+            // tstb_IP
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.tstb_IP.Name = "tstb_IP";
+            this.tstb_IP.Size = new System.Drawing.Size(100, 25);
+            this.tstb_IP.Text = "10.2.0.1";
             // 
             // tsbtn_SSH_connect
             // 
@@ -85,6 +86,7 @@
             this.tsbtn_SSH_connect.Name = "tsbtn_SSH_connect";
             this.tsbtn_SSH_connect.Size = new System.Drawing.Size(51, 22);
             this.tsbtn_SSH_connect.Text = "Connect";
+            this.tsbtn_SSH_connect.Click += new System.EventHandler(this.tsbtn_SSH_connect_Click);
             // 
             // toolStripLabel2
             // 
@@ -162,7 +164,7 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox tstb_IP;
         private System.Windows.Forms.ToolStripButton tsbtn_SSH_connect;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
