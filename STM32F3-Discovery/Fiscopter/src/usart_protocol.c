@@ -5,27 +5,44 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint8_t USART_RX_MSGS[3][50] = 
-{
-	"CHECK_LIVE", //;
-	"START_ESC_CALIBRATE",
-	"SET_RPM"
-};
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
-uint32_t USART_Protocol_RX_Parse(uint8_t *message)
+uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 {
-	if (memcmp(message, USART_RX_MSGS[0], 10))//"CHECK_LIVE"
+	if (!memcmp(message, "CHECK_LIVE", 10))
 	{
-		return 11;
+		USART_puts(USART3, "LIVE_OK\n");
+		return 10 + USART_RemoveToNewLine(message + 10);
 	}
-	else if (memcmp(message, USART_RX_MSGS[1], 20)) //"START_ESC_CALIBRATE"
+	else if (!memcmp(message, "START_ESC_CALIBRATE", 19)) //"START_ESC_CALIBRATE"
 	{
-		return 20;
+		USART_puts(USART3, "ESC calibrating ...\n");
+		ESC_Calibrate_All();		
+		return 19 + USART_RemoveToNewLine(message + 19 );
 	}
-	else if (memcmp(message, USART_RX_MSGS[1], 8)) //"SET_RPM "
+	else if (!memcmp(message, "SET_RPM", 7)) //"SET_RPM "
 	{
-		return 8;
+		USART_puts(USART3, "WHAT_IS_RPM? :-D\n");
+		return 7 + USART_RemoveToNewLine(message + 7);
+	}
+	else
+	{		
+		USART_puts(USART3, "UNKNOW_MESSAGE\n");
+		return 1;
 	}
 	return 0;
+}
+
+uint32_t USART_RemoveToNewLine(uint8_t * message)
+{
+	uint8_t * msg = message;
+	while (*msg != '\n' && *msg != '\r')
+	{
+		msg++;
+	}
+	while (*msg == '\n' || *msg == '\r')
+	{
+		msg++;
+	}
+	return msg - message;
 }

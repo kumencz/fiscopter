@@ -5,4 +5,5 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 uint32_t USART_Protocol_RX_Parse(uint8_t *message);
+uint32_t USART_RemoveToNewLine(uint8_t * message);
 /* Exported variables ------------------------------------------------------- */

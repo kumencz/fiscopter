@@ -169,24 +169,10 @@ void USART3_IRQHandler(void)
 {
 	// check if the USART3 receive interrupt flag was set
 	if( USART_GetITStatus(USART3, USART_IT_RXNE) )
-}
-void USART3_IRQHandler(void)
 	{		
 		USART_byte_received(USART_ReceiveData(USART3));
-		/* check if the received character is not the LF character (used to determine end of string) 
-		 * or the if the maximum string length has been been reached 
-		 */
-		if( (t != '\n') && (cnt2 < MAX_STRLEN) ){ 
-			received_string2[cnt2] = t;
-			cnt2++;
 	}
 	else if (USART_GetITStatus(USART3, USART_IT_TXE))
-			cnt2 = 0;
-			//STM_EVAL_LEDOn(LED3);
-			rs = received_string2;	
-			s1 = "Router";		
-			
-			i = strcmp(s1, rs);		
 	{
 		USART_byte_sended();
 		

@@ -57,10 +57,7 @@ void init_ALL(void)
 	init_acc_mag();
 	init_timer();
 	//init_USART2(115200);
-<<<<<<< HEAD
-=======
 	init_USART3(115200);
->>>>>>> 3cdfe028c5bc7440941e5ee9c41a888c805f5f2a
 	init_settings();
 }
 
@@ -414,11 +411,9 @@ void init_USART3(uint32_t baudrate)
 	 * if the USART3 receive interrupt occurs
 	 */
 <<<<<<< HEAD
+=======
 	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE); // enable the USART2 receive interrupt 	
 //	USART_ITConfig(USART3, USART_IT_TXE, ENABLE); // enable the USART2 receive interrupt 
-=======
-	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE); // enable the USART2 receive interrupt 
->>>>>>> 3cdfe028c5bc7440941e5ee9c41a888c805f5f2a
 	
 	NVIC_InitStructure_USART3.NVIC_IRQChannel = USART3_IRQn;		 // we want to configure the USART3 interrupts
 	NVIC_InitStructure_USART3.NVIC_IRQChannelPreemptionPriority = 0;// this sets the priority group of the USART2 interrupts
@@ -427,6 +422,7 @@ void init_USART3(uint32_t baudrate)
 	NVIC_Init(&NVIC_InitStructure_USART3);							 // the properties are passed to the NVIC_Init function which takes care of the low level stuff	
 
 	// finally this enables the complete USART3 peripheral
+>>>>>>> Dev_DISCOVERY
 	USART_Cmd(USART3, ENABLE);
 }
 void init_settings(void)
