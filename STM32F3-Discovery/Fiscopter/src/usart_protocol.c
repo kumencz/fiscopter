@@ -28,7 +28,7 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 	else
 	{		
 		USART_puts(USART3, "UNKNOW_MESSAGE\n");
-		return USART_RemoveToNewLine(message);
+		return 1;
 	}
 	return 0;
 }
