@@ -81,7 +81,7 @@ void tim_1ms_loop(void)
 {
 	TIM_1MS_FLAG = 0;
 //	read_imu();
-//	Compute(Xrot,Yrot);
+//	Compute(x_wanted-Xrot,y_wanted-Yrot);
 //	ESC_recompute();  //Recompute motor speeds
 }
 

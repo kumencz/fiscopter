@@ -28,8 +28,8 @@ int main(void)
 	Delay(3000);
 	
 	//----------calibrate ESC---------------
-	USART_puts(USART3, "ESC calibrating ...\n");
-	ESC_Calibrate_All();
+ //	USART_puts(USART3, "ESC calibrating ...\n");
+//	ESC_Calibrate_All();
 	//----------calibrate ESC---------------
 	
 	
@@ -44,14 +44,14 @@ int main(void)
 
 
 
-	//----------main program----------
-  SetTunings(20, 50, 10); //PID setting
-	M1_speed = 3000;  			//main motor speed
-	M2_speed = 3000; 				//main motor speed
-	M3_speed = 3000;  			//main motor speed
-	M4_speed = 3000;				//main motor speed
-	ESC_recompute();				//main motor speed
-	
+//	//----------main program----------
+//  SetTunings(20, 50, 10); //PID setting
+//	M1_speed = 3000;  			//main motor speed
+//	M2_speed = 3000; 				//main motor speed
+//	M3_speed = 3000;  			//main motor speed
+//	M4_speed = 3000;				//main motor speed
+//	ESC_recompute();				//main motor speed
+//	
 	while (1)
 	{
 		period_time_check_flags();
