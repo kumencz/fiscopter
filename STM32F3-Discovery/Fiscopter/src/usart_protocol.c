@@ -6,6 +6,7 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+int live;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 uint32_t USART_Protocol_RX_Parse(uint8_t * message)
@@ -16,8 +17,9 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 	float KD;
 	if (!memcmp(message, "P_CHECK_LIVE", 12))
 	{
+		live = 1;
 		USART_puts(USART3, "K_LIVE_OK\n");
-		return 12 + USART_RemoveToNewLine(message + 12);
+	 return 12 + USART_RemoveToNewLine(message + 12);
 	}
 	else if (!memcmp(message, "P_START_ESC_CALIBRATE", 21)) //"START_ESC_CALIBRATE"
 	{
@@ -70,4 +72,11 @@ uint32_t USART_RemoveToNewLine(uint8_t * message)
 		msg++;
 	}
 	return msg - message;
+}
+void live_fail(void)
+{
+ ESC_SetPower(1,0);	
+ ESC_SetPower(2,0);	
+ ESC_SetPower(3,0);	
+ ESC_SetPower(4,0);
 }
