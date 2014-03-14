@@ -134,11 +134,13 @@
             // tsbtn_ESC_calibrate
             // 
             this.tsbtn_ESC_calibrate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_ESC_calibrate.Enabled = false;
             this.tsbtn_ESC_calibrate.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_ESC_calibrate.Image")));
             this.tsbtn_ESC_calibrate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_ESC_calibrate.Name = "tsbtn_ESC_calibrate";
             this.tsbtn_ESC_calibrate.Size = new System.Drawing.Size(117, 22);
             this.tsbtn_ESC_calibrate.Text = "Start ESC calibration";
+            this.tsbtn_ESC_calibrate.Click += new System.EventHandler(this.tsbtn_ESC_calibrate_Click);
             // 
             // toolStripSeparator3
             // 

@@ -65,17 +65,31 @@ namespace FlyControler
                 this.LControl.Stop_check();
                 this.Sender.SSH_Disconnect();
                 this.Parser.SSH_Disconnect();
+
                 this.tstb_IP.Enabled = true;
+                this.tsbtn_ESC_calibrate.Enabled = false;
             }
             else
             {
                 this.Parser.SSH_Connect(this.tstb_IP.Text);
                 this.Sender.SSH_Connect(this.tstb_IP.Text);
-                this.tstb_IP.Enabled = false;
                 this.LControl.Start_check();
                 this.tsbtn_SSH_connect.Text = "Disconect";
+
+
+                this.tstb_IP.Enabled = false;
+                this.tsbtn_ESC_calibrate.Enabled = true;
             }
             
+        }
+
+        private void tsbtn_ESC_calibrate_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Opravdu spustit kalibraci?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Sender.Send_message(TxMsg_types.P_START_ESC_CALIBRATE, null);
+            }
         }
 
 
