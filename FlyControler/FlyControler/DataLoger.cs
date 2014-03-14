@@ -10,7 +10,6 @@ namespace FlyControler
     public class DataLoger
     {
         SerialPort cport;
-        StreamWriter writer;
 
         public delegate void DataToLog(object sender, LogArgs data);
         public DataToLog DataLogFunc;
@@ -22,14 +21,13 @@ namespace FlyControler
             cport.BaudRate = 115200;
             cport.Open();
 
-            this.writer = new StreamWriter(string.Format("FiscopterLog_{0:YY_mm_dd_hh_MM}.txt", DateTime.Now));
             this.DataLogFunc = new DataToLog(this.LogData);
 
         }
 
         void LogData(object sender, LogArgs arg)
         {
-            this.writer.WriteLine(arg.data);
+            this.cport.Write(arg.data);
         }
     }
 

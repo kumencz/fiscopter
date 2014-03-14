@@ -9,7 +9,7 @@ namespace FlyControler
     class LiveControler
     {
         public const Int32 SHOW_INTERVAL = 1000; 
-        public const Int32 GUARD_INTERVAL = 50;
+        public const Int32 GUARD_INTERVAL = 500;
         public const Int32 LIVE_TIME = 10; //Doba na odpoved = GUARD_INTERVAL * LIVE_TIME
 
         private const UInt32 WARNING_VALUE = 250; //ms
