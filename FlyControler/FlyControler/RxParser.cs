@@ -53,6 +53,11 @@ namespace FlyControler
             this.ssh_rx.BeginRead(rx_buff, 0, rx_buff.Length, rx_clbk, new object());
         }
 
+        public void SSH_Disconnect()
+        {
+            this.ssh_rx.Dispose();
+        }
+
         public void SSH_Connect(string IP)
         {
             this.ssh_rx = new SshStream(IP, "root", "fiskopter348");
@@ -65,21 +70,16 @@ namespace FlyControler
 
         private void Parse()
         {
-            RxMessages parsed_msg;
+            RxMsg_types parsed_msg = RxMsg_types.UNDEFINED;
             object parsed_data = null;
             if (RxBufferList.Count > 0)
             {
-                if (String.Compare(RxBufferList[0], "LIVE_OK\n") == 0)
+                if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_LIVE_OK]) == 0)
                 {
-                    parsed_msg = RxMessages.K_CHECK_LIVE;
+                    parsed_msg = RxMsg_types.K_LIVE_OK;
                 }
                 else if (String.Compare(RxBufferList[0], "NejakA_dalsi_zprava\n") == 0)
                 {
-                    parsed_msg = RxMessages.K_RPM_SET;
-                }
-                else
-                {
-                    parsed_msg = RxMessages.UNDEFINED;
                 }
                 this.RxBufferList.RemoveAt(0);
                 if (this.RxMessageReceived_event != null) RxMessageReceived_event(this, new ParseMessgaeArgs(parsed_msg, parsed_data));
