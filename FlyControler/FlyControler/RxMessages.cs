@@ -7,6 +7,18 @@ using System.Windows.Forms;
 
 namespace FlyControler
 {
+    public class ParseMessgaeArgs : EventArgs
+    {
+        public RxMsg_types Msg_type { private set; get; }
+        public object Msg_data { private set; get; }
+
+        public ParseMessgaeArgs(RxMsg_types type, object data)
+        {
+            this.Msg_type = type;
+            this.Msg_data = data;
+        }
+    }
+
     public static class RxMsg
     {
 
@@ -20,17 +32,7 @@ namespace FlyControler
 
     }
     
-    public class ParseMessgaeArgs : EventArgs
-    {
-        public RxMsg_types Msg_type { private set; get; }
-        public object Msg_data {private set; get;}
 
-        public ParseMessgaeArgs(RxMsg_types type, object data)
-        {
-            this.Msg_type = type;
-            this.Msg_data = data;
-        }
-    }
 
     public enum RxMsg_types
     {
