@@ -23,7 +23,7 @@ char *s1;
 char *rs;
 char *ps;
 char strr;
-static uint16_t cnt2 = 0; // USART2 input string length
+//static uint16_t cnt2 = 0; // USART2 input string length
 
 
 __IO uint32_t i =0;

@@ -59,7 +59,7 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 		USART_puts(USART3, "\nend\n");
 		return 1;
 	}
-	return 0;
+//	return 0;
 }
 
 uint32_t USART_RemoveToNewLine(uint8_t * message)
