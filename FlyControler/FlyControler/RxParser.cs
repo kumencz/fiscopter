@@ -8,6 +8,8 @@ using Tamir.SharpSsh;
 
 namespace FlyControler
 {
+
+
     class RxParser
     {
         private List<string> RxBufferList = new List<string>();
@@ -16,6 +18,8 @@ namespace FlyControler
         byte[] rx_buff = new byte[200];
         SshStream ssh_rx;
         AsyncCallback rx_clbk;
+        public event EventHandler<ParseMessgaeArgs> RxMessageReceived_event;
+        public event EventHandler<LogArgs> LogEvent;
 
         public RxParser()
         {
@@ -50,6 +54,11 @@ namespace FlyControler
             this.ssh_rx.BeginRead(rx_buff, 0, rx_buff.Length, rx_clbk, new object());
         }
 
+        public void SSH_Disconnect()
+        {
+            this.ssh_rx.Dispose();
+        }
+
         public void SSH_Connect(string IP)
         {
             this.ssh_rx = new SshStream(IP, "root", "fiskopter348");
@@ -62,15 +71,20 @@ namespace FlyControler
 
         private void Parse()
         {
+            RxMsg_types parsed_msg = RxMsg_types.UNDEFINED;
+            object parsed_data = null;
             if (RxBufferList.Count > 0)
             {
-                if (String.Compare(RxBufferList[0], "LIVE_OK\n") == 0)
+                if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_LIVE_OK]) == 0)
                 {
+                    parsed_msg = RxMsg_types.K_LIVE_OK;
                 }
                 else if (String.Compare(RxBufferList[0], "NejakA_dalsi_zprava\n") == 0)
                 {
                 }
+                if (this.LogEvent != null) this.LogEvent(this, new LogArgs(this.RxBufferList[0]));
                 this.RxBufferList.RemoveAt(0);
+                if (this.RxMessageReceived_event != null) RxMessageReceived_event(this, new ParseMessgaeArgs(parsed_msg, parsed_data));
             }
         }
 

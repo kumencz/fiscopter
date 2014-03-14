@@ -34,10 +34,10 @@
             this.tstb_IP = new System.Windows.Forms.ToolStripTextBox();
             this.tsbtn_SSH_connect = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.tslbl_ping_value = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.tscb_com_ports = new System.Windows.Forms.ToolStripComboBox();
             this.tsbtn_com_connect = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_ESC_calibrate = new System.Windows.Forms.ToolStripButton();
@@ -52,10 +52,10 @@
             this.tstb_IP,
             this.tsbtn_SSH_connect,
             this.toolStripLabel2,
-            this.toolStripLabel3,
+            this.tslbl_ping_value,
             this.toolStripSeparator1,
             this.toolStripLabel4,
-            this.toolStripComboBox1,
+            this.tscb_com_ports,
             this.tsbtn_com_connect,
             this.toolStripSeparator2,
             this.tsbtn_ESC_calibrate,
@@ -69,7 +69,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(21, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(20, 22);
             this.toolStripLabel1.Text = "IP:";
             // 
             // tstb_IP
@@ -84,7 +84,7 @@
             this.tsbtn_SSH_connect.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_SSH_connect.Image")));
             this.tsbtn_SSH_connect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_SSH_connect.Name = "tsbtn_SSH_connect";
-            this.tsbtn_SSH_connect.Size = new System.Drawing.Size(51, 22);
+            this.tsbtn_SSH_connect.Size = new System.Drawing.Size(56, 22);
             this.tsbtn_SSH_connect.Text = "Connect";
             this.tsbtn_SSH_connect.Click += new System.EventHandler(this.tsbtn_SSH_connect_Click);
             // 
@@ -92,14 +92,14 @@
             // 
             this.toolStripLabel2.Enabled = false;
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(31, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(34, 22);
             this.toolStripLabel2.Text = "Ping:";
             // 
-            // toolStripLabel3
+            // tslbl_ping_value
             // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(64, 22);
-            this.toolStripLabel3.Text = "disconected";
+            this.tslbl_ping_value.Name = "tslbl_ping_value";
+            this.tslbl_ping_value.Size = new System.Drawing.Size(71, 22);
+            this.tslbl_ping_value.Text = "disconected";
             // 
             // toolStripSeparator1
             // 
@@ -109,13 +109,14 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(67, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(76, 22);
             this.toolStripLabel4.Text = "Output COM";
             // 
-            // toolStripComboBox1
+            // tscb_com_ports
             // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(75, 25);
+            this.tscb_com_ports.Name = "tscb_com_ports";
+            this.tscb_com_ports.Size = new System.Drawing.Size(75, 25);
+            this.tscb_com_ports.DropDown += new System.EventHandler(this.toolStripComboBox1_DropDown);
             // 
             // tsbtn_com_connect
             // 
@@ -123,8 +124,9 @@
             this.tsbtn_com_connect.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_com_connect.Image")));
             this.tsbtn_com_connect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_com_connect.Name = "tsbtn_com_connect";
-            this.tsbtn_com_connect.Size = new System.Drawing.Size(51, 22);
+            this.tsbtn_com_connect.Size = new System.Drawing.Size(56, 22);
             this.tsbtn_com_connect.Text = "Connect";
+            this.tsbtn_com_connect.Click += new System.EventHandler(this.tsbtn_com_connect_Click);
             // 
             // toolStripSeparator2
             // 
@@ -134,11 +136,13 @@
             // tsbtn_ESC_calibrate
             // 
             this.tsbtn_ESC_calibrate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_ESC_calibrate.Enabled = false;
             this.tsbtn_ESC_calibrate.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_ESC_calibrate.Image")));
             this.tsbtn_ESC_calibrate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_ESC_calibrate.Name = "tsbtn_ESC_calibrate";
-            this.tsbtn_ESC_calibrate.Size = new System.Drawing.Size(109, 22);
+            this.tsbtn_ESC_calibrate.Size = new System.Drawing.Size(117, 22);
             this.tsbtn_ESC_calibrate.Text = "Start ESC calibration";
+            this.tsbtn_ESC_calibrate.Click += new System.EventHandler(this.tsbtn_ESC_calibrate_Click);
             // 
             // toolStripSeparator3
             // 
@@ -167,10 +171,10 @@
         private System.Windows.Forms.ToolStripTextBox tstb_IP;
         private System.Windows.Forms.ToolStripButton tsbtn_SSH_connect;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripLabel tslbl_ping_value;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox tscb_com_ports;
         private System.Windows.Forms.ToolStripButton tsbtn_com_connect;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbtn_ESC_calibrate;
