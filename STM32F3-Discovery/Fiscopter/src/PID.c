@@ -6,6 +6,8 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
+float x_wanted = 0;
+float y_wanted = 0;
 
 
 float x_out, x_out_neg;
