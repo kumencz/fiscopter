@@ -19,13 +19,13 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 	{
 		live = 1;
 		USART_puts(USART3, "K_LIVE_OK\n");
-	 return 12 + USART_RemoveToNewLine(message + 12);
+		return 1;
 	}
 	else if (!memcmp(message, "P_START_ESC_CALIBRATE", 21)) //"START_ESC_CALIBRATE"
 	{
 		USART_puts(USART3, "K_ESC_CALIBRATED\n");
-		ESC_Calibrate_All();		
-		return 21 + USART_RemoveToNewLine(message + 21 );
+		ESC_Calibrate_All();
+		return 1;
 	}
 	else if (!memcmp(message, "P_SET_RPM", 9)) //"SET_RPM "
 	{
@@ -34,7 +34,7 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 		M3_speed = strtol (message2,&message2,10);
 		M4_speed = strtol (message2,&message2,10);
 		USART_puts(USART3, "K_RPM_SETTED!\n");
-		return 15 + USART_RemoveToNewLine(message + 15);
+		return 1;
 	}
 	else if (!memcmp(message, "P_SET_PID", 9)) //"SET_PID "
 	{
@@ -53,8 +53,10 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 		return 1;
 	}
 	else
-	{		
-		USART_puts(USART3, "K_UNKNOW_MESSAGE\n");
+	{
+		USART_puts(USART3, "K_UNKNOWN_MESSAGE:\n");
+		USART_puts(USART3, message);
+		USART_puts(USART3, "\nend\n");
 		return 1;
 	}
 	return 0;
@@ -73,10 +75,11 @@ uint32_t USART_RemoveToNewLine(uint8_t * message)
 	}
 	return msg - message;
 }
+
 void live_fail(void)
 {
- ESC_SetPower(1,0);	
- ESC_SetPower(2,0);	
- ESC_SetPower(3,0);	
- ESC_SetPower(4,0);
+	ESC_SetPower(1,0);
+	ESC_SetPower(2,0);
+	ESC_SetPower(3,0);
+	ESC_SetPower(4,0);
 }
