@@ -37,7 +37,7 @@
             this.tslbl_ping_value = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.tscb_com_ports = new System.Windows.Forms.ToolStripComboBox();
             this.tsbtn_com_connect = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_ESC_calibrate = new System.Windows.Forms.ToolStripButton();
@@ -55,7 +55,7 @@
             this.tslbl_ping_value,
             this.toolStripSeparator1,
             this.toolStripLabel4,
-            this.toolStripComboBox1,
+            this.tscb_com_ports,
             this.tsbtn_com_connect,
             this.toolStripSeparator2,
             this.tsbtn_ESC_calibrate,
@@ -112,10 +112,11 @@
             this.toolStripLabel4.Size = new System.Drawing.Size(76, 22);
             this.toolStripLabel4.Text = "Output COM";
             // 
-            // toolStripComboBox1
+            // tscb_com_ports
             // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(75, 25);
+            this.tscb_com_ports.Name = "tscb_com_ports";
+            this.tscb_com_ports.Size = new System.Drawing.Size(75, 25);
+            this.tscb_com_ports.DropDown += new System.EventHandler(this.toolStripComboBox1_DropDown);
             // 
             // tsbtn_com_connect
             // 
@@ -125,6 +126,7 @@
             this.tsbtn_com_connect.Name = "tsbtn_com_connect";
             this.tsbtn_com_connect.Size = new System.Drawing.Size(56, 22);
             this.tsbtn_com_connect.Text = "Connect";
+            this.tsbtn_com_connect.Click += new System.EventHandler(this.tsbtn_com_connect_Click);
             // 
             // toolStripSeparator2
             // 
@@ -172,7 +174,7 @@
         private System.Windows.Forms.ToolStripLabel tslbl_ping_value;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox tscb_com_ports;
         private System.Windows.Forms.ToolStripButton tsbtn_com_connect;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbtn_ESC_calibrate;

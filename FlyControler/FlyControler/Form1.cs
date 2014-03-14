@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO.Ports;
+
 using Tamir.SharpSsh;
 using Tamir.Streams;
 
@@ -17,6 +19,8 @@ namespace FlyControler
         RxParser Parser;
         TxSender Sender;
 
+        DataLoger Loger;
+
         LiveControler LControl;
 
         public Form1()
@@ -24,6 +28,7 @@ namespace FlyControler
             InitializeComponent();
             this.Parser = new RxParser();
             this.Sender = new TxSender();
+
             this.LControl = new LiveControler(this.Parser, this.Sender);
             this.LControl.PingChanged_event += new EventHandler<LiveControlerArgs>(LControl_PingChanged_event);
             
@@ -89,6 +94,34 @@ namespace FlyControler
             if (res == System.Windows.Forms.DialogResult.Yes)
             {
                 this.Sender.Send_message(TxMsg_types.P_START_ESC_CALIBRATE, null);
+            }
+        }
+
+        private void toolStripComboBox1_DropDown(object sender, EventArgs e)
+        {
+            this.tscb_com_ports.Items.Clear();
+            this.tscb_com_ports.Items.AddRange(SerialPort.GetPortNames());
+        }
+
+        private void tsbtn_com_connect_Click(object sender, EventArgs e)
+        {
+            if (this.tsbtn_com_connect.Text == "Connect")
+            {
+                if (this.tscb_com_ports.SelectedIndex >= 0)
+                {
+                    this.tsbtn_com_connect.Text = "Disconect";
+                    this.Loger = new DataLoger(this.tscb_com_ports.Items[this.tscb_com_ports.SelectedIndex].ToString());
+                    this.Parser.LogEvent += new EventHandler<LogArgs>(Loger.DataLogFunc);
+                    this.Sender.LogEvent += new EventHandler<LogArgs>(Loger.DataLogFunc);
+                }
+                else
+                {
+                    MessageBox.Show("Není vybrán žádný výstupní port.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                this.tsbtn_com_connect.Text = "Connect";
             }
         }
 

@@ -19,6 +19,7 @@ namespace FlyControler
         SshStream ssh_rx;
         AsyncCallback rx_clbk;
         public event EventHandler<ParseMessgaeArgs> RxMessageReceived_event;
+        public event EventHandler<LogArgs> LogEvent;
 
         public RxParser()
         {
@@ -81,6 +82,7 @@ namespace FlyControler
                 else if (String.Compare(RxBufferList[0], "NejakA_dalsi_zprava\n") == 0)
                 {
                 }
+                if (this.LogEvent != null) this.LogEvent(this, new LogArgs(this.RxBufferList[0]));
                 this.RxBufferList.RemoveAt(0);
                 if (this.RxMessageReceived_event != null) RxMessageReceived_event(this, new ParseMessgaeArgs(parsed_msg, parsed_data));
             }

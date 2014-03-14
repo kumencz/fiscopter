@@ -11,6 +11,9 @@ namespace FlyControler
     {
         SshStream ssh_tx;
 
+
+        public event EventHandler<LogArgs> LogEvent;
+
         public TxSender()
         {
         }
@@ -44,6 +47,7 @@ namespace FlyControler
         public void Send_string(string str_to_send)
         {
             if (str_to_send[str_to_send.Length - 1] != '\n') str_to_send += '\n';
+            if (this.LogEvent != null) this.LogEvent(this, new LogArgs(str_to_send));
             this.ssh_tx.Write(String.Format("echo {0} > /dev/ttyUSB0", str_to_send));
         }
 
