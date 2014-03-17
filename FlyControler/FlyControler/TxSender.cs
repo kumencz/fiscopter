@@ -7,7 +7,7 @@ using Tamir.SharpSsh;
 
 namespace FlyControler
 {
-    class TxSender
+    public class TxSender
     {
         SshStream ssh_tx;
 
@@ -37,6 +37,10 @@ namespace FlyControler
                 case TxMsg_types.P_RPM_SET:
                     UInt32 [] MotorSpeedArray = (UInt32 []) data;
                     to_send += String.Format(" {0} {1} {2} {3}\n", MotorSpeedArray[0], MotorSpeedArray[1], MotorSpeedArray[2], MotorSpeedArray[4]);
+                    this.Send_string(to_send);
+                    break;
+                case TxMsg_types.P_PID_SET:
+                    to_send += (string) data;
                     this.Send_string(to_send);
                     break;
             }

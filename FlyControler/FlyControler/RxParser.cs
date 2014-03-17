@@ -10,7 +10,7 @@ namespace FlyControler
 {
 
 
-    class RxParser
+    public class RxParser
     {
         private List<string> RxBufferList = new List<string>();
         private String RxBuffer = "";
@@ -79,9 +79,29 @@ namespace FlyControler
                 {
                     parsed_msg = RxMsg_types.K_LIVE_OK;
                 }
-                else if (String.Compare(RxBufferList[0], "NejakA_dalsi_zprava\n") == 0)
+                else if (String.Compare(RxBufferList[0],RxMsg.texts[RxMsg_types.K_DBG_PID_X]) == 0)
                 {
+                    float [] hodnoty = new float[4];
+                    parsed_msg = RxMsg_types.K_DBG_PID_X;
+                    string[] subretezce = RxBufferList[0].Split(' ');
+                    hodnoty[0] = float.Parse(subretezce[1]);
+                    hodnoty[1] = float.Parse(subretezce[2]);
+                    hodnoty[2] = float.Parse(subretezce[3]);
+                    hodnoty[3] = float.Parse(subretezce[4]);
+                    parsed_data = (object)hodnoty;
                 }
+                else if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_DBG_PID_Y]) == 0)
+                {
+                    float[] hodnoty = new float[4];
+                    parsed_msg = RxMsg_types.K_DBG_PID_Y;
+                    string[] subretezce = RxBufferList[0].Split(' ');
+                    hodnoty[0] = float.Parse(subretezce[1]);
+                    hodnoty[1] = float.Parse(subretezce[2]);
+                    hodnoty[2] = float.Parse(subretezce[3]);
+                    hodnoty[3] = float.Parse(subretezce[4]);
+                    parsed_data = (object)hodnoty;
+                }
+
                 if (this.LogEvent != null) this.LogEvent(this, new LogArgs(this.RxBufferList[0]));
                 this.RxBufferList.RemoveAt(0);
                 if (this.RxMessageReceived_event != null) RxMessageReceived_event(this, new ParseMessgaeArgs(parsed_msg, parsed_data));

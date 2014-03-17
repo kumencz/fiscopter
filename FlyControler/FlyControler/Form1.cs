@@ -19,9 +19,11 @@ namespace FlyControler
         RxParser Parser;
         TxSender Sender;
 
+
         DataLoger Loger = new DataLoger();
 
         DBGForm DebugForm;
+        DBG_PIDForm DebugPID;
 
         LiveControler LControl;
 
@@ -131,6 +133,12 @@ namespace FlyControler
         {
             this.DebugForm = new DBGForm(this.Loger);
             this.DebugForm.Show();
+        }
+
+        private void tsbtn_pid_Click(object sender, EventArgs e)
+        {
+            this.DebugPID = new DBG_PIDForm(this.Parser, this.Sender);
+            this.DebugPID.Show();
         }
 
 

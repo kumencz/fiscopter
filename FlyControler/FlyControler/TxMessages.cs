@@ -25,6 +25,7 @@ namespace FlyControler
     {
         P_CHECK_LIVE,
         P_RPM_SET,
-        P_START_ESC_CALIBRATE
+        P_START_ESC_CALIBRATE,
+        P_PID_SET
     }
 }

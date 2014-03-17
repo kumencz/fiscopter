@@ -25,7 +25,9 @@ namespace FlyControler
         static public Dictionary<RxMsg_types, string> texts = new Dictionary<RxMsg_types, string>
         {
             {RxMsg_types.K_LIVE_OK, "K_LIVE_OK\n"},
-            {RxMsg_types.K_RPM_SET, "K_SET_RPM"}
+            {RxMsg_types.K_RPM_SET, "K_SET_RPM"},
+            {RxMsg_types.K_DBG_PID_X, "K_DBG_PID_X"},
+            {RxMsg_types.K_DBG_PID_Y, "K_DBG_PID_Y"}
         };
 
 
@@ -39,5 +41,7 @@ namespace FlyControler
         UNDEFINED,
         K_LIVE_OK,
         K_RPM_SET,
+        K_DBG_PID_X,
+        K_DBG_PID_Y
     }
 }

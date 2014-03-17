@@ -176,6 +176,7 @@
             this.tsbtn_pid.Name = "tsbtn_pid";
             this.tsbtn_pid.Size = new System.Drawing.Size(29, 22);
             this.tsbtn_pid.Text = "PID";
+            this.tsbtn_pid.Click += new System.EventHandler(this.tsbtn_pid_Click);
             // 
             // tsbtn_rot
             // 
