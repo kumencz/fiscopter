@@ -24,3 +24,7 @@ STM32F3-Discovery/Fiscopter/Libraries/CMSIS/DSP_Lib/Examples/
 STM32F3-Discovery/Fiscopter/Libraries/CMSIS/DSP_Lib/Source/ARM/
 STM32F3-Discovery/Fiscopter/Libraries/CMSIS/SVD/
 STM32F3-Discovery/Fiscopter/Libraries/CMSIS/Documentation/
+
+
+#ignore FlyControler
+FlyControler/
