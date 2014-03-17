@@ -305,9 +305,12 @@ void read_imu(void)
 	PitchAng 	= 0.98f *(PitchAng-Gyro_Buffer[2]*time) + 0.02f*Mag_angle;
 
 
+
+#ifdef SEND_PROCESING_DATA
 	sprintf(send, "0|%f|%f|%f|%f|%f|0|\n",YawAng,RollAng,PitchAng,time,Mag_angle);
 	//sprintf(send, "0|%f|%f|%f|0|0|0|\n",YawAng,RollAng,PitchAng);
 	USART_puts(USART3, send); 
+#endif
 
 
 	//counter pocita tiky timeru
