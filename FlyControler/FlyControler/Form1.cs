@@ -71,7 +71,6 @@ namespace FlyControler
             {
                 this.tslbl_ping_value.Text = "disconected";
                 this.tsbtn_SSH_connect.Text = "Connect";
-                this.LControl.Stop_check();
                 this.Sender.SSH_Disconnect();
                 this.Parser.SSH_Disconnect();
 
@@ -82,7 +81,6 @@ namespace FlyControler
             {
                 this.Parser.SSH_Connect(this.tstb_IP.Text);
                 this.Sender.SSH_Connect(this.tstb_IP.Text);
-                this.LControl.Start_check();
                 this.tsbtn_SSH_connect.Text = "Disconect";
 
 
@@ -139,6 +137,36 @@ namespace FlyControler
         {
             this.DebugPID = new DBG_PIDForm(this.Parser, this.Sender);
             this.DebugPID.Show();
+        }
+
+        private void tb_motor_speed_Scroll(object sender, EventArgs e)
+        {
+            UInt32 [] MotorSpeedArray = new UInt32[4];
+            MotorSpeedArray[0] = (UInt32) this.tb_motor_speed.Value;
+            MotorSpeedArray[1] = (UInt32) this.tb_motor_speed.Value;
+            MotorSpeedArray[2] = (UInt32) this.tb_motor_speed.Value;
+            MotorSpeedArray[3] = (UInt32) this.tb_motor_speed.Value;
+            this.Sender.Send_message(TxMsg_types.P_RPM_SET, (object)MotorSpeedArray);
+            this.nud_RPM.Value = this.tb_motor_speed.Value;
+
+        }
+
+        private void nud_RPM_ValueChanged(object sender, EventArgs e)
+        {
+            //this.tb_motor_speed.Value = (int)this.nud_RPM.Value;
+        }
+
+        private void tsbtn_enable_Click(object sender, EventArgs e)
+        {
+            if (this.tsbtn_enable.Checked)
+            {
+                this.LControl.Start_check();
+            }
+            else
+            {
+                this.LControl.Stop_check();
+            }
+
         }
 
 

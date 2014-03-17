@@ -24,6 +24,14 @@ namespace FlyControler
 
         void parser_RxMessageReceived_event(object sender, ParseMessgaeArgs e)
         {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke((MethodInvoker)delegate
+                {
+                    parser_RxMessageReceived_event(sender, e);
+                });
+                return;
+            }
             if (e.Msg_type == RxMsg_types.K_DBG_PID_X)
             {
                 float[] hodnoty = (float[])e.Msg_data;
@@ -61,6 +69,11 @@ namespace FlyControler
                 this.tstb_ki.Enabled = true;
                 this.tstb_kp.Enabled = true;
             }
+        }
+
+        private void DBG_PIDForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.parser.RxMessageReceived_event -= parser_RxMessageReceived_event;
         }
     }
 }

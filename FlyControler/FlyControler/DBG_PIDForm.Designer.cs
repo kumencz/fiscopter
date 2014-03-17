@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DBG_PIDForm));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DBG_PIDForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.chart_PID = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tstb_kp = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -46,6 +45,7 @@
             this.tsbtn_set_PID = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_clear_chartPID = new System.Windows.Forms.ToolStripButton();
+            this.chart_PID = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_PID)).BeginInit();
             this.SuspendLayout();
@@ -67,42 +67,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(882, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // chart_PID
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_PID.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_PID.Legends.Add(legend1);
-            this.chart_PID.Location = new System.Drawing.Point(12, 28);
-            this.chart_PID.Name = "chart_PID";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.LegendText = "Odchylka";
-            series1.Name = "series_e";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.LegendText = "Sumator";
-            series2.Name = "series_sum";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.LegendText = "Rozdíl";
-            series3.Name = "series_dif";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.LegendText = "Vystup";
-            series4.Name = "series_out";
-            this.chart_PID.Series.Add(series1);
-            this.chart_PID.Series.Add(series2);
-            this.chart_PID.Series.Add(series3);
-            this.chart_PID.Series.Add(series4);
-            this.chart_PID.Size = new System.Drawing.Size(858, 420);
-            this.chart_PID.TabIndex = 1;
-            this.chart_PID.Text = "chart1";
             // 
             // toolStripLabel1
             // 
@@ -162,6 +126,45 @@
             this.tsbtn_clear_chartPID.Text = "Clear chart";
             this.tsbtn_clear_chartPID.Click += new System.EventHandler(this.tsbtn_clear_chartPID_Click);
             // 
+            // chart_PID
+            // 
+            this.chart_PID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chart_PID.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_PID.Legends.Add(legend1);
+            this.chart_PID.Location = new System.Drawing.Point(12, 28);
+            this.chart_PID.Name = "chart_PID";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Odchylka";
+            series1.Name = "series_e";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.LegendText = "Sumator";
+            series2.Name = "series_sum";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.LegendText = "Rozdíl";
+            series3.Name = "series_dif";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.LegendText = "Vystup";
+            series4.Name = "series_out";
+            this.chart_PID.Series.Add(series1);
+            this.chart_PID.Series.Add(series2);
+            this.chart_PID.Series.Add(series3);
+            this.chart_PID.Series.Add(series4);
+            this.chart_PID.Size = new System.Drawing.Size(858, 420);
+            this.chart_PID.TabIndex = 1;
+            this.chart_PID.Text = "chart1";
+            // 
             // DBG_PIDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +174,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "DBG_PIDForm";
             this.Text = "DBG_PIDForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DBG_PIDForm_FormClosed);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_PID)).EndInit();

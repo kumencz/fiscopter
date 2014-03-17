@@ -39,16 +39,19 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.tscb_com_ports = new System.Windows.Forms.ToolStripComboBox();
             this.tsbtn_com_connect = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_dbg = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_pid = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_motors = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_ESC_calibrate = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbtn_dbg = new System.Windows.Forms.ToolStripButton();
-            this.tsbtn_pid = new System.Windows.Forms.ToolStripButton();
-            this.tsbtn_rot = new System.Windows.Forms.ToolStripButton();
             this.tb_motor_speed = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
+            this.nud_RPM = new System.Windows.Forms.NumericUpDown();
+            this.tsbtn_enable = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_motor_speed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_RPM)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -65,10 +68,11 @@
             this.tsbtn_com_connect,
             this.tsbtn_dbg,
             this.tsbtn_pid,
-            this.tsbtn_rot,
+            this.tsbtn_motors,
             this.toolStripSeparator2,
             this.tsbtn_ESC_calibrate,
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.tsbtn_enable});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(916, 25);
@@ -137,6 +141,35 @@
             this.tsbtn_com_connect.Text = "Connect";
             this.tsbtn_com_connect.Click += new System.EventHandler(this.tsbtn_com_connect_Click);
             // 
+            // tsbtn_dbg
+            // 
+            this.tsbtn_dbg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_dbg.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_dbg.Image")));
+            this.tsbtn_dbg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_dbg.Name = "tsbtn_dbg";
+            this.tsbtn_dbg.Size = new System.Drawing.Size(46, 22);
+            this.tsbtn_dbg.Text = "Debug";
+            this.tsbtn_dbg.Click += new System.EventHandler(this.tsbtn_dbg_Click);
+            // 
+            // tsbtn_pid
+            // 
+            this.tsbtn_pid.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_pid.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_pid.Image")));
+            this.tsbtn_pid.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_pid.Name = "tsbtn_pid";
+            this.tsbtn_pid.Size = new System.Drawing.Size(29, 22);
+            this.tsbtn_pid.Text = "PID";
+            this.tsbtn_pid.Click += new System.EventHandler(this.tsbtn_pid_Click);
+            // 
+            // tsbtn_motors
+            // 
+            this.tsbtn_motors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_motors.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_motors.Image")));
+            this.tsbtn_motors.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_motors.Name = "tsbtn_motors";
+            this.tsbtn_motors.Size = new System.Drawing.Size(36, 22);
+            this.tsbtn_motors.Text = "RPM";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -158,42 +191,17 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // tsbtn_dbg
-            // 
-            this.tsbtn_dbg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbtn_dbg.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_dbg.Image")));
-            this.tsbtn_dbg.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_dbg.Name = "tsbtn_dbg";
-            this.tsbtn_dbg.Size = new System.Drawing.Size(46, 22);
-            this.tsbtn_dbg.Text = "Debug";
-            this.tsbtn_dbg.Click += new System.EventHandler(this.tsbtn_dbg_Click);
-            // 
-            // tsbtn_pid
-            // 
-            this.tsbtn_pid.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbtn_pid.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_pid.Image")));
-            this.tsbtn_pid.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_pid.Name = "tsbtn_pid";
-            this.tsbtn_pid.Size = new System.Drawing.Size(29, 22);
-            this.tsbtn_pid.Text = "PID";
-            this.tsbtn_pid.Click += new System.EventHandler(this.tsbtn_pid_Click);
-            // 
-            // tsbtn_rot
-            // 
-            this.tsbtn_rot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbtn_rot.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_rot.Image")));
-            this.tsbtn_rot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_rot.Name = "tsbtn_rot";
-            this.tsbtn_rot.Size = new System.Drawing.Size(61, 22);
-            this.tsbtn_rot.Text = "Rotations";
-            // 
             // tb_motor_speed
             // 
+            this.tb_motor_speed.LargeChange = 500;
             this.tb_motor_speed.Location = new System.Drawing.Point(15, 90);
+            this.tb_motor_speed.Maximum = 8000;
             this.tb_motor_speed.Name = "tb_motor_speed";
             this.tb_motor_speed.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tb_motor_speed.Size = new System.Drawing.Size(45, 313);
+            this.tb_motor_speed.SmallChange = 100;
             this.tb_motor_speed.TabIndex = 1;
+            this.tb_motor_speed.Scroll += new System.EventHandler(this.tb_motor_speed_Scroll);
             // 
             // label1
             // 
@@ -204,11 +212,38 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Motor speed";
             // 
+            // nud_RPM
+            // 
+            this.nud_RPM.Location = new System.Drawing.Point(12, 409);
+            this.nud_RPM.Maximum = new decimal(new int[] {
+            8000,
+            0,
+            0,
+            0});
+            this.nud_RPM.Name = "nud_RPM";
+            this.nud_RPM.ReadOnly = true;
+            this.nud_RPM.Size = new System.Drawing.Size(77, 20);
+            this.nud_RPM.TabIndex = 3;
+            this.nud_RPM.ValueChanged += new System.EventHandler(this.nud_RPM_ValueChanged);
+            // 
+            // tsbtn_enable
+            // 
+            this.tsbtn_enable.CheckOnClick = true;
+            this.tsbtn_enable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_enable.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_enable.Image")));
+            this.tsbtn_enable.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_enable.Name = "tsbtn_enable";
+            this.tsbtn_enable.Size = new System.Drawing.Size(53, 22);
+            this.tsbtn_enable.Text = "Enabled";
+            this.tsbtn_enable.Click += new System.EventHandler(this.tsbtn_enable_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(916, 477);
+            this.Controls.Add(this.nud_RPM);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_motor_speed);
             this.Controls.Add(this.toolStrip1);
@@ -217,6 +252,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_motor_speed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_RPM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,9 +275,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbtn_dbg;
         private System.Windows.Forms.ToolStripButton tsbtn_pid;
-        private System.Windows.Forms.ToolStripButton tsbtn_rot;
+        private System.Windows.Forms.ToolStripButton tsbtn_motors;
         private System.Windows.Forms.TrackBar tb_motor_speed;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown nud_RPM;
+        private System.Windows.Forms.ToolStripButton tsbtn_enable;
 
     }
 }

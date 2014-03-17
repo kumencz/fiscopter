@@ -59,6 +59,12 @@
     <Compile Include="DBG_PIDForm.Designer.cs">
       <DependentUpon>DBG_PIDForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBG_RPMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBG_RPMForm.Designer.cs">
+      <DependentUpon>DBG_RPMForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DBG_PIDForm.resx">
       <DependentUpon>DBG_PIDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBG_RPMForm.resx">
+      <DependentUpon>DBG_RPMForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -101,6 +101,17 @@ namespace FlyControler
                     hodnoty[3] = float.Parse(subretezce[4]);
                     parsed_data = (object)hodnoty;
                 }
+                else if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_DBG_RPM]) == 0)
+                {
+                    UInt32[] hodnoty = new UInt32[4];
+                    parsed_msg = RxMsg_types.K_DBG_RPM;
+                    string[] subretezce = RxBufferList[0].Split(' ');
+                    hodnoty[0] = UInt32.Parse(subretezce[1]);
+                    hodnoty[1] = UInt32.Parse(subretezce[2]);
+                    hodnoty[2] = UInt32.Parse(subretezce[3]);
+                    hodnoty[3] = UInt32.Parse(subretezce[4]);
+                    parsed_data = (object)hodnoty;
+                }
 
                 if (this.LogEvent != null) this.LogEvent(this, new LogArgs(this.RxBufferList[0]));
                 this.RxBufferList.RemoveAt(0);
