@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLoger.cs" />
+    <Compile Include="DBGForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBGForm.Designer.cs">
+      <DependentUpon>DBGForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="RxParser.cs" />
     <Compile Include="TxMessages.cs" />
     <Compile Include="TxSender.cs" />
+    <EmbeddedResource Include="DBGForm.resx">
+      <DependentUpon>DBGForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

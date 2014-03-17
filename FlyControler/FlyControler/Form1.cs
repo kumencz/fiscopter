@@ -19,7 +19,9 @@ namespace FlyControler
         RxParser Parser;
         TxSender Sender;
 
-        DataLoger Loger;
+        DataLoger Loger = new DataLoger();
+
+        DBGForm DebugForm;
 
         LiveControler LControl;
 
@@ -110,7 +112,7 @@ namespace FlyControler
                 if (this.tscb_com_ports.SelectedIndex >= 0)
                 {
                     this.tsbtn_com_connect.Text = "Disconect";
-                    this.Loger = new DataLoger(this.tscb_com_ports.Items[this.tscb_com_ports.SelectedIndex].ToString());
+                    this.Loger.DataLogerInitCOM(this.tscb_com_ports.Items[this.tscb_com_ports.SelectedIndex].ToString());
                     this.Parser.LogEvent += new EventHandler<LogArgs>(Loger.DataLogFunc);
                     this.Sender.LogEvent += new EventHandler<LogArgs>(Loger.DataLogFunc);
                 }
@@ -123,6 +125,12 @@ namespace FlyControler
             {
                 this.tsbtn_com_connect.Text = "Connect";
             }
+        }
+
+        private void tsbtn_dbg_Click(object sender, EventArgs e)
+        {
+            this.DebugForm = new DBGForm(this.Loger);
+            this.DebugForm.Show();
         }
 
 

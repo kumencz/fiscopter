@@ -42,7 +42,13 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_ESC_calibrate = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtn_dbg = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_pid = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_rot = new System.Windows.Forms.ToolStripButton();
+            this.tb_motor_speed = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_motor_speed)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -57,6 +63,9 @@
             this.toolStripLabel4,
             this.tscb_com_ports,
             this.tsbtn_com_connect,
+            this.tsbtn_dbg,
+            this.tsbtn_pid,
+            this.tsbtn_rot,
             this.toolStripSeparator2,
             this.tsbtn_ESC_calibrate,
             this.toolStripSeparator3});
@@ -149,16 +158,64 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
+            // tsbtn_dbg
+            // 
+            this.tsbtn_dbg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_dbg.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_dbg.Image")));
+            this.tsbtn_dbg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_dbg.Name = "tsbtn_dbg";
+            this.tsbtn_dbg.Size = new System.Drawing.Size(46, 22);
+            this.tsbtn_dbg.Text = "Debug";
+            this.tsbtn_dbg.Click += new System.EventHandler(this.tsbtn_dbg_Click);
+            // 
+            // tsbtn_pid
+            // 
+            this.tsbtn_pid.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_pid.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_pid.Image")));
+            this.tsbtn_pid.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_pid.Name = "tsbtn_pid";
+            this.tsbtn_pid.Size = new System.Drawing.Size(29, 22);
+            this.tsbtn_pid.Text = "PID";
+            // 
+            // tsbtn_rot
+            // 
+            this.tsbtn_rot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_rot.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_rot.Image")));
+            this.tsbtn_rot.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_rot.Name = "tsbtn_rot";
+            this.tsbtn_rot.Size = new System.Drawing.Size(61, 22);
+            this.tsbtn_rot.Text = "Rotations";
+            // 
+            // tb_motor_speed
+            // 
+            this.tb_motor_speed.Location = new System.Drawing.Point(15, 90);
+            this.tb_motor_speed.Name = "tb_motor_speed";
+            this.tb_motor_speed.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tb_motor_speed.Size = new System.Drawing.Size(45, 313);
+            this.tb_motor_speed.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Motor speed";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 477);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tb_motor_speed);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
             this.Text = "FlyControl";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_motor_speed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +236,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbtn_ESC_calibrate;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton tsbtn_dbg;
+        private System.Windows.Forms.ToolStripButton tsbtn_pid;
+        private System.Windows.Forms.ToolStripButton tsbtn_rot;
+        private System.Windows.Forms.TrackBar tb_motor_speed;
+        private System.Windows.Forms.Label label1;
 
     }
 }
