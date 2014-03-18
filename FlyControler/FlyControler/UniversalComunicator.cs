@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO.Ports;
 
 namespace FlyControler
 {
     public class UniversalComunicator
     {
+        string SerialPortBuffer = "";
+
         private List<string> RxBufferList = new List<string>();
 
         bool use_IP;
 
         public RxReceiver SSH_RX = new RxReceiver();
         public TxSender SSH_TX = new TxSender();
+
+        public SerialPort cPort = new SerialPort();
 
 
         public event EventHandler<ParseMessgaeArgs> RxMessageReceived_event;
@@ -27,6 +32,10 @@ namespace FlyControler
             if (String.Compare(connecting_text.Substring(0, 3), "COM") == 0) //Srerial port connection
             {
                 use_IP = false;
+                this.cPort.PortName = connecting_text;
+                this.cPort.BaudRate = 115200;
+                this.cPort.DataReceived += new SerialDataReceivedEventHandler(cPort_DataReceived);  
+                this.cPort.Open();
             }
             else // IP connection
             {
@@ -37,6 +46,19 @@ namespace FlyControler
                 this.SSH_RX.LogEvent += new EventHandler<LogArgs>(SSH_RX_LogEvent);
                 this.SSH_TX.LogEvent += SSH_RX_LogEvent;
             }
+        }
+
+        void cPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            this.SerialPortBuffer += this.cPort.ReadExisting();
+            int index = this.SerialPortBuffer.IndexOf('\n');
+            if (index >= 0)
+            {
+                this.RxBufferList.Add(this.SerialPortBuffer.Substring(0, index));
+                this.SerialPortBuffer.Remove(0, index + 1);
+                this.Parse();
+            }
+
         }
 
         void SSH_RX_LogEvent(object sender, LogArgs e)
@@ -52,6 +74,14 @@ namespace FlyControler
 
         public void Disconnect()
         {
+            if (this.use_IP)
+            {
+                this.SSH_RX.LogEvent -= SSH_RX_LogEvent;
+            }
+            else
+            {
+                this.cPort.DataReceived -= cPort_DataReceived; 
+            }
         }
 
 
