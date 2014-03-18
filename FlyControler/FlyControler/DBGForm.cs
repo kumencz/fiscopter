@@ -11,11 +11,11 @@ namespace FlyControler
 {
     public partial class DBGForm : Form
     {
-        DataLoger DBG;
-        public DBGForm(DataLoger loger)
+        UniversalComunicator DBG;
+        public DBGForm(UniversalComunicator com)
         {
             InitializeComponent();
-            DBG = loger;
+            DBG = com;
             this.DBG.LogEvent += new EventHandler<LogArgs>(DBG_LogEvent);
         }
 
