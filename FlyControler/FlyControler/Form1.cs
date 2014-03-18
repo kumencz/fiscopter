@@ -125,7 +125,7 @@ namespace FlyControler
 
         private void tsbtn_dbg_Click(object sender, EventArgs e)
         {
-            this.DebugForm = new DBGForm(this.Loger);
+            this.DebugForm = new DBGForm(this.comunicator);
             this.DebugForm.Show();
         }
 
