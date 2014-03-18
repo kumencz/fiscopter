@@ -300,9 +300,9 @@ void read_imu(void)
 	
 	/* Filter and combine acc + gyro (+ mag)*/
 
-	YawAng 		= 0.98f *(YawAng+Gyro_Buffer[0]*time) + 0.02f*accXangle;
-	RollAng 	= 0.98f *(RollAng+Gyro_Buffer[1]*time) + 0.02f*accYangle;
-	PitchAng 	= 0.98f *(PitchAng-Gyro_Buffer[2]*time) + 0.02f*Mag_angle;
+	PitchAng = 0.98f *(PitchAng+Gyro_Buffer[0]*time) + 0.02f*accXangle;
+	RollAng = 0.98f *(RollAng+Gyro_Buffer[1]*time) + 0.02f*accYangle;
+	YawAng = 0.98f *(YawAng-Gyro_Buffer[2]*time) + 0.02f*Mag_angle;
 
 
 

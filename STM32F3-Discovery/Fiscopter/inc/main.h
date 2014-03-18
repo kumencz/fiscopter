@@ -54,8 +54,8 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 
-#define SEND_DEBUG_PID_X
-//#define SEND_DEBUG_PID_Y
+//#define SEND_DEBUG_PID_X
+#define SEND_DEBUG_PID_Y
 //#define SEND_PROCESING_DATA
 
 /* Exported functions ------------------------------------------------------- */

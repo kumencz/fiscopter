@@ -44,7 +44,7 @@ void Compute(float x_err, float y_err)
 		x_errSum -= x_err;
 	}
 #ifdef SEND_DEBUG_PID_X
-	USART_puts_len(USART3, to_send, sprintf(to_send, "DBG_PID_X %f %f %f %f\n", x_err, x_errSum, x_dErr, x_out));
+	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_X %f %f %f %f\n", x_err, x_errSum, x_dErr, x_out));
 #endif
 	x_out_neg = x_out * -1;
   /*Remember some variables for next time*/
@@ -68,7 +68,9 @@ void Compute(float x_err, float y_err)
 		//omezení integracní slozky
 		y_errSum -= y_err;
 	}
-	USART_puts_len(USART3, to_send, sprintf(to_send, "DBG_PID_X %f %f %f %f\n", y_err, y_errSum, y_dErr, y_out));
+#ifdef SEND_DEBUG_PID_Y
+	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_Y %f %f %f %f\n", y_err, y_errSum, y_dErr, y_out));
+#endif
 	y_out_neg = y_out * -1;
   /*Remember some variables for next time*/
   y_lastErr = y_err;
