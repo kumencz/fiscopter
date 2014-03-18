@@ -16,20 +16,23 @@ namespace FlyControler
 {
     public partial class Form1 : Form
     {
-        RxParser Parser;
-        TxSender Sender;
 
-        DataLoger Loger;
+        UniversalComunicator comunicator;
+
+
+        DataLoger Loger = new DataLoger();
+
+        DBGForm DebugForm;
+        DBG_PIDForm DebugPID;
 
         LiveControler LControl;
 
         public Form1()
         {
             InitializeComponent();
-            this.Parser = new RxParser();
-            this.Sender = new TxSender();
+            comunicator = new UniversalComunicator();
 
-            this.LControl = new LiveControler(this.Parser, this.Sender);
+            this.LControl = new LiveControler(this.comunicator);
             this.LControl.PingChanged_event += new EventHandler<LiveControlerArgs>(LControl_PingChanged_event);
             
         }
@@ -67,18 +70,14 @@ namespace FlyControler
             {
                 this.tslbl_ping_value.Text = "disconected";
                 this.tsbtn_SSH_connect.Text = "Connect";
-                this.LControl.Stop_check();
-                this.Sender.SSH_Disconnect();
-                this.Parser.SSH_Disconnect();
+                this.comunicator.Disconnect();
 
                 this.tstb_IP.Enabled = true;
                 this.tsbtn_ESC_calibrate.Enabled = false;
             }
             else
             {
-                this.Parser.SSH_Connect(this.tstb_IP.Text);
-                this.Sender.SSH_Connect(this.tstb_IP.Text);
-                this.LControl.Start_check();
+                this.comunicator.Connect(this.tstb_IP.Text);
                 this.tsbtn_SSH_connect.Text = "Disconect";
 
 
@@ -93,7 +92,7 @@ namespace FlyControler
             DialogResult res = MessageBox.Show("Opravdu spustit kalibraci?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == System.Windows.Forms.DialogResult.Yes)
             {
-                this.Sender.Send_message(TxMsg_types.P_START_ESC_CALIBRATE, null);
+                this.comunicator.Send_message(TxMsg_types.P_START_ESC_CALIBRATE, null);
             }
         }
 
@@ -110,9 +109,8 @@ namespace FlyControler
                 if (this.tscb_com_ports.SelectedIndex >= 0)
                 {
                     this.tsbtn_com_connect.Text = "Disconect";
-                    this.Loger = new DataLoger(this.tscb_com_ports.Items[this.tscb_com_ports.SelectedIndex].ToString());
-                    this.Parser.LogEvent += new EventHandler<LogArgs>(Loger.DataLogFunc);
-                    this.Sender.LogEvent += new EventHandler<LogArgs>(Loger.DataLogFunc);
+                    this.Loger.DataLogerInitCOM(this.tscb_com_ports.Items[this.tscb_com_ports.SelectedIndex].ToString());
+                    this.comunicator.LogEvent += new EventHandler<LogArgs>(Loger.DataLogFunc);
                 }
                 else
                 {
@@ -123,6 +121,48 @@ namespace FlyControler
             {
                 this.tsbtn_com_connect.Text = "Connect";
             }
+        }
+
+        private void tsbtn_dbg_Click(object sender, EventArgs e)
+        {
+            this.DebugForm = new DBGForm(this.comunicator);
+            this.DebugForm.Show();
+        }
+
+        private void tsbtn_pid_Click(object sender, EventArgs e)
+        {
+            this.DebugPID = new DBG_PIDForm(this.comunicator);
+            this.DebugPID.Show();
+        }
+
+        private void tb_motor_speed_Scroll(object sender, EventArgs e)
+        {
+            UInt32 [] MotorSpeedArray = new UInt32[4];
+            MotorSpeedArray[0] = (UInt32) this.tb_motor_speed.Value;
+            MotorSpeedArray[1] = (UInt32) this.tb_motor_speed.Value;
+            MotorSpeedArray[2] = (UInt32) this.tb_motor_speed.Value;
+            MotorSpeedArray[3] = (UInt32) this.tb_motor_speed.Value;
+            this.comunicator.Send_message(TxMsg_types.P_RPM_SET, (object)MotorSpeedArray);
+            this.nud_RPM.Value = this.tb_motor_speed.Value;
+
+        }
+
+        private void nud_RPM_ValueChanged(object sender, EventArgs e)
+        {
+            //this.tb_motor_speed.Value = (int)this.nud_RPM.Value;
+        }
+
+        private void tsbtn_enable_Click(object sender, EventArgs e)
+        {
+            if (this.tsbtn_enable.Checked)
+            {
+                this.LControl.Start_check();
+            }
+            else
+            {
+                this.LControl.Stop_check();
+            }
+
         }
 
 

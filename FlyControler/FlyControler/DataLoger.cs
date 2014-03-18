@@ -11,23 +11,42 @@ namespace FlyControler
     {
         SerialPort cport;
 
+
+        public event EventHandler<LogArgs> LogEvent;
+
         public delegate void DataToLog(object sender, LogArgs data);
+
+
         public DataToLog DataLogFunc;
 
-        public DataLoger(string COM)
+        public DataLoger()
         {
+            this.DataLogFunc = new DataToLog(this.LogData);
+        }
+
+        public void DataLogerInitCOM(string COM)
+        {
+
             cport = new SerialPort();
             cport.PortName = COM;
             cport.BaudRate = 115200;
             cport.Open();
 
-            this.DataLogFunc = new DataToLog(this.LogData);
+        }
 
+        public void DataLogerDeInitCOM()
+        {
+            if (this.cport.IsOpen)
+            {
+                cport.Close();
+            }
         }
 
         void LogData(object sender, LogArgs arg)
         {
+            if (this.LogEvent != null) this.LogEvent(this, arg);
             this.cport.Write(arg.data);
+            
         }
     }
 

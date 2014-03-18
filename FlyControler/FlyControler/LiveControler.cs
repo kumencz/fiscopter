@@ -14,8 +14,8 @@ namespace FlyControler
 
         private const UInt32 WARNING_VALUE = 250; //ms
 
-        RxParser Parser;
-        TxSender Sender;
+        UniversalComunicator comunicator;
+
         Timer tim = new Timer();
         Timer show_tim = new Timer();
 
@@ -24,11 +24,10 @@ namespace FlyControler
         UInt32 Sended_counter = 0;
         UInt32 Interval = 0xFFFFFFFF; // in ms
 
-        public LiveControler(RxParser parser, TxSender sender)
+        public LiveControler(UniversalComunicator com)
         {
-            this.Parser = parser;
-            this.Sender = sender;
-            this.Parser.RxMessageReceived_event += new EventHandler<ParseMessgaeArgs>(Parser_RxMessageReceived_event);
+            this.comunicator = com;
+            this.comunicator.RxMessageReceived_event += new EventHandler<ParseMessgaeArgs>(Parser_RxMessageReceived_event);
 
             
             tim.Interval = GUARD_INTERVAL;
@@ -74,7 +73,7 @@ namespace FlyControler
 
         void tim_Tick(object sender, EventArgs e)
         {
-            this.Sender.Send_message(TxMsg_types.P_CHECK_LIVE, null);
+            this.comunicator.Send_message(TxMsg_types.P_CHECK_LIVE, null);
             Sended_counter++;
         }
 

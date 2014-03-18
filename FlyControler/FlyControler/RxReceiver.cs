@@ -10,18 +10,17 @@ namespace FlyControler
 {
 
 
-    class RxParser
+    public class RxReceiver
     {
-        private List<string> RxBufferList = new List<string>();
+
         private String RxBuffer = "";
-        private UInt32 MessagesToParse = 0;
         byte[] rx_buff = new byte[200];
         SshStream ssh_rx;
         AsyncCallback rx_clbk;
-        public event EventHandler<ParseMessgaeArgs> RxMessageReceived_event;
+        public event EventHandler<ReceiveMessgaeArgs> RxMessageReceived_event;
         public event EventHandler<LogArgs> LogEvent;
 
-        public RxParser()
+        public RxReceiver()
         {
             rx_clbk = new AsyncCallback(SSH_Rx_receive_calback);
         }
@@ -44,9 +43,8 @@ namespace FlyControler
                     }
                     if ((char)b == '\n' || (char)b == '\r')
                     {
-                        RxBufferList.Add(RxBuffer);
+                        if (this.RxMessageReceived_event != null) this.RxMessageReceived_event(this, new ReceiveMessgaeArgs(RxBuffer));
                         RxBuffer = String.Empty;
-                        this.Parse();
                     }
                 }
             }
@@ -69,24 +67,17 @@ namespace FlyControler
             this.ssh_rx.BeginRead(rx_buff, 0, rx_buff.Length, rx_clbk, new object());
         }
 
-        private void Parse()
-        {
-            RxMsg_types parsed_msg = RxMsg_types.UNDEFINED;
-            object parsed_data = null;
-            if (RxBufferList.Count > 0)
-            {
-                if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_LIVE_OK]) == 0)
-                {
-                    parsed_msg = RxMsg_types.K_LIVE_OK;
-                }
-                else if (String.Compare(RxBufferList[0], "NejakA_dalsi_zprava\n") == 0)
-                {
-                }
-                if (this.LogEvent != null) this.LogEvent(this, new LogArgs(this.RxBufferList[0]));
-                this.RxBufferList.RemoveAt(0);
-                if (this.RxMessageReceived_event != null) RxMessageReceived_event(this, new ParseMessgaeArgs(parsed_msg, parsed_data));
-            }
-        }
+        
 
+    }
+
+    public class ReceiveMessgaeArgs : EventArgs
+    {
+        public string received_data { private set; get; }
+
+        public ReceiveMessgaeArgs( string data)
+        {
+            this.received_data = data;
+        }
     }
 }

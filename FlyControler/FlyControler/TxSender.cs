@@ -7,7 +7,7 @@ using Tamir.SharpSsh;
 
 namespace FlyControler
 {
-    class TxSender
+    public class TxSender
     {
         SshStream ssh_tx;
 
@@ -29,20 +29,7 @@ namespace FlyControler
             this.ssh_tx.Write("stty -F /dev/ttyUSB0 sane raw -echo -echoe -echok 115200");
         }
 
-        public void Send_message(TxMsg_types msg_to_send, object data)
-        {
-            string to_send = TxMsg.texts[msg_to_send];
-            switch (msg_to_send)
-            {
-                case TxMsg_types.P_RPM_SET:
-                    UInt32 [] MotorSpeedArray = (UInt32 []) data;
-                    to_send += String.Format(" {0} {1} {2} {3}\n", MotorSpeedArray[0], MotorSpeedArray[1], MotorSpeedArray[2], MotorSpeedArray[4]);
-                    this.Send_string(to_send);
-                    break;
-            }
 
-            this.Send_string(msg_to_send.ToString());
-        }
 
         public void Send_string(string str_to_send)
         {
