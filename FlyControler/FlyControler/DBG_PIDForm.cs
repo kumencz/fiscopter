@@ -11,15 +11,14 @@ namespace FlyControler
 {
     public partial class DBG_PIDForm : Form
     {
-        RxParser parser;
-        TxSender sender;
+        UniversalComunicator comunicatror;
 
-        public DBG_PIDForm(RxParser par, TxSender send)
+        
+        public DBG_PIDForm(UniversalComunicator com)
         {
             InitializeComponent();
-            this.parser = par;
-            this.sender = send;
-            this.parser.RxMessageReceived_event += new EventHandler<ParseMessgaeArgs>(parser_RxMessageReceived_event);
+            this.comunicatror = com;
+            this.comunicatror.RxMessageReceived_event += new EventHandler<ParseMessgaeArgs>(parser_RxMessageReceived_event);
         }
 
         void parser_RxMessageReceived_event(object sender, ParseMessgaeArgs e)
@@ -59,7 +58,7 @@ namespace FlyControler
                 this.tstb_ki.Enabled = false;
                 this.tstb_kp.Enabled = false;
                 string hodnoty = String.Format(" {0} {1} {2}\n", this.tstb_kp.Text, this.tstb_ki.Text, this.tstb_kd.Text);
-                this.sender.Send_message(TxMsg_types.P_PID_SET, (object)hodnoty);
+                this.comunicatror.Send_message(TxMsg_types.P_PID_SET, (object)hodnoty);
             }
             else
             {
@@ -73,7 +72,7 @@ namespace FlyControler
 
         private void DBG_PIDForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.parser.RxMessageReceived_event -= parser_RxMessageReceived_event;
+            this.comunicatror.RxMessageReceived_event -= parser_RxMessageReceived_event;
         }
     }
 }

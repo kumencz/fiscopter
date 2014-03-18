@@ -11,15 +11,13 @@ namespace FlyControler
 {
     public partial class DBG_RPMForm : Form
     {
-        RxParser parser;
-        TxSender sender; 
+        UniversalComunicator comunicator;
 
-        public DBG_RPMForm(RxParser par, TxSender send)
+        public DBG_RPMForm(UniversalComunicator com)
         {
             InitializeComponent();
-            this.parser = par;
-            this.sender = send;
-            this.parser.RxMessageReceived_event += new EventHandler<ParseMessgaeArgs>(parser_RxMessageReceived_event);
+            this.comunicator = com;
+            this.comunicator.RxMessageReceived_event += new EventHandler<ParseMessgaeArgs>(parser_RxMessageReceived_event);
         }
 
         void parser_RxMessageReceived_event(object sender, ParseMessgaeArgs e)
@@ -59,7 +57,7 @@ namespace FlyControler
 
         private void DBG_RPMForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.parser.RxMessageReceived_event -= parser_RxMessageReceived_event;
+            this.comunicator.RxMessageReceived_event -= parser_RxMessageReceived_event;
         }
     }
 }

@@ -75,7 +75,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RxMessages.cs" />
-    <Compile Include="RxParser.cs" />
+    <Compile Include="RxReceiver.cs" />
     <Compile Include="TxMessages.cs" />
     <Compile Include="TxSender.cs" />
     <Compile Include="UniversalComunicator.cs" />
