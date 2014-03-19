@@ -54,8 +54,8 @@ namespace FlyControler
             int index = this.SerialPortBuffer.IndexOf('\n');
             if (index >= 0)
             {
-                this.RxBufferList.Add(this.SerialPortBuffer.Substring(0, index));
-                this.SerialPortBuffer.Remove(0, index + 1);
+                this.RxBufferList.Add(this.SerialPortBuffer.Substring(0, index + 1));
+                this.SerialPortBuffer = this.SerialPortBuffer.Remove(0, index + 1);
                 this.Parse();
             }
 
@@ -113,6 +113,7 @@ namespace FlyControler
             }
             else
             {
+                this.cPort.Write(str);
             }
         }
 
