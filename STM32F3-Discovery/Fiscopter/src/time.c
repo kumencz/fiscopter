@@ -80,19 +80,23 @@ void period_time_check_flags(void)
 void tim_1ms_loop(void)
 {
 	TIM_1MS_FLAG = 0;
-//	read_imu();
-//	Compute(Xrot,Yrot);
-//	ESC_recompute();  //Recompute motor speeds
+
 }
 
 void tim_10ms_loop(void)
 {
-	TIM_10MS_FLAG = 0;
+	TIM_10MS_FLAG = 0;	
+	read_imu();
+	Compute(x_wanted-RollAng,y_wanted-PitchAng);
+	ESC_recompute();  //Recompute motor speeds
 }
 
 void tim_100ms_loop(void)
 { 
 	TIM_100MS_FLAG = 0;
+	if (live != 1)
+		live_fail();
+	live =0;	 
 }
 
 void tim_1000ms_loop(void)

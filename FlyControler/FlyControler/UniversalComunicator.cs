@@ -54,8 +54,8 @@ namespace FlyControler
             int index = this.SerialPortBuffer.IndexOf('\n');
             if (index >= 0)
             {
-                this.RxBufferList.Add(this.SerialPortBuffer.Substring(0, index));
-                this.SerialPortBuffer.Remove(0, index + 1);
+                this.RxBufferList.Add(this.SerialPortBuffer.Substring(0, index + 1));
+                this.SerialPortBuffer = this.SerialPortBuffer.Remove(0, index + 1);
                 this.Parse();
             }
 
@@ -113,6 +113,7 @@ namespace FlyControler
             }
             else
             {
+                this.cPort.Write(str);
             }
         }
 
@@ -126,27 +127,43 @@ namespace FlyControler
                 {
                     parsed_msg = RxMsg_types.K_LIVE_OK;
                 }
-                else if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_DBG_PID_X]) == 0)
+                else if (RxBufferList[0].Length >= RxMsg.texts[RxMsg_types.K_DBG_PID_X].Length && String.Compare(RxBufferList[0].Substring(0, RxMsg.texts[RxMsg_types.K_DBG_PID_X].Length), RxMsg.texts[RxMsg_types.K_DBG_PID_X]) == 0)
                 {
-                    float[] hodnoty = new float[4];
-                    parsed_msg = RxMsg_types.K_DBG_PID_X;
-                    string[] subretezce = RxBufferList[0].Split(' ');
-                    hodnoty[0] = float.Parse(subretezce[1]);
-                    hodnoty[1] = float.Parse(subretezce[2]);
-                    hodnoty[2] = float.Parse(subretezce[3]);
-                    hodnoty[3] = float.Parse(subretezce[4]);
-                    parsed_data = (object)hodnoty;
+                    try
+                    {
+                        float[] hodnoty = new float[4];
+                        parsed_msg = RxMsg_types.K_DBG_PID_X;
+                        string[] subretezce = RxBufferList[0].Replace('.', ',').Split(' ');
+                        hodnoty[0] = float.Parse(subretezce[1]);
+                        hodnoty[1] = float.Parse(subretezce[2]);
+                        hodnoty[2] = float.Parse(subretezce[3]);
+                        hodnoty[3] = float.Parse(subretezce[4]);
+                        parsed_data = (object)hodnoty;
+                    }
+                    catch
+                    {
+                        parsed_msg = RxMsg_types.UNDEFINED;
+                        parsed_data = null;
+                    }
                 }
-                else if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_DBG_PID_Y]) == 0)
+                else if (RxBufferList[0].Length >= RxMsg.texts[RxMsg_types.K_DBG_PID_Y].Length &&  String.Compare(RxBufferList[0].Substring(0, RxMsg.texts[RxMsg_types.K_DBG_PID_Y].Length), RxMsg.texts[RxMsg_types.K_DBG_PID_Y]) == 0)
                 {
-                    float[] hodnoty = new float[4];
-                    parsed_msg = RxMsg_types.K_DBG_PID_Y;
-                    string[] subretezce = RxBufferList[0].Split(' ');
-                    hodnoty[0] = float.Parse(subretezce[1]);
-                    hodnoty[1] = float.Parse(subretezce[2]);
-                    hodnoty[2] = float.Parse(subretezce[3]);
-                    hodnoty[3] = float.Parse(subretezce[4]);
-                    parsed_data = (object)hodnoty;
+                    try
+                    {
+                        float[] hodnoty = new float[4];
+                        parsed_msg = RxMsg_types.K_DBG_PID_Y;
+                        string[] subretezce = RxBufferList[0].Replace('.', ',').Split(' ');
+                        hodnoty[0] = float.Parse(subretezce[1]);
+                        hodnoty[1] = float.Parse(subretezce[2]);
+                        hodnoty[2] = float.Parse(subretezce[3]);
+                        hodnoty[3] = float.Parse(subretezce[4]);
+                        parsed_data = (object)hodnoty;
+                    }
+                    catch
+                    {
+                        parsed_msg = RxMsg_types.UNDEFINED;
+                        parsed_data = null;
+                    }
                 }
                 else if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_DBG_RPM]) == 0)
                 {

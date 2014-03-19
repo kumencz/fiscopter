@@ -4,7 +4,8 @@
 /* Private define ------------------------------------------------------------*/
 
 #define RINGBUF_SIZE_TX    2000
-#define RINGBUF_SIZE_RX 	 2000
+#define RINGBUF_SIZE_RX 	 20
+#define RX_MAX_MESSAGE_LEN		 50
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
@@ -16,11 +17,12 @@ volatile uint32_t USART_ToSend = 0;
 char send[50];
 
 // RX
-uint8_t  USART_ringbuf_rx[RINGBUF_SIZE_RX];
-volatile uint32_t USART_readidx_rx = 0;	//ukazuje na následující k parsovani (klidne i zatim nenaplnenou)
+uint8_t  USART_ringbuf_rx[RINGBUF_SIZE_RX][RX_MAX_MESSAGE_LEN];
 volatile uint32_t USART_writeidx_rx = 0; //ukazuje na první volnou pozici v bufferu Rx pro zápis
+volatile uint32_t USART_readBuff_rx = 0;	//ukazuje na následující buffer k parsovani (klidne i zatim nenaplnenou)
+volatile uint32_t USART_writeBuff_rx = 0;//ukazuje na první volný buffer Rx pro zápis
 volatile uint32_t USART_ToParse = 0;  // number of messages (null ending chars) to parse
-volatile uint32_t USART_InBufferCounter = 0; // pocet byte v bufferu
+
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -99,35 +101,39 @@ void USART_byte_sended(void)
 // ------RX------------
 void USART_byte_received(uint8_t data)
 {
-	if (USART_InBufferCounter < RINGBUF_SIZE_RX)
+	if (USART_ToParse < RINGBUF_SIZE_RX)
 	{
-		USART_ringbuf_rx[USART_writeidx_rx++] = data;
-		if (USART_writeidx_rx >= RINGBUF_SIZE_RX) USART_writeidx_rx = 0;
-		USART_InBufferCounter++;
+		USART_ringbuf_rx[USART_writeBuff_rx][USART_writeidx_rx++] = data;
+		if (USART_writeidx_rx >= RX_MAX_MESSAGE_LEN) 
+		{
+			USART_writeidx_rx = 0;
+			//ERROR - longer message then maximal
+		}
 		if (data == '\n' || data == '\r') //message separator
 		{
 			USART_ToParse++;
+			USART_writeidx_rx = 0;	
+			USART_writeBuff_rx++;				
+			if (USART_writeBuff_rx >= RINGBUF_SIZE_RX) USART_writeBuff_rx = 0;
 		}
 	}
 	else
 	{
-		// error - Rx buffer full
+		// error - ALL Rx buffers are full
 	}
 }
 
 void USART_manage_RX(void)
 {
 	uint32_t msgLen;
-	uint8_t * data;
 	if (USART_ToParse > 0)
 	{
-		data = &(USART_ringbuf_rx[USART_readidx_rx]);
-		msgLen = USART_Protocol_RX_Parse(data);
+		msgLen = USART_Protocol_RX_Parse(&(USART_ringbuf_rx[USART_readBuff_rx][0]));
 		if (msgLen > 0)
 		{
 			USART_ToParse--;
-			USART_InBufferCounter -= msgLen;
-			USART_readidx_rx += msgLen;
+			USART_readBuff_rx++;
+			if (USART_readBuff_rx >= RINGBUF_SIZE_RX) USART_readBuff_rx = 0;
 		}
 	}
 }

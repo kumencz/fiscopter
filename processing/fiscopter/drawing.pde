@@ -1,6 +1,6 @@
 void draw_quad()
 {
-  strokeWeight(1);
+  strokeWeight(0.01);
   stroke(100,100,100);
     beginShape(QUADS);
 //======================================= + config start
@@ -202,7 +202,7 @@ void draw_meter(float pitch, float roll)
   
   float left = pitch - 0.75 + roll;
   float right = pitch - 0.75 - roll;
-  //noStroke();
+  strokeWeight(0.01);
   fill(0,110,0);
   quad(0, 0, 0, left, 2, right, 2, 0);
 }

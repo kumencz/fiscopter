@@ -41,10 +41,12 @@ String inString;
 void setup()  { 
   float xmag, ymag = 0;
   float newXmag, newYmag = 0;
-  PFrame f = new PFrame();
   size(1000, 650, OPENGL); 
+  PFrame f = new PFrame();
   colorMode(RGB, 255);
-  myPort = new Serial(this, Serial.list()[0], 115200); 
+  println(Serial.list());
+  myPort = new Serial(this, "/dev/ttyUSB0", 115200);
+  //myPort = new Serial(this, "/dev/COM1", 115200); 
   myPort.bufferUntil('\n');
   textFont(loadFont("LiberationSerif-40.vlw"), 40);
 } 
@@ -65,6 +67,5 @@ public class secondApplet extends PApplet {
         noSmooth();
     }
 
-    public void draw() {
-    }
+   
 }

@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DBG_RPMForm));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DBG_RPMForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tsbtn_chartRPM_clear = new System.Windows.Forms.ToolStripButton();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.show_timer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +53,16 @@
             this.toolStrip1.Size = new System.Drawing.Size(911, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbtn_chartRPM_clear
+            // 
+            this.tsbtn_chartRPM_clear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_chartRPM_clear.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_chartRPM_clear.Image")));
+            this.tsbtn_chartRPM_clear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_chartRPM_clear.Name = "tsbtn_chartRPM_clear";
+            this.tsbtn_chartRPM_clear.Size = new System.Drawing.Size(38, 22);
+            this.tsbtn_chartRPM_clear.Text = "Clear";
+            this.tsbtn_chartRPM_clear.Click += new System.EventHandler(this.tsbtn_chartRPM_clear_Click);
             // 
             // chart1
             // 
@@ -91,15 +103,10 @@
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart_RPM";
             // 
-            // tsbtn_chartRPM_clear
+            // show_timer
             // 
-            this.tsbtn_chartRPM_clear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbtn_chartRPM_clear.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_chartRPM_clear.Image")));
-            this.tsbtn_chartRPM_clear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_chartRPM_clear.Name = "tsbtn_chartRPM_clear";
-            this.tsbtn_chartRPM_clear.Size = new System.Drawing.Size(38, 22);
-            this.tsbtn_chartRPM_clear.Text = "Clear";
-            this.tsbtn_chartRPM_clear.Click += new System.EventHandler(this.tsbtn_chartRPM_clear_Click);
+            this.show_timer.Interval = 1000;
+            this.show_timer.Tick += new System.EventHandler(this.show_timer_Tick);
             // 
             // DBG_RPMForm
             // 
@@ -124,5 +131,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ToolStripButton tsbtn_chartRPM_clear;
+        private System.Windows.Forms.Timer show_timer;
     }
 }
