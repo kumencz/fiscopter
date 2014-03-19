@@ -31,7 +31,7 @@ namespace FlyControler
                 });
                 return;
             }
-            if (e.Msg_type == RxMsg_types.K_DBG_PID_X)
+            if (e.Msg_type == RxMsg_types.K_DBG_PID_Y)
             {
                 float[] hodnoty = (float[])e.Msg_data;
                 this.chart_PID.Series["series_e"].Points.Add(hodnoty[0]);

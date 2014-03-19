@@ -298,8 +298,13 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< HEAD
       <TopLine>73</TopLine>
+      <CurrentLine>310</CurrentLine>
+=======
+      <TopLine>78</TopLine>
       <CurrentLine>265</CurrentLine>
+>>>>>>> Dev_DISCOVERY
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\imu.c</PathWithFileName>
       <FilenameWithoutPath>imu.c</FilenameWithoutPath>
@@ -330,8 +335,13 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< HEAD
       <TopLine>62</TopLine>
+      <CurrentLine>129</CurrentLine>
+=======
+      <TopLine>108</TopLine>
       <CurrentLine>1</CurrentLine>
+>>>>>>> Dev_DISCOVERY
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\usart.c</PathWithFileName>
       <FilenameWithoutPath>usart.c</FilenameWithoutPath>

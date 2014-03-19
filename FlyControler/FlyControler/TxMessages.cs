@@ -13,7 +13,8 @@ namespace FlyControler
         {
             {TxMsg_types.P_CHECK_LIVE, "P_CHECK_LIVE\n"},
             {TxMsg_types.P_RPM_SET, "P_RPM_SET"},
-            {TxMsg_types.P_START_ESC_CALIBRATE, "P_START_ESC_CALIBRATE"}
+            {TxMsg_types.P_START_ESC_CALIBRATE, "P_START_ESC_CALIBRATE"},
+            {TxMsg_types.P_PID_SET, "P_PID_SET"}
 
         };
 

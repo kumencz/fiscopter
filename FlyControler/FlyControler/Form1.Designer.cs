@@ -45,10 +45,10 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtn_ESC_calibrate = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtn_enable = new System.Windows.Forms.ToolStripButton();
             this.tb_motor_speed = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.nud_RPM = new System.Windows.Forms.NumericUpDown();
-            this.tsbtn_enable = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_motor_speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_RPM)).BeginInit();
@@ -82,7 +82,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(20, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(21, 22);
             this.toolStripLabel1.Text = "IP:";
             // 
             // tstb_IP
@@ -97,7 +97,7 @@
             this.tsbtn_SSH_connect.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_SSH_connect.Image")));
             this.tsbtn_SSH_connect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_SSH_connect.Name = "tsbtn_SSH_connect";
-            this.tsbtn_SSH_connect.Size = new System.Drawing.Size(56, 22);
+            this.tsbtn_SSH_connect.Size = new System.Drawing.Size(51, 22);
             this.tsbtn_SSH_connect.Text = "Connect";
             this.tsbtn_SSH_connect.Click += new System.EventHandler(this.tsbtn_SSH_connect_Click);
             // 
@@ -105,13 +105,13 @@
             // 
             this.toolStripLabel2.Enabled = false;
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(34, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(31, 22);
             this.toolStripLabel2.Text = "Ping:";
             // 
             // tslbl_ping_value
             // 
             this.tslbl_ping_value.Name = "tslbl_ping_value";
-            this.tslbl_ping_value.Size = new System.Drawing.Size(71, 22);
+            this.tslbl_ping_value.Size = new System.Drawing.Size(64, 22);
             this.tslbl_ping_value.Text = "disconected";
             // 
             // toolStripSeparator1
@@ -122,7 +122,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(76, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(67, 22);
             this.toolStripLabel4.Text = "Output COM";
             // 
             // tscb_com_ports
@@ -137,7 +137,7 @@
             this.tsbtn_com_connect.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_com_connect.Image")));
             this.tsbtn_com_connect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_com_connect.Name = "tsbtn_com_connect";
-            this.tsbtn_com_connect.Size = new System.Drawing.Size(56, 22);
+            this.tsbtn_com_connect.Size = new System.Drawing.Size(51, 22);
             this.tsbtn_com_connect.Text = "Connect";
             this.tsbtn_com_connect.Click += new System.EventHandler(this.tsbtn_com_connect_Click);
             // 
@@ -147,7 +147,7 @@
             this.tsbtn_dbg.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_dbg.Image")));
             this.tsbtn_dbg.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_dbg.Name = "tsbtn_dbg";
-            this.tsbtn_dbg.Size = new System.Drawing.Size(46, 22);
+            this.tsbtn_dbg.Size = new System.Drawing.Size(42, 22);
             this.tsbtn_dbg.Text = "Debug";
             this.tsbtn_dbg.Click += new System.EventHandler(this.tsbtn_dbg_Click);
             // 
@@ -157,7 +157,7 @@
             this.tsbtn_pid.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_pid.Image")));
             this.tsbtn_pid.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_pid.Name = "tsbtn_pid";
-            this.tsbtn_pid.Size = new System.Drawing.Size(29, 22);
+            this.tsbtn_pid.Size = new System.Drawing.Size(28, 22);
             this.tsbtn_pid.Text = "PID";
             this.tsbtn_pid.Click += new System.EventHandler(this.tsbtn_pid_Click);
             // 
@@ -167,7 +167,7 @@
             this.tsbtn_motors.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_motors.Image")));
             this.tsbtn_motors.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_motors.Name = "tsbtn_motors";
-            this.tsbtn_motors.Size = new System.Drawing.Size(36, 22);
+            this.tsbtn_motors.Size = new System.Drawing.Size(32, 22);
             this.tsbtn_motors.Text = "RPM";
             // 
             // toolStripSeparator2
@@ -182,7 +182,7 @@
             this.tsbtn_ESC_calibrate.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_ESC_calibrate.Image")));
             this.tsbtn_ESC_calibrate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_ESC_calibrate.Name = "tsbtn_ESC_calibrate";
-            this.tsbtn_ESC_calibrate.Size = new System.Drawing.Size(117, 22);
+            this.tsbtn_ESC_calibrate.Size = new System.Drawing.Size(109, 22);
             this.tsbtn_ESC_calibrate.Text = "Start ESC calibration";
             this.tsbtn_ESC_calibrate.Click += new System.EventHandler(this.tsbtn_ESC_calibrate_Click);
             // 
@@ -190,6 +190,17 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbtn_enable
+            // 
+            this.tsbtn_enable.CheckOnClick = true;
+            this.tsbtn_enable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbtn_enable.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_enable.Image")));
+            this.tsbtn_enable.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_enable.Name = "tsbtn_enable";
+            this.tsbtn_enable.Size = new System.Drawing.Size(49, 22);
+            this.tsbtn_enable.Text = "Enabled";
+            this.tsbtn_enable.Click += new System.EventHandler(this.tsbtn_enable_Click);
             // 
             // tb_motor_speed
             // 
@@ -225,17 +236,6 @@
             this.nud_RPM.Size = new System.Drawing.Size(77, 20);
             this.nud_RPM.TabIndex = 3;
             this.nud_RPM.ValueChanged += new System.EventHandler(this.nud_RPM_ValueChanged);
-            // 
-            // tsbtn_enable
-            // 
-            this.tsbtn_enable.CheckOnClick = true;
-            this.tsbtn_enable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbtn_enable.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_enable.Image")));
-            this.tsbtn_enable.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_enable.Name = "tsbtn_enable";
-            this.tsbtn_enable.Size = new System.Drawing.Size(53, 22);
-            this.tsbtn_enable.Text = "Enabled";
-            this.tsbtn_enable.Click += new System.EventHandler(this.tsbtn_enable_Click);
             // 
             // Form1
             // 
