@@ -41,18 +41,20 @@ String inString;
 void setup()  { 
   float xmag, ymag = 0;
   float newXmag, newYmag = 0;
-  size(1000, 650, OPENGL); 
+  size(1100, 650, OPENGL); 
   PFrame f = new PFrame();
   colorMode(RGB, 255);
   println(Serial.list());
-  myPort = new Serial(this, "/dev/ttyUSB0", 115200);
-  //myPort = new Serial(this, "/dev/COM1", 115200); 
+  //myPort = new Serial(this, "/dev/ttyUSB0", 115200);
+  myPort = new Serial(this, "COM5", 115200); 
+  myPort.stop() ;
+  myPort = new Serial(this, "COM5", 115200); 
   myPort.bufferUntil('\n');
   textFont(loadFont("LiberationSerif-40.vlw"), 40);
 } 
 public class PFrame extends JFrame {
     public PFrame() {
-        setBounds(2000,100,w_width,w_height);
+        setBounds(1500,100,w_width,w_height);
         graph = new secondApplet();
         add(graph);
         graph.init();
@@ -66,6 +68,5 @@ public class secondApplet extends PApplet {
         background(25);
         noSmooth();
     }
-
    
 }

@@ -7,6 +7,7 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 int live;
+int total_stop=0;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 uint32_t USART_Protocol_RX_Parse(uint8_t * message)
@@ -18,6 +19,7 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 	if (!memcmp(message, "P_CHECK_LIVE", 12))
 	{
 		live = 1;
+		total_stop = 0;
 		USART_puts(USART3, "K_LIVE_OK\n");
 		return 1;
 	}
@@ -54,9 +56,9 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 	}
 	else
 	{
-		USART_puts(USART3, "K_UNKNOWN_MESSAGE:\n");
-		USART_puts(USART3, message);
-		USART_puts(USART3, "\nend\n");
+		//USART_puts(USART3, "K_UNKNOWN_MESSAGE:\n");
+		//USART_puts(USART3, message);
+		//USART_puts(USART3, "\nend\n");
 		return 1;
 	}
 //	return 0;
@@ -82,4 +84,5 @@ void live_fail(void)
 	ESC_SetPower(2,0);
 	ESC_SetPower(3,0);
 	ESC_SetPower(4,0);
+	total_stop = 1;
 }

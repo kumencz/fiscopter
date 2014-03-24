@@ -203,6 +203,7 @@ namespace Tamir.Streams
 				{
 					m_in = 0;
 				}
+
 			}
 		}
 

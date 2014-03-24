@@ -9,3 +9,4 @@ uint32_t USART_RemoveToNewLine(uint8_t * message);
 void live_fail(void);
 /* Exported variables ------------------------------------------------------- */
 extern int live;
+extern int total_stop;

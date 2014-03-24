@@ -27,30 +27,30 @@ void print_graph()
     graph.stroke(0,255,255);
     graph.line(10, 107, 20, 107);
       
-      
+  /*    
     graph.strokeWeight(line_width);        //line width
     for(i = 1; i < width -1 ; i ++)
     {
       graph.stroke(255,255,255);
-      graph.line(i*graph_speed-1*graph_speed, height - numbers[1][i-1]+1, i*graph_speed, height - numbers[1][i]); 
+      graph.line(i*graph_speed-1*graph_speed, height - numbers[1][i]+1, i*graph_speed, height - numbers[1][i]); 
       
       graph.stroke(0,50,150);
-      graph.line(i*graph_speed-1*graph_speed, height - numbers[2][i-1]+1, i*graph_speed, height - numbers[2][i]); 
+      graph.line(i*graph_speed-1*graph_speed, height - numbers[2][i]+1, i*graph_speed, height - numbers[2][i]); 
       
       graph.stroke(255,0,0);
-      graph.line(i*graph_speed-1*graph_speed, height - numbers[3][i-1]+1, i*graph_speed, height - numbers[3][i]); 
+      graph.line(i*graph_speed-1*graph_speed, height - numbers[3][i]+1, i*graph_speed, height - numbers[3][i]); 
       
       graph.stroke(0,255,0);
-      graph.line(i*graph_speed-1*graph_speed, height - numbers[4][i-1]+1, i*graph_speed, height - numbers[4][i]); 
+      graph.line(i*graph_speed-1*graph_speed, height - numbers[4][i]+1, i*graph_speed, height - numbers[4][i]); 
       
       graph.stroke(255,0,255);
-      graph.line(i*graph_speed-1*graph_speed, height - numbers[5][i-1]+1, i*graph_speed, height - numbers[5][i]);
+      graph.line(i*graph_speed-1*graph_speed, height - numbers[5][i]+1, i*graph_speed, height - numbers[5][i]);
       
       graph.stroke(0,255,255);
-      graph.line(i*graph_speed-1*graph_speed, height - numbers[6][i-1]+1, i*graph_speed, height - numbers[6][i]); 
+      graph.line(i*graph_speed-1*graph_speed, height - numbers[6][i]+1, i*graph_speed, height - numbers[6][i]); 
     }
     
-    
+    */
     
     for(u = 1; u < 7; u++)
     {

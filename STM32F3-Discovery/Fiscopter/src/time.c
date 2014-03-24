@@ -14,6 +14,8 @@ uint8_t TIM_1MS_FLAG;
 uint8_t TIM_10MS_FLAG;
 uint8_t TIM_100MS_FLAG;
 uint8_t TIM_1000MS_FLAG;
+uint8_t live_counter = 0;
+uint8_t send_counter = 0;
 static __IO uint32_t TimingDelay;
 
 
@@ -85,22 +87,46 @@ void tim_1ms_loop(void)
 
 void tim_10ms_loop(void)
 {
-	TIM_10MS_FLAG = 0;	
-	read_imu();
-	Compute(x_wanted-RollAng,y_wanted-PitchAng);
-	ESC_recompute();  //Recompute motor speeds
+	if(total_stop != 1)
+	{
+		TIM_10MS_FLAG = 0;	
+		read_imu();
+		Compute(x_wanted-RollAng,y_wanted-PitchAng);
+		ESC_recompute();  //Recompute motor speeds
+	}
 }
 
 void tim_100ms_loop(void)
 { 
 	TIM_100MS_FLAG = 0;
-	if (live != 1)
-		live_fail();
-	live =0;	 
+	
+	
+	
+	
+	if(live_counter > 5)
+	{
+		if (live != 1)
+			live_fail();
+		live = 0;
+		live_counter = 0;
+	}	
+	live_counter++;
 }
 
 void tim_1000ms_loop(void)
 {
 	TIM_1000MS_FLAG = 0;
 	STM_EVAL_LEDToggle(LED5);
+	if(total_stop == 1)
+	{
+		STM_EVAL_LEDOn(LED6);
+		STM_EVAL_LEDOn(LED7);
+		STM_EVAL_LEDOn(LED8);
+	}else
+	{
+		STM_EVAL_LEDOff(LED6);
+		STM_EVAL_LEDOff(LED7);
+		STM_EVAL_LEDOff(LED8);
+		
+	}
 }

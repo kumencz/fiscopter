@@ -108,11 +108,11 @@ void init_ESC(void)
 	
 	init_ESC_GPIO();
 	init_ESC_Timer(period);
-	/*ESC_SetPower(1,0);
+	ESC_SetPower(1,0);
   ESC_SetPower(2,0);
   ESC_SetPower(3,0);
-	ESC_SetPower(4,0);*/
-	//ESC_Calibrate_All();
+	ESC_SetPower(4,0);
+	ESC_Calibrate_All();
 }
 void init_ESC_GPIO(void)
 {

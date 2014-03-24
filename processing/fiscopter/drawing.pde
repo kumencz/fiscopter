@@ -1,7 +1,7 @@
 void draw_quad()
 {
   strokeWeight(0.01);
-  stroke(100,100,100);
+  stroke(255,255,255);
     beginShape(QUADS);
 //======================================= + config start
   /*

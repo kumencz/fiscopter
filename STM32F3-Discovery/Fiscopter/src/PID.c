@@ -2,7 +2,7 @@
 #include "main.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define MAX_REGULATOR_ACTION 1000
+#define MAX_REGULATOR_ACTION 2000
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -44,7 +44,7 @@ void Compute(float x_err, float y_err)
 		x_errSum -= x_err;
 	}
 #ifdef SEND_DEBUG_PID_X
-	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_X %f %f %f %f\n", x_err, x_errSum, x_dErr, x_out));
+	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_X %.1f %.1f %.1f %.1f\n", x_err*100, x_errSum, x_dErr, x_out));
 #endif
 	x_out_neg = x_out * -1;
   /*Remember some variables for next time*/
@@ -54,6 +54,8 @@ void Compute(float x_err, float y_err)
 	  /*Compute all the working error variables*/
   y_dErr = y_err - y_lastErr;
 	y_errSum += y_err;
+	if(y_errSum > 1000) y_errSum = 1000;
+		
   /*Compute PID Output*/
   y_out = kp * x_err + ki * y_errSum + kd * y_dErr;
 	if(y_out > MAX_REGULATOR_ACTION)
@@ -69,7 +71,7 @@ void Compute(float x_err, float y_err)
 		y_errSum -= y_err;
 	}
 #ifdef SEND_DEBUG_PID_Y
-	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_Y %f %f %f %f\n", y_err, y_errSum, y_dErr, y_out));
+	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_Y %.1f %.1f %.1f %.1f\n", y_err, y_errSum, y_dErr, y_out));
 #endif
 	y_out_neg = y_out * -1;
   /*Remember some variables for next time*/
