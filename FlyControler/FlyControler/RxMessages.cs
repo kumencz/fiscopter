@@ -28,7 +28,8 @@ namespace FlyControler
             {RxMsg_types.K_RPM_SET, "K_SET_RPM"},
             {RxMsg_types.K_DBG_PID_X, "K_DBG_PID_X"},
             {RxMsg_types.K_DBG_PID_Y, "K_DBG_PID_Y"},
-            {RxMsg_types.K_DBG_RPM, "K_DBG_RPM"}
+            {RxMsg_types.K_DBG_RPM, "K_DBG_RPM"},
+            {RxMsg_types.K_PID_SETTED, "K_PID_SETTED"}
         };
 
 
@@ -45,5 +46,6 @@ namespace FlyControler
         K_DBG_PID_X,
         K_DBG_PID_Y,
         K_DBG_RPM,
+        K_PID_SETTED
     }
 }

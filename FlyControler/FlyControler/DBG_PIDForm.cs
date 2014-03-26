@@ -47,6 +47,11 @@ namespace FlyControler
                 this.ToAdd_series_dif.Add((Double)hodnoty[2]);
                 this.ToAdd_series_out.Add((Double)hodnoty[3]);
             }
+            else if (e.Msg_type == RxMsg_types.K_PID_SETTED)
+            {
+                MessageBox.Show((string)e.Msg_data);
+            }
+
         }
 
         private void tsbtn_clear_chartPID_Click(object sender, EventArgs e)
