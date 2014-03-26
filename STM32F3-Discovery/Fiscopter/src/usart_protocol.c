@@ -8,6 +8,7 @@
 /* Private variables ---------------------------------------------------------*/
 int live;
 int total_stop=0;
+char buff[50];
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 uint32_t USART_Protocol_RX_Parse(uint8_t * message)
@@ -44,7 +45,8 @@ uint32_t USART_Protocol_RX_Parse(uint8_t * message)
 		KI = strtof (message2, &message2);
 		KD = strtof (message2, &message2);
 		SetTunings (KP,KI,KD);
-		USART_puts(USART3, "K_PID_SETTED!\n");
+		USART_puts_len(USART3, buff, sprintf(buff, "K_PID_SETTED %.1f / %.1f / %.1f\n",KP, KI, KD));
+		//USART_puts(USART3, "K_PID_SETTED!\n");
 		return 1;
 	}
 	else if (!memcmp(message, "P_SET_WANTED", 12)) //"SET_WANTED "

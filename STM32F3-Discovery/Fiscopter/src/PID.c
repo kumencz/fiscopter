@@ -2,7 +2,7 @@
 #include "main.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define MAX_REGULATOR_ACTION 2000
+#define MAX_REGULATOR_ACTION 3000
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -11,11 +11,11 @@ float x_wanted = 0;
 float y_wanted = 0;
 
 
-float x_out, x_out_neg;
+float x_out;//, x_out_neg;
 float x_errSum, x_lastErr;
 float x_dErr;
 
-float y_out, y_out_neg;
+float y_out;//, y_out_neg;
 float y_errSum, y_lastErr;
 float y_dErr;
 
@@ -46,7 +46,7 @@ void Compute(float x_err, float y_err)
 #ifdef SEND_DEBUG_PID_X
 	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_X %.1f %.1f %.1f %.1f\n", x_err*100, x_errSum, x_dErr, x_out));
 #endif
-	x_out_neg = x_out * -1;
+//	x_out_neg = x_out * -1;
   /*Remember some variables for next time*/
   x_lastErr = x_err;
 	
@@ -73,7 +73,7 @@ void Compute(float x_err, float y_err)
 #ifdef SEND_DEBUG_PID_Y
 	USART_puts_len(USART3, to_send, sprintf(to_send, "K_DBG_PID_Y %.1f %.1f %.1f %.1f\n", y_err, y_errSum, y_dErr, y_out));
 #endif
-	y_out_neg = y_out * -1;
+//	y_out_neg = y_out * -1;
   /*Remember some variables for next time*/
   y_lastErr = y_err;
 	
