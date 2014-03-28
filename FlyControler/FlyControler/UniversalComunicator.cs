@@ -176,7 +176,7 @@ namespace FlyControler
                     hodnoty[3] = UInt32.Parse(subretezce[4]);
                     parsed_data = (object)hodnoty;
                 }
-                else if (String.Compare(RxBufferList[0], RxMsg.texts[RxMsg_types.K_PID_SETTED]) == 0)
+                else if (RxBufferList[0].Length >= RxMsg.texts[RxMsg_types.K_PID_SETTED].Length &&  String.Compare(RxBufferList[0].Substring(0, RxMsg.texts[RxMsg_types.K_PID_SETTED].Length), RxMsg.texts[RxMsg_types.K_PID_SETTED]) == 0)
                 {
                     parsed_msg = RxMsg_types.K_PID_SETTED;
                     parsed_data = (object)RxBufferList[0];

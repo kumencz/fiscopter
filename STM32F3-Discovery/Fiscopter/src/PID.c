@@ -2,7 +2,7 @@
 #include "main.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define MAX_REGULATOR_ACTION 3000
+#define MAX_REGULATOR_ACTION 1000
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -57,7 +57,7 @@ void Compute(float x_err, float y_err)
 	if(y_errSum > 1000) y_errSum = 1000;
 		
   /*Compute PID Output*/
-  y_out = kp * x_err + ki * y_errSum + kd * y_dErr;
+  y_out = kp * y_err + ki * y_errSum + kd * y_dErr;
 	if(y_out > MAX_REGULATOR_ACTION)
 	{
 		y_out = MAX_REGULATOR_ACTION;

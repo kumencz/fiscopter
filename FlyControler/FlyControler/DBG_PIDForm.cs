@@ -43,8 +43,8 @@ namespace FlyControler
                 //    this.chart_PID.Series["series_dif"].Points.Add(hodnoty[2]);
                 //    this.chart_PID.Series["series_out"].Points.Add(hodnoty[3]);
                 this.ToAdd_series_e.Add((Double)hodnoty[0]);
-                this.ToAdd_series_sum.Add((Double)hodnoty[1]);
-                this.ToAdd_series_dif.Add((Double)hodnoty[2]);
+                //this.ToAdd_series_sum.Add((Double)hodnoty[1]);
+                //this.ToAdd_series_dif.Add((Double)hodnoty[2]);
                 this.ToAdd_series_out.Add((Double)hodnoty[3]);
             }
             else if (e.Msg_type == RxMsg_types.K_PID_SETTED)

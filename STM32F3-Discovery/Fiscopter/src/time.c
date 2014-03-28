@@ -103,7 +103,7 @@ void tim_100ms_loop(void)
 	
 	
 	
-	if(live_counter > 5)
+	if(live_counter > 15)
 	{
 		if (live != 1)
 			live_fail();
